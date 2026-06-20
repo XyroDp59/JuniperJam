@@ -3,14 +3,15 @@ using UnityEngine;
 public class FirstEnnemiScript : MonoBehaviour
 {
     [SerializeField] private float speed = 5;
+    [SerializeField] private GameObject player;
 
-    GameObject player;
     private float playerX;
     private float playerZ;
 
     private void Awake()
     {
-        player = GameObject.Find("Player");             //BREAKING CHANGE: change that line if the name of the player is changed
+        //BREAKING CHANGE: change that line if the name of the player is different than the one from the prefab
+        player = GameObject.Find(player.name);
     }
 
     void Update()
@@ -44,8 +45,8 @@ public class FirstEnnemiScript : MonoBehaviour
 
     private Vector3 getEnnemiDirection(Vector3 playerPosition, Vector3 ennemiPosition)
     {
-        Vector3 ennemiDirect = playerPosition - ennemiPosition;
-        ennemiDirect.y = 0;                                         //ennemi cannot jump
-        return Vector3.Normalize(ennemiDirect);
+        Vector3 ennemiDirection = playerPosition - ennemiPosition;
+        ennemiDirection.y = 0;                                         //ennemi cannot jump
+        return Vector3.Normalize(ennemiDirection);
     }
 }
