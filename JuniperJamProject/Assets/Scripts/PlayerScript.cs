@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
@@ -10,14 +11,15 @@ public class PlayerScript : MonoBehaviour
     InputAction jumpAction;
     Rigidbody rb;
 
-    [SerializeField] private float jumpForce = 10;
     [SerializeField] private float speed = 10;
-    [SerializeField] private LayerMask groundLayer;
-
-
-
+    [SerializeField] private float dashSpeed = 50;
+    [SerializeField] private float dashDistance = 2;
+    [SerializeField] private float dashInvulnerableTime = 0.5f;
+    
     private InputSystem_Actions controls;
     private Vector2 moveInput;
+    private Vector2 lastMoveInput;
+    private bool dashing = false;
 
     private void Awake()
     {
@@ -28,25 +30,28 @@ public class PlayerScript : MonoBehaviour
     private void OnEnable()
     {
         controls.Player.Enable();
-        controls.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        controls.Player.Move.performed += ctx => { moveInput = ctx.ReadValue<Vector2>(); lastMoveInput = moveInput; };
         controls.Player.Move.canceled += ctx => moveInput = Vector2.zero;
-        controls.Player.Jump.performed += ctx =>
-        {
-            if (IsGrounded())
-            {
-                rb.linearVelocity += Vector3.up * jumpForce;
-            }
-        };
+        controls.Player.Sprint.performed += ctx => StartCoroutine(Dash());
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector3(moveInput.x * speed, rb.linearVelocity.y, moveInput.y * speed);
+        //rb.linearVelocity = new Vector3(moveInput.x * speed, rb.linearVelocity.y, moveInput.y * speed);
+        if (dashing)
+        {
+            rb.MovePosition(transform.position + new Vector3(lastMoveInput.x * dashSpeed * Time.fixedDeltaTime, 0, lastMoveInput.y * dashSpeed * Time.fixedDeltaTime));
+            return;
+        }
+        if (moveInput != Vector2.zero)
+            rb.MovePosition(transform.position + new Vector3(moveInput.x * speed * Time.fixedDeltaTime, 0, moveInput.y * speed * Time.fixedDeltaTime));
+            //rb.AddForce(new Vector3(moveInput.x * speed * Time.fixedDeltaTime, 0, moveInput.y * speed * Time.fixedDeltaTime),  ForceMode.VelocityChange);
     }
 
-
-    bool IsGrounded()
+    private IEnumerator Dash()
     {
-        return Physics.CheckSphere(transform.position, 0.15f, groundLayer, QueryTriggerInteraction.Ignore);
+        dashing = true;
+        yield return new WaitForSeconds(dashDistance / dashSpeed);
+        dashing = false;
     }
 }
