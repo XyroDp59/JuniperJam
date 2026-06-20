@@ -12,6 +12,11 @@ public class Yoyo : Weapon
         if (NumberOfUses <= 0) return;
         NumberOfUses--;
         Debug.Log(NumberOfUses);
+        if (NumberOfUses == 0)
+        {
+            Destroy(gameObject);
+            // Todo : UI
+        }
     }
 
 

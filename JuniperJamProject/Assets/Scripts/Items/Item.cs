@@ -9,6 +9,7 @@ public class Item : MonoBehaviour
         if(other.TryGetComponent<PlayerScript>(out PlayerScript player))
         {
             player.itemToAssign = this;
+            // Todo : shader + UI
         }
     }
 
@@ -20,6 +21,7 @@ public class Item : MonoBehaviour
             {
                 player.itemToAssign = null;
             }
+            // Todo : shader + UI
         }
     }
 

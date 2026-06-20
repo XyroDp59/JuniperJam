@@ -23,7 +23,7 @@ public class PlayerScript : MonoBehaviour
 
     Weapon weaponA;
     Weapon weaponB;
-    public Item itemToAssign;
+    [HideInInspector] public Item itemToAssign;
     bool releaseItem;
 
     private void Awake()
@@ -73,7 +73,7 @@ public class PlayerScript : MonoBehaviour
         if (releaseItem)
         {
             weapon = null;
-            // update UI
+            // todo : update UI
             return;
         }
 
@@ -85,7 +85,7 @@ public class PlayerScript : MonoBehaviour
         {
             itemToAssign.PickUp(ref weapon, transform);
         }
-        //update UI
+        // todo : update UI
     }
     #endregion 
 
