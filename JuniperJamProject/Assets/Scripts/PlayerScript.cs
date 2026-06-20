@@ -31,6 +31,11 @@ public class PlayerScript : MonoBehaviour
     private bool isAttacking = false;
     //[SerializeField] private float basicAttackParticule = 10;
 
+    Weapon weaponA;
+    Weapon weaponB;
+    [HideInInspector] public Item itemToAssign;
+    bool releaseItem;
+
     private void Awake()
     {
         controls = new InputSystem_Actions();
@@ -46,10 +51,17 @@ public class PlayerScript : MonoBehaviour
         controls.Player.Attack.performed += ctx => StartCoroutine(BasicAttack());
         
         basicAttackObject = Instantiate(basicAttackPrefab); basicAttackObject.gameObject.SetActive(false);
+
+        // Items
+        controls.Player.Release.performed += ctx => releaseItem = true;
+        controls.Player.Release.canceled += ctx => releaseItem = false;
+        controls.Player.ItemA.started += ctx => WeaponHandler(ctx, ref weaponA); //WeaponHandler(weaponA);
+        controls.Player.ItemB.started += ctx => WeaponHandler(ctx, ref weaponB);
     }
 
     void FixedUpdate()
     {
+        //rb.linearVelocity = new Vector3(moveInput.x * speed, rb.linearVelocity.y, moveInput.y * speed);
         if (dashing)
         {
             rb.MovePosition(transform.position + new Vector3(lastMoveInput.x * dashSpeed * Time.fixedDeltaTime, 0, lastMoveInput.y * dashSpeed * Time.fixedDeltaTime));
@@ -57,6 +69,7 @@ public class PlayerScript : MonoBehaviour
         }
         if (moveInput != Vector2.zero)
             rb.MovePosition(transform.position + new Vector3(moveInput.x * speed * Time.fixedDeltaTime, 0, moveInput.y * speed * Time.fixedDeltaTime));
+            //rb.AddForce(new Vector3(moveInput.x * speed * Time.fixedDeltaTime, 0, moveInput.y * speed * Time.fixedDeltaTime),  ForceMode.VelocityChange);
     }
 
     private IEnumerator Dash()
@@ -68,6 +81,29 @@ public class PlayerScript : MonoBehaviour
             dashing = false;
         }
     }
+
+
+    #region Items
+    private void WeaponHandler(InputAction.CallbackContext context, ref Weapon weapon)
+    {
+        if (releaseItem)
+        {
+            weapon = null;
+            // todo : update UI
+            return;
+        }
+
+        if (weapon != null)
+        {
+            weapon.Use();
+        }
+        else if(itemToAssign != null)
+        {
+            itemToAssign.PickUp(ref weapon, transform);
+        }
+        // todo : update UI
+    }
+    #endregion 
 
     private IEnumerator BasicAttack()
     {
