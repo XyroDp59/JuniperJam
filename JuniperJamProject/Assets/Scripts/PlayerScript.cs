@@ -26,6 +26,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private int basicAttackDamage = 10;
     [SerializeField] private float basicAttackSize = 1;
     [SerializeField] private float basicAttackDuration = 1;
+    [SerializeField] private BasicAttack basicAttackPrefab;
+    private BasicAttack basicAttackObject;
     private bool isAttacking = false;
     //[SerializeField] private float basicAttackParticule = 10;
 
@@ -42,6 +44,8 @@ public class PlayerScript : MonoBehaviour
         controls.Player.Move.canceled += ctx => moveInput = Vector2.zero;
         controls.Player.Sprint.performed += ctx => StartCoroutine(Dash());
         controls.Player.Attack.performed += ctx => StartCoroutine(BasicAttack());
+        
+        basicAttackObject = Instantiate(basicAttackPrefab); basicAttackObject.gameObject.SetActive(false);
     }
 
     void FixedUpdate()
@@ -71,15 +75,10 @@ public class PlayerScript : MonoBehaviour
         {
             isAttacking = true;
             
-            RaycastHit[] hits = Physics.SphereCastAll(transform.position, basicAttackSize, Vector3.down, Mathf.Infinity, LayerMask.GetMask("Enemy"));
-            foreach (RaycastHit hit in hits)
-            {
-                print(hit.transform.name);
-                if (hit.transform.gameObject.TryGetComponent(out AttributSet attributSet))
-                {
-                    attributSet.CurrentHp -= basicAttackDamage;
-                }
-            }
+            basicAttackObject.damage = basicAttackDamage; 
+            basicAttackObject.timeToLive = 0.25f;
+            basicAttackObject.transform.position = transform.position; 
+            basicAttackObject.gameObject.SetActive(true);
             
             yield return new WaitForSeconds(basicAttackDuration);
             isAttacking = false;

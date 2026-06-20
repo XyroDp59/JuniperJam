@@ -101,6 +101,10 @@ MonoBehaviour:
   dashSpeed: 25
   dashDistance: 5
   dashInvulnerableTime: 0.5
+  basicAttackDamage: 10
+  basicAttackSize: 5
+  basicAttackDuration: 1
+  basicAttackPrefab: {fileID: 4513131974814386207, guid: 7f26595229d89c143a68b57e68db2469, type: 3}
 --- !u!1 &3809447482825356493
 GameObject:
   m_ObjectHideFlags: 0
