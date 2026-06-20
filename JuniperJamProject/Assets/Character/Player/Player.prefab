@@ -97,11 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a7217f2d867684dafae65e0d177a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  jumpForce: 10
   speed: 10
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
+  dashSpeed: 25
+  dashDistance: 5
+  dashInvulnerableTime: 0.5
 --- !u!1 &3809447482825356493
 GameObject:
   m_ObjectHideFlags: 0
