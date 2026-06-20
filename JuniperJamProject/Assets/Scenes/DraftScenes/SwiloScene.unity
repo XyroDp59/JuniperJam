@@ -663,6 +663,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PomniSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 905897319708126724, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1201407141545828969, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -716,6 +720,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
+--- !u!1001 &1242032330
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -6993028227754932500, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230143088117153514, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      propertyPath: m_Name
+      value: Horse
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641914201572663499, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      propertyPath: dashSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641914201572663499, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      propertyPath: dashTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641914201572663499, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      propertyPath: dashDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171462630649474729, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171462630649474729, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171462630649474729, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171462630649474729, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171462630649474729, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171462630649474729, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171462630649474729, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171462630649474729, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171462630649474729, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171462630649474729, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f7763753287261748a443e5db2c18ac3, type: 3}
 --- !u!1 &1912727739
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +946,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChildrenSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 905897319708126724, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1201407141545828969, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -928,3 +1009,4 @@ SceneRoots:
   - {fileID: 269816866}
   - {fileID: 6879508307748970469}
   - {fileID: 1150164105}
+  - {fileID: 1242032330}
