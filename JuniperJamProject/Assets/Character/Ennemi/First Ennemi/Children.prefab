@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -6993028227754932500}
   - component: {fileID: 1633887984533770477}
   m_Layer: 0
-  m_Name: FirstEnnemi
+  m_Name: Children
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

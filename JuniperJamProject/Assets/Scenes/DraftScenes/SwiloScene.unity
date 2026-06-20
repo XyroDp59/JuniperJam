@@ -662,7 +662,7 @@ GameObject:
   - component: {fileID: 1631772905}
   - component: {fileID: 1631772906}
   m_Layer: 0
-  m_Name: FirstEnnemiSpawner
+  m_Name: ChildrenSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -698,7 +698,7 @@ MonoBehaviour:
   firstEnnemi: {fileID: 4230143088117153514, guid: aa28dd2cc82c8f44a86a9e1f2e3f945e, type: 3}
   spawnRate: 5
   carrouselRadius: 8
-  nombreSpawnPossible: 100000
+  nombreSpawnPossible: 1000
 --- !u!1 &1912727739
 GameObject:
   m_ObjectHideFlags: 0

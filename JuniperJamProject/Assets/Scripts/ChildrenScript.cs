@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FirstEnnemiScript : MonoBehaviour
+public class ChildrenScript : MonoBehaviour
 {
     [SerializeField] private float speed = 3;
     [SerializeField] private GameObject player;
