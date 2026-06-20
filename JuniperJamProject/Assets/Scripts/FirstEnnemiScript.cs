@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FirstEnnemiScript : MonoBehaviour
 {
-    [SerializeField] private float speed = 5;
+    [SerializeField] private float speed = 3;
     [SerializeField] private GameObject player;
 
     private float playerX;
