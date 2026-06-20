@@ -1,16 +1,25 @@
+using System;
 using UnityEngine;
 
-public class Yoyo : MonoBehaviour
+public class Yoyo : Weapon
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] int NumberOfUses;
+    [SerializeField] GameObject projectile;
+    [SerializeField] int damage;
+
+    public override void Use()
     {
-        
+        if (NumberOfUses <= 0) return;
+        NumberOfUses--;
+        Debug.Log(NumberOfUses);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other != player && other.TryGetComponent<AttributSet>(out AttributSet health))
+        {
+            health.CurrentHp -= damage;
+        }
     }
 }

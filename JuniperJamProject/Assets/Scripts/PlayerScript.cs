@@ -21,6 +21,11 @@ public class PlayerScript : MonoBehaviour
     private Vector2 lastMoveInput;
     private bool dashing = false;
 
+    Weapon weaponA;
+    Weapon weaponB;
+    public Item itemToAssign;
+    bool releaseItem;
+
     private void Awake()
     {
         controls = new InputSystem_Actions();
@@ -33,6 +38,12 @@ public class PlayerScript : MonoBehaviour
         controls.Player.Move.performed += ctx => { moveInput = ctx.ReadValue<Vector2>(); lastMoveInput = moveInput; };
         controls.Player.Move.canceled += ctx => moveInput = Vector2.zero;
         controls.Player.Sprint.performed += ctx => StartCoroutine(Dash());
+
+        // Items
+        controls.Player.Release.performed += ctx => releaseItem = true;
+        controls.Player.Release.canceled += ctx => releaseItem = false;
+        controls.Player.ItemA.started += ctx => WeaponHandler(ctx, ref weaponA); //WeaponHandler(weaponA);
+        controls.Player.ItemB.started += ctx => WeaponHandler(ctx, ref weaponB);
     }
 
     void FixedUpdate()
@@ -54,4 +65,28 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(dashDistance / dashSpeed);
         dashing = false;
     }
+
+
+    #region Items
+    private void WeaponHandler(InputAction.CallbackContext context, ref Weapon weapon)
+    {
+        if (releaseItem)
+        {
+            weapon = null;
+            // update UI
+            return;
+        }
+
+        if (weapon != null)
+        {
+            weapon.Use();
+        }
+        else if(itemToAssign != null)
+        {
+            itemToAssign.PickUp(ref weapon, transform);
+        }
+        //update UI
+    }
+    #endregion 
+
 }
