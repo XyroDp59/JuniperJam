@@ -10,7 +10,8 @@ public class PlayerScript : MonoBehaviour
     InputAction moveAction;
     InputAction jumpAction;
     Rigidbody rb;
-
+    
+    [Header("Movement")]
     [SerializeField] private float speed = 10;
     [SerializeField] private float dashSpeed = 50;
     [SerializeField] private float dashDistance = 2;
@@ -20,6 +21,13 @@ public class PlayerScript : MonoBehaviour
     private Vector2 moveInput;
     private Vector2 lastMoveInput;
     private bool dashing = false;
+    
+    [Header("Abilities")]
+    [SerializeField] private int basicAttackDamage = 10;
+    [SerializeField] private float basicAttackSize = 1;
+    [SerializeField] private float basicAttackDuration = 1;
+    private bool isAttacking = false;
+    //[SerializeField] private float basicAttackParticule = 10;
 
     private void Awake()
     {
@@ -33,11 +41,11 @@ public class PlayerScript : MonoBehaviour
         controls.Player.Move.performed += ctx => { moveInput = ctx.ReadValue<Vector2>(); lastMoveInput = moveInput; };
         controls.Player.Move.canceled += ctx => moveInput = Vector2.zero;
         controls.Player.Sprint.performed += ctx => StartCoroutine(Dash());
+        controls.Player.Attack.performed += ctx => StartCoroutine(BasicAttack());
     }
 
     void FixedUpdate()
     {
-        //rb.linearVelocity = new Vector3(moveInput.x * speed, rb.linearVelocity.y, moveInput.y * speed);
         if (dashing)
         {
             rb.MovePosition(transform.position + new Vector3(lastMoveInput.x * dashSpeed * Time.fixedDeltaTime, 0, lastMoveInput.y * dashSpeed * Time.fixedDeltaTime));
@@ -45,13 +53,36 @@ public class PlayerScript : MonoBehaviour
         }
         if (moveInput != Vector2.zero)
             rb.MovePosition(transform.position + new Vector3(moveInput.x * speed * Time.fixedDeltaTime, 0, moveInput.y * speed * Time.fixedDeltaTime));
-            //rb.AddForce(new Vector3(moveInput.x * speed * Time.fixedDeltaTime, 0, moveInput.y * speed * Time.fixedDeltaTime),  ForceMode.VelocityChange);
     }
 
     private IEnumerator Dash()
     {
-        dashing = true;
-        yield return new WaitForSeconds(dashDistance / dashSpeed);
-        dashing = false;
+        if (!dashing && !isAttacking)
+        {
+            dashing = true;
+            yield return new WaitForSeconds(dashDistance / dashSpeed);
+            dashing = false;
+        }
+    }
+
+    private IEnumerator BasicAttack()
+    {
+        if (!dashing && !isAttacking)
+        {
+            isAttacking = true;
+            
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, basicAttackSize, Vector3.down, Mathf.Infinity, LayerMask.GetMask("Enemy"));
+            foreach (RaycastHit hit in hits)
+            {
+                print(hit.transform.name);
+                if (hit.transform.gameObject.TryGetComponent(out AttributSet attributSet))
+                {
+                    attributSet.CurrentHp -= basicAttackDamage;
+                }
+            }
+            
+            yield return new WaitForSeconds(basicAttackDuration);
+            isAttacking = false;
+        }
     }
 }
