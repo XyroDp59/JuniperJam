@@ -2,7 +2,7 @@ using System.Threading;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class FirstEnnemiSpawnerScript : MonoBehaviour
+public class ChildrenSpawnerScript : MonoBehaviour
 {
 
     [SerializeField] private GameObject firstEnnemi;
