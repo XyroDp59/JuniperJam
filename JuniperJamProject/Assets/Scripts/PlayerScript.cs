@@ -77,7 +77,7 @@ public class PlayerScript : MonoBehaviour
             return;
         }
 
-        if (weapon != null)
+        if (weapon != null && weapon.isItemActive)
         {
             weapon.Use();
         }

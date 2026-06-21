@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -6,10 +7,18 @@ using static UnityEditor.Progress;
 
 public class ItemSpawner : MonoBehaviour
 {
+    [Header("Pool")]
     [SerializeField] List<Item> itemList = new List<Item>();
-    [SerializeField] Item itemPrefab;
     [SerializeField] int poolSize;
-    [SerializeField] AnimationCurve curve;
+
+    [Header("Spawn Animation")]
+    [SerializeField] float arenaSize = 12f;
+    [SerializeField] AnimationCurve throwCurve;
+    [SerializeField] float throwDuration = 1;
+    [SerializeField] float cooldownInBetweenThrow = 5f;
+    [SerializeField] float throwCooldownDurationVariation = 1.5f;
+    [SerializeField] float throwHeight;
+    Coroutine spawnCoroutine;
 
     List<Item> itemPool = new List<Item>();
     List<Item> activeItems = new List<Item>();
@@ -24,7 +33,7 @@ public class ItemSpawner : MonoBehaviour
 
             for(int i = 0; i< poolSize; i++)
             {
-                Item item = Instantiate(itemList[Random.Range(0, itemList.Count)]);
+                Item item = Instantiate(itemList[Random.Range(0, itemList.Count)], transform);
 
                 item.gameObject.SetActive(false);
                 itemPool.Add(item);
@@ -32,27 +41,74 @@ public class ItemSpawner : MonoBehaviour
         }
     }
 
-    public void SpawnItemFromCrowd()
+    private void Start()
     {
-        // Todo : handle to cancel this coroutine when an item is spawned (manually or not)
+        spawnCoroutine = StartCoroutine(SpawnItemFromCrowd());   
     }
 
-    public void SpawnItem(Vector3 position)
+    private IEnumerator SpawnItemFromCrowd()
     {
+        yield return new WaitForSeconds(cooldownInBetweenThrow + Random.Range(0, throwCooldownDurationVariation));
+
+        if (itemPool.Count != 0)
+        {
+            Vector2 _spawnPoint = Random.onUnitCircle * 1.5f * arenaSize;
+            Vector3 realSpawnPoint = new Vector3(_spawnPoint.x, 0, _spawnPoint.y);
+            var item = _SpawnItem(realSpawnPoint);
+
+            Vector2 _target = Random.insideUnitCircle * 0.9f * arenaSize;
+            Vector3 realTarget = new Vector3(_target.x, 0, _target.y);
+
+            float timer = 0;
+            while (timer < throwDuration)
+            {
+                float height = throwHeight * throwCurve.Evaluate(timer / throwDuration);
+                Vector3 newPos = Vector3.Lerp(realSpawnPoint, realTarget, timer / throwDuration);
+                newPos.y = height;
+                item.transform.position = newPos;
+
+                yield return null;
+                timer += Time.deltaTime;
+            }
+        }
+
+        spawnCoroutine = StartCoroutine(SpawnItemFromCrowd());
+    }
+
+    public Item SpawnItem(Vector3 position)
+    {
+        if (itemPool.Count == 0) return null;
+
+        StopCoroutine(spawnCoroutine);
+        spawnCoroutine = StartCoroutine(SpawnItemFromCrowd());
+
+        return _SpawnItem(position);
+    }
+
+
+    private Item _SpawnItem(Vector3 position)
+    {
+        if (itemPool.Count == 0) return null;
+
         Item item = itemPool[Random.Range(0, itemPool.Count)];
 
         item.gameObject.SetActive(true);
 
         itemPool.Remove(item);
         activeItems.Add(item);
+        item.isItemActive = true;
+        item.OnItemSpawned.Invoke();
+        return item;
     }
 
     public void DespawnItem(Item item)
     {
         item.gameObject.SetActive(false);
+        item.isItemActive = false;
         Debug.Assert(activeItems.Contains(item));
 
         activeItems.Remove(item);
         itemPool.Add(item);
+        item.OnItemDespawned.Invoke();
     }
 }

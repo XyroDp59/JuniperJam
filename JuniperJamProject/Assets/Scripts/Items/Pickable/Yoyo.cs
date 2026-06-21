@@ -7,16 +7,31 @@ public class Yoyo : PickableItem
     [SerializeField] GameObject projectile;
     [SerializeField] int damage;
 
+    int currentUses = 0;
+
+    private void Start()
+    {
+        OnItemDespawned.AddListener(ResetItem);
+    }
+
     public override void Use()
     {
-        if (NumberOfUses <= 0) return;
-        NumberOfUses--;
-        Debug.Log($"Yoyo : {NumberOfUses}");
-        if (NumberOfUses == 0)
+        if (currentUses >= NumberOfUses) return;
+        Debug.Log($"Yoyo : {NumberOfUses - currentUses}");
+        currentUses++;
+        if (currentUses == NumberOfUses)
         {
-            Destroy(gameObject);
+            ItemSpawner.Singleton.DespawnItem(this);
+            Debug.Log($"Yoyo broke !");
+            
             // Todo : UI
         }
+    }
+
+    void ResetItem()
+    {
+        currentUses = 0;
+        transform.parent = ItemSpawner.Singleton.transform;
     }
 
     /*

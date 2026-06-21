@@ -5,12 +5,17 @@ using UnityEngine.Events;
 
 public abstract class Item : MonoBehaviour
 {
-    [SerializeField] float despawnCooldown;
+    [SerializeField, Range(1f, 60f)] float despawnCooldown = 5f;
     [SerializeField] float flickerDuration;
     [SerializeField] AnimationCurve flickerGradient;
 
     public UnityEvent OnItemSpawned = new UnityEvent();
+    public UnityEvent OnItemDespawned = new UnityEvent();
+
     [HideInInspector] public PlayerScript player;
+
+    public bool isItemActive;
+
 
     void Awake()
     {

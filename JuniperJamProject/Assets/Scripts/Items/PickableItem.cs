@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public abstract class PickableItem : Item
-{
+{ 
     public void PickUp(ref PickableItem playerSlot, Transform playerTransform)
     {
         playerSlot = this;

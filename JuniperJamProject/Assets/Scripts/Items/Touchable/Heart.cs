@@ -7,6 +7,5 @@ public class Heart : TouchableItem
     {
         player.GetComponent<AttributSet>().CurrentHp += 1;
         Debug.Log("heart used");
-        ItemSpawner.Singleton.DespawnItem(this);
     }
 }

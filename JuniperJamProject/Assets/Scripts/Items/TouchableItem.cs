@@ -8,6 +8,7 @@ public abstract class TouchableItem : Item
         {
             player = otherPlayer;
             Use();
+            ItemSpawner.Singleton.DespawnItem(this);
         }
     }
 }
