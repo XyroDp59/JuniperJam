@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Yoyo : Weapon
+public class Yoyo : PickableItem
 {
     [SerializeField] int NumberOfUses;
     [SerializeField] GameObject projectile;
@@ -11,7 +11,7 @@ public class Yoyo : Weapon
     {
         if (NumberOfUses <= 0) return;
         NumberOfUses--;
-        Debug.Log(NumberOfUses);
+        Debug.Log($"Yoyo : {NumberOfUses}");
         if (NumberOfUses == 0)
         {
             Destroy(gameObject);
@@ -19,6 +19,7 @@ public class Yoyo : Weapon
         }
     }
 
+    /*
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,5 +27,5 @@ public class Yoyo : Weapon
         {
             health.CurrentHp -= damage;
         }
-    }
+    }*/
 }

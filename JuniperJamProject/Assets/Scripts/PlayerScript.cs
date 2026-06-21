@@ -21,9 +21,9 @@ public class PlayerScript : MonoBehaviour
     private Vector2 lastMoveInput;
     private bool dashing = false;
 
-    Weapon weaponA;
-    Weapon weaponB;
-    [HideInInspector] public Item itemToAssign;
+    PickableItem weaponA;
+    PickableItem weaponB;
+    [HideInInspector] public PickableItem itemToAssign;
     bool releaseItem;
 
     private void Awake()
@@ -42,8 +42,8 @@ public class PlayerScript : MonoBehaviour
         // Items
         controls.Player.Release.performed += ctx => releaseItem = true;
         controls.Player.Release.canceled += ctx => releaseItem = false;
-        controls.Player.ItemA.started += ctx => WeaponHandler(ctx, ref weaponA); //WeaponHandler(weaponA);
-        controls.Player.ItemB.started += ctx => WeaponHandler(ctx, ref weaponB);
+        controls.Player.ItemA.started += ctx => PickableHandler(ctx, ref weaponA); //WeaponHandler(weaponA);
+        controls.Player.ItemB.started += ctx => PickableHandler(ctx, ref weaponB);
     }
 
     void FixedUpdate()
@@ -68,7 +68,7 @@ public class PlayerScript : MonoBehaviour
 
 
     #region Items
-    private void WeaponHandler(InputAction.CallbackContext context, ref Weapon weapon)
+    private void PickableHandler(InputAction.CallbackContext context, ref PickableItem weapon)
     {
         if (releaseItem)
         {
