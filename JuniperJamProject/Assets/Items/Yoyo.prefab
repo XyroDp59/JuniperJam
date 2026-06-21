@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6308062427739240282}
   - component: {fileID: 499523302201885817}
+  - component: {fileID: 8191368278225811176}
   m_Layer: 0
   m_Name: Yoyo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6308062427739240282
 Transform:
   m_ObjectHideFlags: 0
@@ -45,8 +46,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da6758f748dfc3489dd7d5a282fd040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Yoyo
+  despawnCooldown: 5
+  flickerDuration: 0
+  flickerGradient:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  OnItemSpawned:
+    m_PersistentCalls:
+      m_Calls: []
+  OnItemDespawned:
+    m_PersistentCalls:
+      m_Calls: []
+  player: {fileID: 0}
   NumberOfUses: 3
   projectile: {fileID: 8837221765083807286}
+  damage: 3
+--- !u!135 &8191368278225811176
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214138700769975060}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8837221765083807286
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +96,6 @@ GameObject:
   - component: {fileID: 6843495237928995011}
   - component: {fileID: 5501563248437344019}
   - component: {fileID: 2686167957963040829}
-  - component: {fileID: 1938673514572511786}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -138,24 +175,3 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1938673514572511786
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8837221765083807286}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
