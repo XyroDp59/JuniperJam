@@ -83,7 +83,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &4641914201572663499
 MonoBehaviour:
@@ -98,9 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   baseSpeed: 3
-  dashSpeed: 20
-  dashTimer: 3
-  dashDistance: 2
+  dashSpeed: 25
+  dashTimer: 0.5
+  dashDistance: 5
   player: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
 --- !u!1 &5220120002124200105
 GameObject:

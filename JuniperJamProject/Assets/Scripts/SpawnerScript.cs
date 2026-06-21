@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnerScript : MonoBehaviour
 {
 
-    [SerializeField] private GameObject firstEnnemi;
+    [SerializeField] private GameObject ennemi;
     [SerializeField] private float spawnRate = 5;
     [SerializeField] private float carrouselRadius = 8;
     [SerializeField] private int nombreSpawnPossible = 100000;
@@ -21,7 +21,7 @@ public class SpawnerScript : MonoBehaviour
         else
         {
             timer = 0;
-            Instantiate(firstEnnemi, getRandomSpawn(), transform.rotation);
+            Instantiate(ennemi, getRandomSpawn(), transform.rotation);
         }
     }
 
