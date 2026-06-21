@@ -370,9 +370,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstEnnemi
       objectReference: {fileID: 0}
+    - target: {fileID: 4230143088117153514, guid: aa28dd2cc82c8f44a86a9e1f2e3f945e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5220120002124200105, guid: aa28dd2cc82c8f44a86a9e1f2e3f945e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8171462630649474729, guid: aa28dd2cc82c8f44a86a9e1f2e3f945e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.254954
+      value: -0.33
       objectReference: {fileID: 0}
     - target: {fileID: 8171462630649474729, guid: aa28dd2cc82c8f44a86a9e1f2e3f945e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -410,6 +418,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8824055541297994441, guid: aa28dd2cc82c8f44a86a9e1f2e3f945e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -423,6 +435,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2751202979229783948, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
+      propertyPath: basicAttackSize
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2751202979229783948, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
+      propertyPath: basicAttackPrefab
+      value: 
+      objectReference: {fileID: 4513131974814386207, guid: 7f26595229d89c143a68b57e68db2469, type: 3}
     - target: {fileID: 2875369653824856168, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -712,6 +732,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2505256965432518324, guid: beb96a61c874c3740b44672c8aac4b02, type: 3}
+      propertyPath: rotateSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5047767431015900604, guid: beb96a61c874c3740b44672c8aac4b02, type: 3}
       propertyPath: m_Name
       value: Arena
