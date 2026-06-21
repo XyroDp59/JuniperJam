@@ -24,10 +24,10 @@ public class HorseScript : MonoBehaviour
     {
         if (player.activeSelf && !isDashing)
         {
-            Debug.Log("Hello");
-            PlayerCoordinateUpdate(playerX, playerZ);
+            playerX = getPlayerX();
+            playerZ = getPlayerZ();
             transform.position += getEnnemiDirection(player.transform.position, transform.position) * baseSpeed * Time.deltaTime;
-            if (Vector3.Distance(savePlayerPosition, transform.position) < dashDistance)
+            if (Vector3.Distance(player.transform.position, transform.position) < dashDistance)
             {
                 isDashing = true;
                 savePlayerPosition = new Vector3(playerX, 0, playerZ);
@@ -38,7 +38,6 @@ public class HorseScript : MonoBehaviour
             if (timer > dashTimer)
             {
                 transform.position += getEnnemiDirection(savePlayerPosition, transform.position) * dashSpeed * Time.deltaTime;
-                //Debug.Log(Vector3.Distance(savePlayerPosition, transform.position) < 0.7);
                 if (Vector3.Distance(savePlayerPosition, transform.position) < 0.7)
                 {
                     timer = 0;
@@ -54,12 +53,6 @@ public class HorseScript : MonoBehaviour
         {
             transform.position = Vector3.zero;          //ennemi don't move if the player is inactive
         }
-    }
-
-    private void PlayerCoordinateUpdate(float x, float z)
-    {
-        x = getPlayerX();
-        z = getPlayerZ();
     }
 
     private float getPlayerX()
