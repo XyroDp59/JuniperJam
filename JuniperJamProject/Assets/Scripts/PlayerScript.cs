@@ -112,10 +112,8 @@ public class PlayerScript : MonoBehaviour
     {
         if (!dashing && !isAttacking)
         {
-            print("aaaaaaaaaaaaaah");
             isAttacking = true;
             animator.SetBool(IsAttacking, true);
-            print("bbbbbbbbbbb");
             
             basicAttackObject.damage = basicAttackDamage; 
             basicAttackObject.timeToLive = 0.25f;
