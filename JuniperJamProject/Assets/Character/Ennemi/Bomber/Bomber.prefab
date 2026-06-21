@@ -82,8 +82,6 @@ MonoBehaviour:
   timeOfFly: 4
   bomb: {fileID: 2607965949212891675, guid: eb07a4a51cdf19b4ebba87157bb7a402, type: 3}
   bombRate: 2
-  bombSpeed: 3
-  explosionTime: 1
 --- !u!1 &7356425762253127604
 GameObject:
   m_ObjectHideFlags: 0

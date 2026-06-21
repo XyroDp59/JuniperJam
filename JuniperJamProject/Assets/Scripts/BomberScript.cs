@@ -11,8 +11,6 @@ public class BomberScript : MonoBehaviour
     [SerializeField] private float timeOfFly;
     [SerializeField] private GameObject bomb;
     [SerializeField] private float bombRate;
-    [SerializeField] private float bombSpeed;
-    [SerializeField] private float explosionTime;
 
     private bool isDescending = false;
     private bool isAscending = false;
