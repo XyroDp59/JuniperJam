@@ -1,37 +1,44 @@
+using System.Collections;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Item : MonoBehaviour
+public abstract class Item : MonoBehaviour
 {
-    [SerializeField] Weapon weapon;
+    [SerializeField, Range(1f, 60f)] float despawnCooldown = 5f;
+    [SerializeField] float flickerDuration;
+    [SerializeField] AnimationCurve flickerGradient;
 
-    private void OnTriggerEnter(Collider other)
+    public UnityEvent OnItemSpawned = new UnityEvent();
+    public UnityEvent OnItemDespawned = new UnityEvent();
+
+    [HideInInspector] public PlayerScript player;
+
+    public bool isItemActive;
+
+
+    void Awake()
     {
-        if(other.TryGetComponent<PlayerScript>(out PlayerScript player))
+        OnItemSpawned.AddListener(() => StartCoroutine(DespawnItem()));
+    }
+
+    IEnumerator DespawnItem()
+    {
+        yield return new WaitForSeconds(despawnCooldown);
+
+        float timer = 0f;
+        while (timer < flickerDuration)
         {
-            player.itemToAssign = this;
-            // Todo : shader + UI
+            ChangeSpriteOpacity(flickerGradient.Evaluate(timer / flickerDuration));
+            yield return null;
         }
+        ItemSpawner.Singleton.DespawnItem(this);
     }
 
-    private void OnTriggerExit(Collider other)
+    void ChangeSpriteOpacity(float opacity)
     {
-        if (other.TryGetComponent<PlayerScript>(out PlayerScript player))
-        {
-            if(player.itemToAssign == this)
-            {
-                player.itemToAssign = null;
-            }
-            // Todo : shader + UI
-        }
+        // TODO
     }
 
-
-    public void PickUp(ref Weapon playerSlot, Transform playerTransform)
-    {
-        playerSlot = weapon;
-        weapon.gameObject.SetActive(false);
-        weapon.transform.parent = playerTransform;
-        weapon.transform.position = Vector3.zero;
-        Destroy(gameObject);
-    }
+    public abstract void Use();
 }
