@@ -20,7 +20,6 @@ public class AnimatorToMaterial : MonoBehaviour
     private void Awake()
     {
         _material = new Material(Shader.Find("HDRP/Lit"));
-        print(DoubleSidedEnable);
         _material.SetFloat(DoubleSidedEnable, 1f);
         _material.SetFloat(AlphaCutoffEnable, 1f);
         _material.SetFloat(AlphaCutoff, 0.5f);

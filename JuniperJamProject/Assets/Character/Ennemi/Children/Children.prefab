@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8824055541297994441}
   - component: {fileID: -6993028227754932500}
   - component: {fileID: 1633887984533770477}
+  - component: {fileID: 896606428392855612}
   m_Layer: 0
   m_Name: Children
   m_TagString: Untagged
@@ -83,7 +84,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &1633887984533770477
 MonoBehaviour:
@@ -97,8 +98,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a53f1e9ac6799c848b3a16dfc3f0bead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  rewardScore: 10
+  attributSet: {fileID: 896606428392855612}
   speed: 3
   player: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
+--- !u!114 &896606428392855612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230143088117153514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c4b9d5ff1f0f54ebe96cf45fd8d63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttributSet
+  maxHp: 10
+  onHpChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5220120002124200105
 GameObject:
   m_ObjectHideFlags: 0

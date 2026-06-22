@@ -21,7 +21,6 @@ public class BasicAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other.name);
         if (other.gameObject.TryGetComponent(out AttributSet attributSet))
         {
             attributSet.CurrentHp -= damage;

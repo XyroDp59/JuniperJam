@@ -111,4 +111,9 @@ public class ItemSpawner : MonoBehaviour
         itemPool.Add(item);
         item.OnItemDespawned.Invoke();
     }
+
+    public List<Item> getActiveItems()
+    {
+        return activeItems;
+    }
 }

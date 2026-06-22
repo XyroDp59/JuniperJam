@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7126550658117080266}
   - component: {fileID: 8224143903299831033}
   - component: {fileID: 6273983556531824545}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 2130106361656928819}
   - component: {fileID: 2435748292731263003}
   - component: {fileID: 2751202979229783948}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 8577595552252397125}
   - component: {fileID: 5619685998038105629}
   - component: {fileID: 2326376319890889525}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
