@@ -4951,7 +4951,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   defaultHeight: 1.5
   curveSize: 1
-  vortexStrength: 1
+  vortexStrength: 10
   vortexDuration: 6
   vortexSize: 3
 --- !u!1 &7799697771462302816

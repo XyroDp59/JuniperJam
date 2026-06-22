@@ -14,7 +14,7 @@ public class Vortex : MonoBehaviour
     [SerializeField] float defaultHeight = 1;
     [SerializeField] float curveSize = 3;
     [SerializeField] float vortexStrength = 1;
-    [SerializeField] float vortexDuration = 3;
+    [SerializeField] float vortexDuration = 5;
     [SerializeField] float vortexSize = 2;
 
     SphereCollider col;
@@ -23,7 +23,7 @@ public class Vortex : MonoBehaviour
     {
         col = GetComponent<SphereCollider>();
         StartCoroutine(Trajectory());
-        Destroy(gameObject, vortexDuration * 1.2f);
+        Destroy(gameObject, vortexDuration);
     }
 
     IEnumerator Trajectory()
@@ -49,7 +49,11 @@ public class Vortex : MonoBehaviour
     {
         if(other.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
         {
-            rigidbody.AddForce(-vortexStrength * (transform.position - other.transform.position));
+            if(Vector3.Distance(transform.position, other.transform.position) < 0.5f)
+            {
+                rigidbody.MovePosition(transform.position);
+            }
+            else rigidbody.linearVelocity = vortexStrength * (transform.position - other.transform.position);
         }           
     }
 
@@ -61,6 +65,11 @@ public class Vortex : MonoBehaviour
             playerForward = Vector3.forward;
 
         Vector3 playerRight = Vector3.Cross(Vector3.up, playerForward).normalized;
+
+        //shenanigans to rotate trajectory
+        Vector3 temp = playerForward;
+        playerForward = playerRight;
+        playerRight = -temp;
 
         float phi = 1.618f;
         float sizeFactor = curveSize * Mathf.Pow(phi, 2 * t / Mathf.PI);
