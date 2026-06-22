@@ -32,7 +32,8 @@ public class SpawnerScript : MonoBehaviour
             timer = 0;
             randomAngle();
             EnnemiClassScript ennemiInstance = Instantiate(ennemi, spawn(), transform.rotation);
-            ennemiInstance.attributSet.onDeath.AddListener(() => { _scoreManager.IncrementScore(ennemiInstance.rewardScore); });
+            ennemiInstance.attributSet.onDeath.AddListener(() => { ennemiInstance.gameObject.SetActive(false); });
+            ennemiInstance.attributSet.onDeath.AddListener(() => { _scoreManager.IncrementScore(ennemiInstance.rewardScore); }); //jsp pk on peut pas le faire depuis l'ennemi ca
         }
     }
 
