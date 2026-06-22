@@ -29,14 +29,10 @@ public abstract class BaseMovingItem : Item
     {
         if (isKeyboardOrMouse)
         {
-            print(cam);
-            print(mouse);
             Ray ray = cam.ScreenPointToRay(mouse.position.ReadValue()); // a optimiser
             Physics.Raycast(ray, out RaycastHit hit);
             print (hit.point);
             Vector3 dir = hit.point - transform.position;
-            Vector2 dir2 = new Vector2(dir.x, dir.z).normalized;
-            print (dir2);
             return new Vector2(dir.x, dir.z).normalized; 
         }
         
