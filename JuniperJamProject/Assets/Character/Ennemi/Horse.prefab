@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7572162036759254709}
   - component: {fileID: -6993028227754932500}
   - component: {fileID: 4641914201572663499}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Horse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 8699391705505294376}
   - component: {fileID: 8399726986605952635}
   - component: {fileID: 7308473781532037251}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

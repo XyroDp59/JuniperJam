@@ -47,6 +47,7 @@ public class JanitorScript : EnnemiClassScript
         //BREAKING CHANGE: change that line if the name of the arena is different than the one from the prefab
         arena = GameObject.Find(arena.name);
 
+        agent.speed = speed;
         isReturningToSafeZone = false;
         itemSpawner = GameObject.FindGameObjectWithTag("ItemSpawner").GetComponent<ItemSpawner>();
         timerForItem = 0;

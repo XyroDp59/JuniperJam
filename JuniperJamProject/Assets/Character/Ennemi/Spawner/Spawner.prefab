@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfa20669e0ae26448fef0cd3274ceb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  firstEnnemi: {fileID: 0}
+  ennemi: {fileID: 0}
   spawnRate: 5
-  carrouselRadius: 8
+  carrouselRadius: 10
   nombreSpawnPossible: 1000
