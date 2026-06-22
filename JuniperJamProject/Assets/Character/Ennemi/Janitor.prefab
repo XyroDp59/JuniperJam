@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 4076486481134686415}
   - component: {fileID: 3895050985515094330}
   - component: {fileID: 2999954918813968265}
+  - component: {fileID: 4549263780303006741}
   m_Layer: 6
   m_Name: Janitor
   m_TagString: Untagged
@@ -188,6 +189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7c04b5d43ea9246a25d00c270fec30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  rewardScore: 10
+  attributSet: {fileID: 4549263780303006741}
   agent: {fileID: 2999954918813968265}
   speed: 5
   player: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
@@ -222,3 +225,22 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4549263780303006741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8690960703035468158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c4b9d5ff1f0f54ebe96cf45fd8d63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttributSet
+  maxHp: 10
+  onHpChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []

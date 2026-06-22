@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7572162036759254709}
   - component: {fileID: -6993028227754932500}
   - component: {fileID: 4641914201572663499}
+  - component: {fileID: 896606428392855612}
   m_Layer: 0
   m_Name: Horse
   m_TagString: Untagged
@@ -95,11 +96,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df47c59aee85434bacadb7b5c45a19e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  rewardScore: 10
+  attributSet: {fileID: 896606428392855612}
   baseSpeed: 3
   player: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
   dashSpeed: 25
   dashTimer: 0.5
   dashDistance: 5
+--- !u!114 &896606428392855612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230143088117153514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c4b9d5ff1f0f54ebe96cf45fd8d63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttributSet
+  maxHp: 20
+  onHpChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5220120002124200105
 GameObject:
   m_ObjectHideFlags: 0

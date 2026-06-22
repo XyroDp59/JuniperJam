@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2774667893408890659}
   - component: {fileID: 7986166357793918307}
+  - component: {fileID: 7041975110827311958}
   m_Layer: 0
   m_Name: Bomber
   m_TagString: Untagged
@@ -45,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5cc50cb6d51d884695783ceff6efb4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  rewardScore: 10
+  attributSet: {fileID: 7041975110827311958}
   speed: 0.3
   bomberSpawner: {fileID: 2589459259565670954, guid: 97eb1da85931dd84aa2a6dcff4cb3d80, type: 3}
   bomberPathRadius: 6
@@ -54,6 +57,25 @@ MonoBehaviour:
   timeOfFly: 4
   bomb: {fileID: 2607965949212891675, guid: eb07a4a51cdf19b4ebba87157bb7a402, type: 3}
   bombRate: 2
+--- !u!114 &7041975110827311958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727639553405580898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c4b9d5ff1f0f54ebe96cf45fd8d63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttributSet
+  maxHp: 20
+  onHpChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7356425762253127604
 GameObject:
   m_ObjectHideFlags: 0
