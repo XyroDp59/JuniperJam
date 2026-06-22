@@ -3,10 +3,12 @@ using UnityEngine;
 public class HorseScript : MonoBehaviour
 {
     [SerializeField] private float baseSpeed = 3;
+    [SerializeField] private GameObject player;
+
+    [Header("Dash")]
     [SerializeField] private float dashSpeed = 20;
     [SerializeField] private float dashTimer = 3;
     [SerializeField] private float dashDistance = 2;
-    [SerializeField] private GameObject player;
 
     private float timer = 0;
     private Vector3 savePlayerPosition = Vector3.zero;

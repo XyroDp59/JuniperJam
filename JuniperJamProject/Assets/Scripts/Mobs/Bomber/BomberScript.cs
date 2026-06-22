@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BomberScript : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] private float speed;
     [SerializeField] private SpawnerScript bomberSpawner;
     [SerializeField] private float bomberPathRadius;
@@ -9,6 +10,8 @@ public class BomberScript : MonoBehaviour
     [SerializeField] private float minY;
     [SerializeField] private float speedY;
     [SerializeField] private float timeOfFly;
+
+    [Header("Bombs")]
     [SerializeField] private GameObject bomb;
     [SerializeField] private float bombRate;
 
