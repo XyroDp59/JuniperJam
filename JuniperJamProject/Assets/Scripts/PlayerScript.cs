@@ -10,9 +10,11 @@ public class PlayerScript : MonoBehaviour
     InputAction moveAction;
     InputAction jumpAction;
     Rigidbody rb;
-    
+
+    [Header("Visuals")]
     [SerializeField] private Animator animator;
     private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
+    [SerializeField] private AnimatorToMaterial mesh;
     
     [Header("Movement")]
     [SerializeField] private float speed = 10;
@@ -60,6 +62,19 @@ public class PlayerScript : MonoBehaviour
         controls.Player.Release.canceled += ctx => releaseItem = false;
         controls.Player.ItemA.started += ctx => PickableHandler(ctx, ref weaponA); //WeaponHandler(weaponA);
         controls.Player.ItemB.started += ctx => PickableHandler(ctx, ref weaponB);
+    }
+
+
+    void OnDisable() => controls.Disable();
+    public void TogglePlayerInput(bool b)
+    {
+        if (controls.UI.enabled)
+        {
+            Debug.LogError("[TogglePlayerInput] are you sure you want to toggle manually the player when in UI ?");
+        }
+
+        if (b) controls.Player.Enable();
+        else controls.Player.Disable();
     }
 
     void FixedUpdate()
@@ -130,4 +145,10 @@ public class PlayerScript : MonoBehaviour
             animator.SetBool(IsAttacking, false);
         }
     }
+
+    public AnimatorToMaterial GetMesh()
+    {
+        return mesh;
+    }
+
 }
