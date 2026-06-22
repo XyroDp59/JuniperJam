@@ -20,7 +20,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float dashDistance = 2;
     [SerializeField] private float dashInvulnerableTime = 0.5f;
     
-    private InputSystem_Actions controls;
+    [HideInInspector] public InputSystem_Actions controls;
     private Vector2 moveInput;
     private Vector2 lastMoveInput;
     private bool dashing = false;
