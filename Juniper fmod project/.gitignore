@@ -1,0 +1,17 @@
+# ==========================================
+# FMOD Studio Project Git Ignore Template
+# ==========================================
+
+# --- User-Specific & Local Settings ---
+.user/
+.user*
+/Plugins/preview_cache/
+
+# --- Audio Cache & Metadata ---
+/.cache/
+
+# --- Built Banks ---
+/Build/
+
+# --- Backup Files ---
+*.bak
