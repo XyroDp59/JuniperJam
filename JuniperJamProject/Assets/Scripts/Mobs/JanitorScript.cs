@@ -2,9 +2,13 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.AI;
 
-public class JanitorScript : MonoBehaviour
+public class JanitorScript : EnnemiClassScript
 {
+    Rigidbody rb;
+    [SerializeField] public NavMeshAgent agent;
+
     [SerializeField] private float speed;
     [SerializeField] private GameObject player;
 
@@ -34,7 +38,7 @@ public class JanitorScript : MonoBehaviour
     private float distanceToPlayer = 0;
     private float timerRandomMovement = 0;
     private float randomTimeMovement = 0;
-    private Vector3 randomDirection = Vector3.zero;
+    private Vector3 randomPosition = Vector3.zero;
 
     void Awake()
     {
@@ -50,14 +54,14 @@ public class JanitorScript : MonoBehaviour
         itemHeld = null;
         randomTimeMovement = Random.Range(minRandomMovementTime, maxRandomMovementTime);
         items = itemSpawner.getActiveItems();
-        randomDirection = Vector3.zero;
+        randomPosition = Vector3.zero;
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         items = itemSpawner.getActiveItems();
-        Debug.Log(items.Count);
         isItemOnArena = items.Count != 0;
         if (items.Count == 1 && itemTarget != items[0])
         {
@@ -66,7 +70,6 @@ public class JanitorScript : MonoBehaviour
         }
         if (isItemOnArena && timerForItem > timeToWaitBeforeChassingItem)
         {
-            Debug.Log(distanceToPlayer);
             if (distanceToPlayer < fleeOverItemDistance)
             {
                 FleeMovement();
@@ -97,38 +100,39 @@ public class JanitorScript : MonoBehaviour
 
     private void FleeMovement()
     {
-        //if (Vector3.Distance(transform.position, arena.transform.position) >= carrouselRadius)
-        //{
-        //    float angle = calculAngle(transform.position);
-        //    Vector3 positionPlus = new Vector3(cos(angle + Time.deltaTime * speed),
-        //                                    0,
-        //                                    sin(angle + Time.deltaTime * speed));
-        //    Vector3 positionMoins = new Vector3(cos(angle - Time.deltaTime * speed),
-        //                        0,
-        //                        sin(angle - Time.deltaTime * speed));
-        //    if (Vector3.Distance(player.transform.position,
-        //                        positionPlus)
-        //        < Vector3.Distance(player.transform.position,
-        //                        positionMoins))
-        //    {
-        //        transform.position = positionMoins;
-        //    }
-        //    else
-        //    {
-        //        transform.position = positionPlus;
-        //    }
-        //}
-        //else
-        //{
-            Vector3 fleeDirection = getFleeDirection(transform.position, player.transform.position);
-            transform.position += fleeDirection * Time.deltaTime * speed;
-        //}
+        if (Vector3.Distance(transform.position, arena.transform.position) >= carrouselRadius)
+        {
+            Vector3 positionPlus = new Vector3(transform.position.x * cos(Time.deltaTime * speed)
+                                                - transform.position.z * sin(Time.deltaTime * speed),
+                                            0,
+                                            transform.position.z * cos(Time.deltaTime * speed)
+                                                + transform.position.x * sin(Time.deltaTime * speed));
+            Vector3 positionMoins = new Vector3(transform.position.x * cos(Time.deltaTime * speed)
+                                                + transform.position.z * sin(Time.deltaTime * speed),
+                                            0,
+                                            transform.position.z * cos(Time.deltaTime * speed)
+                                                - transform.position.x * sin(Time.deltaTime * speed));
+            if (Vector3.Distance(player.transform.position,
+                                positionPlus)
+                < Vector3.Distance(player.transform.position,
+                                positionMoins))
+            {
+                agent.SetDestination(positionMoins);
+            }
+            else
+            {
+                agent.SetDestination(positionPlus);
+            }
+        }
+        else
+        {
+            agent.SetDestination(-player.transform.position);
+        }
     }
 
     private void ToItemMovement()
     {
-        Vector3 toItemDirection = getDirection(transform.position, itemTarget.transform.position);
-        transform.position += toItemDirection * Time.deltaTime * speed;
+        agent.SetDestination(itemTarget.transform.position);
     }
 
     private void RandomMovement()
@@ -136,11 +140,11 @@ public class JanitorScript : MonoBehaviour
         if (Vector3.Distance(transform.position, arena.transform.position) > carrouselRadius || isReturningToSafeZone)
         {
             isReturningToSafeZone = Vector3.Distance(transform.position, arena.transform.position) > safeZoneRadius;
-            randomDirection = getDirection(transform.position, Vector3.zero);
+            randomPosition = Vector3.zero;
         }
         else if (timerRandomMovement < Mathf.Epsilon)
         {
-            randomDirection = getRandomDirection(transform.position);
+            randomPosition = getRandomPosition(transform.position);
         }
         timerRandomMovement += Time.deltaTime;
         if (timerRandomMovement > randomTimeMovement)
@@ -148,47 +152,23 @@ public class JanitorScript : MonoBehaviour
             timerRandomMovement = 0;
             randomTimeMovement = Random.Range(minRandomMovementTime, maxRandomMovementTime);
         }
-        transform.position += randomDirection * Time.deltaTime * speed;
-    }
-    private Vector3 getDirection(Vector3 janitorPosition, Vector3 position)
-    {
-        Vector3 direction = position - janitorPosition;
-        direction.y = 0;                                         //janitor cannot jump
-        return Vector3.Normalize(direction);
+        agent.SetDestination(randomPosition);
     }
 
-    private Vector3 getFleeDirection(Vector3 janitorPosition, Vector3 playerPosition)
-    {
-        Vector3 fleeDirection = - getDirection(janitorPosition, playerPosition);
-        return fleeDirection;
-    }
-
-    private Vector3 getRandomDirection(Vector3 janitorPosition)
+    private Vector3 getRandomPosition(Vector3 janitorPosition)
     {
         Vector2 randomUnitCircle = Random.onUnitCircle;
         Vector3 randomPosition = new Vector3(randomUnitCircle.x, 0, randomUnitCircle.y);
-        Vector3 randomDirection = getDirection(janitorPosition, randomPosition);
-        return randomDirection;
+        return randomPosition;
     }
 
-    private float calculAngle(Vector3 janitorPosition)
-    {
-        int signeAngle = 1;
-        if (janitorPosition.z < 0)
-        {
-            signeAngle = -1;
-        }
-        float angle = Mathf.Acos(Mathf.Abs(janitorPosition.x) / carrouselRadius) * signeAngle;
-        Debug.Log(Mathf.Acos(Mathf.Abs(janitorPosition.x) / carrouselRadius));
-        return angle;
-    }
     private float cos(float angle)
     {
-        return Mathf.Cos(angle) * carrouselRadius;
+        return Mathf.Cos(angle);
     }
 
     private float sin(float angle)
     {
-        return Mathf.Sin(angle) * carrouselRadius;
+        return Mathf.Sin(angle);
     }
 }

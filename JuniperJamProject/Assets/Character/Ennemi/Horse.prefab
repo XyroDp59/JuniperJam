@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4230143088117153514}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: -4}
+  m_LocalPosition: {x: -0.4163, y: -0.25, z: -6.89282}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -96,10 +96,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   baseSpeed: 3
+  player: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
   dashSpeed: 25
   dashTimer: 0.5
   dashDistance: 5
-  player: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
 --- !u!1 &5220120002124200105
 GameObject:
   m_ObjectHideFlags: 0

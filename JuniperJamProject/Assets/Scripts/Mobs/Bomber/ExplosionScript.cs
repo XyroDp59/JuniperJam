@@ -1,7 +1,7 @@
 using System.Threading;
 using UnityEngine;
 
-public class ExplosionScript : MonoBehaviour
+public class ExplosionScript : EnnemiClassScript
 {
     [SerializeField] private float explosionTime;
 

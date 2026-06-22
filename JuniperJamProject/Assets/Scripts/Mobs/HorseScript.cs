@@ -1,7 +1,11 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class HorseScript : MonoBehaviour
+public class HorseScript : EnnemiClassScript
 {
+    Rigidbody rb;
+
     [SerializeField] private float baseSpeed = 3;
     [SerializeField] private GameObject player;
 
@@ -20,6 +24,8 @@ public class HorseScript : MonoBehaviour
     {
         //BREAKING CHANGE: change that line if the name of the player is different than the one from the prefab
         player = GameObject.Find(player.name);
+
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -28,7 +34,7 @@ public class HorseScript : MonoBehaviour
         {
             playerX = getPlayerX();
             playerZ = getPlayerZ();
-            transform.position += getEnnemiDirection(player.transform.position, transform.position) * baseSpeed * Time.deltaTime;
+            rb.MovePosition(transform.position + getDirection(player.transform.position) * Time.deltaTime * baseSpeed);
             if (Vector3.Distance(player.transform.position, transform.position) < dashDistance)
             {
                 isDashing = true;
@@ -39,7 +45,7 @@ public class HorseScript : MonoBehaviour
         {
             if (timer > dashTimer)
             {
-                transform.position += getEnnemiDirection(savePlayerPosition, transform.position) * dashSpeed * Time.deltaTime;
+                rb.MovePosition(transform.position + getDirection(savePlayerPosition) * Time.deltaTime * dashSpeed);
                 if (Vector3.Distance(savePlayerPosition, transform.position) < 0.7)
                 {
                     timer = 0;
@@ -50,10 +56,6 @@ public class HorseScript : MonoBehaviour
             {
                 timer += Time.deltaTime;
             }
-        }
-        else
-        {
-            transform.position = Vector3.zero;          //ennemi don't move if the player is inactive
         }
     }
 
@@ -67,11 +69,12 @@ public class HorseScript : MonoBehaviour
         return player.transform.position.z;
     }
 
-    private Vector3 getEnnemiDirection(Vector3 playerPosition, Vector3 ennemiPosition)
+    private Vector3 getDirection(Vector3 playerPosition)
     {
-        Vector3 ennemiDirection = playerPosition - ennemiPosition;
-        ennemiDirection.y = 0;                                         //ennemi cannot jump
-        return Vector3.Normalize(ennemiDirection);
+        Vector3 direction = playerPosition - transform.position;
+        direction.y = 0;
+        direction.Normalize();
+        return direction;
     }
 }
 
