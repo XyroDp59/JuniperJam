@@ -140,6 +140,8 @@ public class PlayerScript : MonoBehaviour
             basicAttackObject.transform.position = transform.position; 
             basicAttackObject.gameObject.SetActive(true);
             
+            mesh.Spin(0.8f * basicAttackDuration, 1);
+            
             yield return new WaitForSeconds(basicAttackDuration);
             isAttacking = false;
             animator.SetBool(IsAttacking, false);
