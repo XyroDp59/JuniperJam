@@ -85,6 +85,11 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    public Vector2 GetMoveDirection()
+    {
+        return lastMoveInput;
+    }
+
 
     #region Items
     private void PickableHandler(InputAction.CallbackContext context, ref PickableItem weapon)
