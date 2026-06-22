@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class EnnemiClassScript : MonoBehaviour {
-    
+[RequireComponent(typeof(AttributSet))]
+public class EnnemiClassScript : MonoBehaviour
+{
+    public int rewardScore;
+    public AttributSet attributSet; //serialized for better performance
 }

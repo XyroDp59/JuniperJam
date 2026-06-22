@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using Unity.Mathematics;
 using UnityEngine;
@@ -5,13 +6,20 @@ using UnityEngine;
 public class SpawnerScript : MonoBehaviour
 {
 
-    [SerializeField] private GameObject ennemi;
+    [SerializeField] private EnnemiClassScript ennemi;
     [SerializeField] private float spawnRate = 5;
     [SerializeField] private float carrouselRadius = 8;
     [SerializeField] private int nombreSpawnPossible = 100000;
 
+    private ScoreManager _scoreManager;
+    
     private float timer = 0;
     private float angle;
+
+    private void Start()
+    {
+        _scoreManager = ScoreManager.Instance;
+    }
 
     void Update()
     {
@@ -23,7 +31,8 @@ public class SpawnerScript : MonoBehaviour
         {
             timer = 0;
             randomAngle();
-            Instantiate(ennemi, spawn(), transform.rotation);
+            EnnemiClassScript ennemiInstance = Instantiate(ennemi, spawn(), transform.rotation);
+            ennemiInstance.attributSet.onDeath.AddListener(() => { _scoreManager.IncrementScore(ennemiInstance.rewardScore); });
         }
     }
 
