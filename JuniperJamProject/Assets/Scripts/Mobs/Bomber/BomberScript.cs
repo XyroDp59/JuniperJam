@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BomberScript : MonoBehaviour
+public class BomberScript : EnnemiClassScript
 {
     [Header("Movement")]
     [SerializeField] private float speed;

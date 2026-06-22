@@ -1,7 +1,9 @@
 using UnityEngine;
 
-public class ChildrenScript : MonoBehaviour
+public class ChildrenScript : EnnemiClassScript
 {
+    Rigidbody rb;
+
     [SerializeField] private float speed = 3;
     [SerializeField] private GameObject player;
 
@@ -9,17 +11,14 @@ public class ChildrenScript : MonoBehaviour
     {
         //BREAKING CHANGE: change that line if the name of the player is different than the one from the prefab
         player = GameObject.Find(player.name);
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
         if (player.activeSelf)
         {
-            transform.position += getEnnemiDirection(player.transform.position, transform.position) * speed * Time.deltaTime;
-        }
-        else
-        {
-            transform.position = Vector3.zero;          //ennemi don't move if the player is inactive
+            rb.MovePosition(transform.position + getEnnemiDirection(player.transform.position, transform.position) * speed * Time.deltaTime);
         }
     }
 

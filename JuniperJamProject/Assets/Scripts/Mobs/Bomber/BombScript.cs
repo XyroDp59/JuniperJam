@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BombScript : MonoBehaviour
+public class BombScript : EnnemiClassScript
 {
     [SerializeField] private GameObject explosion;
 
