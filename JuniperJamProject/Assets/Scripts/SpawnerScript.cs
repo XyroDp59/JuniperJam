@@ -10,15 +10,15 @@ public class SpawnerScript : MonoBehaviour
     [SerializeField] private float spawnRate = 5;
     [SerializeField] private float carrouselRadius = 8;
     [SerializeField] private int nombreSpawnPossible = 100000;
-
-    private ScoreManager _scoreManager;
+    [SerializeField] private ScoreManager _scoreManager;
     
     private float timer = 0;
     private float angle;
 
     private void Start()
     {
-        _scoreManager = ScoreManager.Instance;
+        _scoreManager = _scoreManager.GetComponent<ScoreManager>();
+        Debug.Log(_scoreManager);
     }
 
     void Update()

@@ -18,8 +18,8 @@ public class JanitorScript : EnnemiClassScript
     [SerializeField] private GameObject arena;
 
     [Header("Items")]
-    [SerializeField] private ItemSpawner itemSpawner;
     [SerializeField] private float timeToWaitBeforeChassingItem;
+    [SerializeField] private float timerItemAfterDeath;
 
     [Header("Flee")]
     [SerializeField] private float fleeDistance;
@@ -29,8 +29,8 @@ public class JanitorScript : EnnemiClassScript
     [SerializeField] private int minRandomMovementTime;
     [SerializeField] private int maxRandomMovementTime;
 
+    private ItemSpawner itemSpawner;
     private bool isReturningToSafeZone = false;
-    private bool isItemOnArena = false;
     private float timerForItem = 0;
     List<Item> items = new List<Item>();
     Item itemTarget = null;
@@ -51,7 +51,6 @@ public class JanitorScript : EnnemiClassScript
         isReturningToSafeZone = false;
         itemSpawner = GameObject.FindGameObjectWithTag("ItemSpawner").GetComponent<ItemSpawner>();
         timerForItem = 0;
-        isItemOnArena = false;
         itemHeld = null;
         randomTimeMovement = Random.Range(minRandomMovementTime, maxRandomMovementTime);
         items = itemSpawner.getActiveItems();
@@ -63,13 +62,12 @@ public class JanitorScript : EnnemiClassScript
     {
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         items = itemSpawner.getActiveItems();
-        isItemOnArena = items.Count != 0;
         if (items.Count == 1 && itemTarget != items[0])
         {
             timerForItem = 0;
             itemTarget = items[0];
         }
-        if (isItemOnArena && timerForItem > timeToWaitBeforeChassingItem)
+        if (itemTarget != null && itemTarget.gameObject.activeSelf && timerForItem > timeToWaitBeforeChassingItem)
         {
             if (distanceToPlayer < fleeOverItemDistance)
             {
@@ -81,7 +79,7 @@ public class JanitorScript : EnnemiClassScript
                 if (Vector3.Distance(transform.position, itemTarget.transform.position) < 0.7)
                 {
                     itemHeld = itemTarget;
-                    itemSpawner.DespawnItem(itemTarget);
+                    itemTarget.gameObject.SetActive(false);
                     itemTarget = null;
                     Debug.Log(itemHeld);
                 }
@@ -99,7 +97,7 @@ public class JanitorScript : EnnemiClassScript
             {
                 RandomMovement();
             }
-            if (isItemOnArena)
+            if (itemTarget != null)
             {
                 timerForItem += Time.deltaTime;
             }
@@ -178,5 +176,20 @@ public class JanitorScript : EnnemiClassScript
     private float sin(float angle)
     {
         return Mathf.Sin(angle);
+    }
+
+    public void Death()
+    {
+        if (itemHeld != null)
+        {
+            Item item = itemHeld;
+            item.gameObject.transform.position = transform.position;
+            item.gameObject.SetActive(true);
+            item.isItemActive = true;
+            item.OnItemSpawned.Invoke();
+            Debug.Log("ouai");
+            item.OnItemDespawned.Invoke();
+            Debug.Log("clc");
+        }
     }
 }

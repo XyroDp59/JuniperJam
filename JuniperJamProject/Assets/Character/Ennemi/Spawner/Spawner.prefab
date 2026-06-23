@@ -48,3 +48,4 @@ MonoBehaviour:
   spawnRate: 5
   carrouselRadius: 10
   nombreSpawnPossible: 1000
+  _scoreManager: {fileID: 7236004486375029691, guid: 7bf4344bebeeb9a49b11ad8c6880688b, type: 3}
