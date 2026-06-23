@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -6993028227754932500}
   - component: {fileID: 1633887984533770477}
   - component: {fileID: 896606428392855612}
+  - component: {fileID: 7816940807960167588}
   m_Layer: 0
   m_Name: Pomni
   m_TagString: Untagged
@@ -100,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   rewardScore: 20
   attributSet: {fileID: 896606428392855612}
+  agent: {fileID: 7816940807960167588}
   speed: 7
   player: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
 --- !u!114 &896606428392855612
@@ -121,6 +123,28 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!195 &7816940807960167588
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230143088117153514}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 0
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &5220120002124200105
 GameObject:
   m_ObjectHideFlags: 0
