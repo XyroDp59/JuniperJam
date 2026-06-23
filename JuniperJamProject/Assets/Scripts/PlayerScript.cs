@@ -23,6 +23,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float dashInvulnerableTime = 0.5f;
     
     private InputSystem_Actions controls;
+    private Coroutine movingCoroutine;
     private Vector2 moveInput;
     private Vector2 lastMoveInput;
     private bool dashing = false;
@@ -41,6 +42,10 @@ public class PlayerScript : MonoBehaviour
     [HideInInspector] public PickableItem itemToAssign;
     bool releaseItem;
 
+
+
+    #region Inputs and setup
+
     private void Awake()
     {
         controls = new InputSystem_Actions();
@@ -50,8 +55,8 @@ public class PlayerScript : MonoBehaviour
     private void OnEnable()
     {
         controls.Player.Enable();
-        controls.Player.Move.performed += ctx => { moveInput = ctx.ReadValue<Vector2>(); lastMoveInput = moveInput; };
-        controls.Player.Move.canceled += ctx => moveInput = Vector2.zero;
+        controls.Player.Move.performed += ctx => { movingCoroutine = StartCoroutine(StartMoving(ctx)); }; 
+        controls.Player.Move.canceled += ctx => StopMoving(ctx); 
         controls.Player.Sprint.performed += ctx => StartCoroutine(Dash());
         controls.Player.Attack.performed += ctx => StartCoroutine(BasicAttack());
         
@@ -60,12 +65,16 @@ public class PlayerScript : MonoBehaviour
         // Items
         controls.Player.Release.performed += ctx => releaseItem = true;
         controls.Player.Release.canceled += ctx => releaseItem = false;
-        controls.Player.ItemA.started += ctx => PickableHandler(ctx, ref weaponA); //WeaponHandler(weaponA);
+        controls.Player.ItemA.started += ctx => PickableHandler(ctx, ref weaponA); 
         controls.Player.ItemB.started += ctx => PickableHandler(ctx, ref weaponB);
     }
 
 
-    void OnDisable() => controls.Disable();
+    void OnDisable() 
+    { 
+        controls.Disable();
+        StopCoroutine(movingCoroutine);
+    }
     public void TogglePlayerInput(bool b)
     {
         if (controls.UI.enabled)
@@ -77,25 +86,39 @@ public class PlayerScript : MonoBehaviour
         else controls.Player.Disable();
     }
 
-    void FixedUpdate()
+    #endregion
+
+    #region Movement
+    private IEnumerator StartMoving(InputAction.CallbackContext ctx)
     {
-        //rb.linearVelocity = new Vector3(moveInput.x * speed, rb.linearVelocity.y, moveInput.y * speed);
-        if (dashing)
+        moveInput = ctx.ReadValue<Vector2>(); 
+        lastMoveInput = moveInput;
+
+        while (moveInput != Vector2.zero)
         {
-            rb.MovePosition(transform.position + new Vector3(lastMoveInput.x * dashSpeed * Time.fixedDeltaTime, 0, lastMoveInput.y * dashSpeed * Time.fixedDeltaTime));
-            return;
-        }
-        if (moveInput != Vector2.zero)
             rb.MovePosition(transform.position + new Vector3(moveInput.x * speed * Time.fixedDeltaTime, 0, moveInput.y * speed * Time.fixedDeltaTime));
-            //rb.AddForce(new Vector3(moveInput.x * speed * Time.fixedDeltaTime, 0, moveInput.y * speed * Time.fixedDeltaTime),  ForceMode.VelocityChange);
+            yield return new WaitForFixedUpdate();
+        }
     }
+    private void StopMoving(InputAction.CallbackContext ctx)
+    {
+        moveInput = Vector2.zero;
+        StopCoroutine(movingCoroutine);
+    }
+
 
     private IEnumerator Dash()
     {
         if (!dashing && !isAttacking)
         {
             dashing = true;
-            yield return new WaitForSeconds(dashDistance / dashSpeed);
+            float timer = 0;
+            while(timer < dashDistance / dashSpeed)
+            {
+                rb.linearVelocity = new Vector3(lastMoveInput.x * dashSpeed, 0, lastMoveInput.y * dashSpeed);
+                yield return new WaitForFixedUpdate();
+                timer += Time.fixedDeltaTime;
+            }
             dashing = false;
         }
     }
@@ -105,6 +128,12 @@ public class PlayerScript : MonoBehaviour
         return lastMoveInput;
     }
 
+    public bool IsDashing()
+    {
+        return dashing;
+    }
+
+    #endregion
 
     #region Items
     private void PickableHandler(InputAction.CallbackContext context, ref PickableItem weapon)
