@@ -34,7 +34,7 @@ public class JanitorScript : EnnemiClassScript
     private float timerForItem = 0;
     List<Item> items = new List<Item>();
     Item itemTarget = null;
-    private GameObject itemHeld = null;
+    Item itemHeld = null;
     private float distanceToPlayer = 0;
     private float timerRandomMovement = 0;
     private float randomTimeMovement = 0;
@@ -78,6 +78,13 @@ public class JanitorScript : EnnemiClassScript
             else
             {
                 ToItemMovement();
+                if (Vector3.Distance(transform.position, itemTarget.transform.position) < 0.7)
+                {
+                    itemHeld = itemTarget;
+                    itemSpawner.DespawnItem(itemTarget);
+                    itemTarget = null;
+                    Debug.Log(itemHeld);
+                }
             }
             timerRandomMovement = 0;
         }
