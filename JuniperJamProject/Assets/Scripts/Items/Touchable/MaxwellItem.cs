@@ -3,24 +3,13 @@ using UnityEngine;
 
 public class MaxwellItem : TouchableItem
 {
-    [SerializeField] GameObject maxwellPrefab;
-    [SerializeField] float maxwellDuration;
-    GameObject maxwell;
+    [SerializeField] Maxwell maxwellPrefab;
+    Maxwell maxwell;
 
     public override void Use()
     {
-        maxwell = Instantiate(maxwellPrefab);
-        player.GetMesh().gameObject.SetActive(false);
-        player.TogglePlayerInput(false);
-
-        StartCoroutine(MaxwellDeath());
-    }
-
-    IEnumerator MaxwellDeath()
-    {
-        yield return new WaitForSeconds(maxwellDuration);
-
-        player.GetMesh().gameObject.SetActive(true);
-        player.TogglePlayerInput(true);
+        maxwell = Instantiate(maxwellPrefab, player.transform);
+        maxwell.playerRb = player.GetComponent<Rigidbody>();
+        maxwell.player = player;
     }
 }

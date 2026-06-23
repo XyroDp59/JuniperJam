@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8554578872052730519}
   - component: {fileID: 7137231280650690806}
   m_Layer: 3
-  m_Name: ArenaInvisibleWall
-  m_TagString: Wall
+  m_Name: InvisibleWall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,8 +71,8 @@ GameObject:
   - component: {fileID: 7351837898988585147}
   - component: {fileID: 4721962100185821266}
   m_Layer: 3
-  m_Name: Cube (1)
-  m_TagString: Untagged
+  m_Name: Wall
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

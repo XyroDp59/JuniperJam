@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   animator: {fileID: 6273983556531824545}
+  mesh: {fileID: 2326376319890889525}
   speed: 10
   dashSpeed: 25
   dashDistance: 5

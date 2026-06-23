@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4930211368248156426}
   - component: {fileID: 8987696256247333554}
+  - component: {fileID: 1007393504645269381}
   m_Layer: 0
   m_Name: MaxwellCat
   m_TagString: Untagged
@@ -46,8 +47,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Maxwell
   attackPower: 100
-  speed: 3
+  speed: 10
   tag: Wall
+  maxwellDuration: 7
+  targetCircleSize: 6
+  playerRb: {fileID: 0}
+  player: {fileID: 0}
+--- !u!135 &1007393504645269381
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3728691054375071773}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: -0.32}
 --- !u!1001 &3475034966319637114
 PrefabInstance:
   m_ObjectHideFlags: 0
