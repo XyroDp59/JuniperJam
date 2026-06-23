@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5722606033176915076
+--- !u!1001 &6647445942062559509
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 905897319708126724, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: m_Name
-      value: HorseSpawner Variant
+      value: JanitorSpawner Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1201407141545828969, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1201407141545828969, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1201407141545828969, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -55,15 +55,11 @@ PrefabInstance:
     - target: {fileID: 1251916669307761138, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: ennemi
       value: 
-      objectReference: {fileID: 4230143088117153514, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      objectReference: {fileID: 8690960703035468158, guid: c3954062d178a104b8310fd259eb09b8, type: 3}
     - target: {fileID: 1251916669307761138, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: spawnRate
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 1251916669307761138, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
-      propertyPath: firstEnnemi
-      value: 
-      objectReference: {fileID: 4230143088117153514, guid: f7763753287261748a443e5db2c18ac3, type: 3}
     - target: {fileID: 1251916669307761138, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: carrouselRadius
       value: 10

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BomberSpawner
   - ItemSpawner
+  - Wall
   layers:
   - Default
   - TransparentFX

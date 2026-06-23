@@ -101,11 +101,31 @@ public class ItemSpawner : MonoBehaviour
         return item;
     }
 
+    public Item SpawnItemWithoutAnim(Item itemToSpawn, Vector3 position)
+    {
+        for (int i = 0;  i < itemPool.Count; i++)
+        {
+            if (itemPool[i].name.Equals(itemToSpawn.name))
+            {
+                Item item = itemPool[i];
+                item.gameObject.SetActive(true);
+
+                itemPool.Remove(item);
+                activeItems.Add(item);
+                item.isItemActive = true;
+                item.OnItemSpawned.Invoke();
+                Instantiate(item, position, transform.rotation);
+                return item;
+            }
+        }
+        return null;
+    }
+
     public void DespawnItem(Item item)
     {
         item.gameObject.SetActive(false);
         item.isItemActive = false;
-        Debug.Assert(activeItems.Contains(item));
+        Debug.Assert(activeItems.Contains(item), "An item spawned manually got into the pool !");
 
         activeItems.Remove(item);
         itemPool.Add(item);

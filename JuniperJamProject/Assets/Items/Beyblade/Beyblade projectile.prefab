@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7556580128461369847
+--- !u!1 &705778381451687017
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 569819633701397355}
-  - component: {fileID: 1042713619132372530}
-  - component: {fileID: 5930085117208944167}
-  m_Layer: 6
-  m_Name: Mesh
+  - component: {fileID: 6183783888203758730}
+  - component: {fileID: 4242244343112720718}
+  - component: {fileID: 3250716652813319127}
+  m_Layer: 0
+  m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &569819633701397355
+--- !u!4 &6183783888203758730
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7556580128461369847}
+  m_GameObject: {fileID: 705778381451687017}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.215, z: 0}
-  m_LocalScale: {x: 0.25, y: 1, z: 0.25}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1008510570912783157}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!33 &1042713619132372530
+  m_Father: {fileID: 8761520563986294450}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4242244343112720718
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7556580128461369847}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5930085117208944167
+  m_GameObject: {fileID: 705778381451687017}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &3250716652813319127
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7556580128461369847}
+  m_GameObject: {fileID: 705778381451687017}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -90,7 +90,7 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &8690960703035468158
+--- !u!1 &4861004319905154447
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,42 +98,65 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1008510570912783157}
-  - component: {fileID: 4650308712669262676}
-  - component: {fileID: 4076486481134686415}
-  - component: {fileID: 3895050985515094330}
-  - component: {fileID: 2999954918813968265}
-  - component: {fileID: 4549263780303006741}
-  m_Layer: 6
-  m_Name: Janitor
+  - component: {fileID: 8761520563986294450}
+  - component: {fileID: 2394567183220532735}
+  - component: {fileID: 5375445614894616537}
+  - component: {fileID: 6319281083202940769}
+  - component: {fileID: 3739709691562841865}
+  m_Layer: 0
+  m_Name: Beyblade projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1008510570912783157
+--- !u!4 &8761520563986294450
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8690960703035468158}
+  m_GameObject: {fileID: 4861004319905154447}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: -4}
+  m_LocalPosition: {x: 1.99633, y: 0, z: -2.40258}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 569819633701397355}
+  - {fileID: 6183783888203758730}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &4650308712669262676
-CapsuleCollider:
+--- !u!114 &2394567183220532735
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8690960703035468158}
+  m_GameObject: {fileID: 4861004319905154447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7435753dd4dcd8d4daf7b3d50c6b098d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Beyblade
+  initialPos: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
+  attackPower: 100
+  maxSpeed: 25
+  minSpeed: 0.1
+  desceleration: 3
+  speedBonusOnCollision: 1
+  speedBonusOnHit: 5
+  lifetime: 30
+  targetCircleSize: 6
+  arenaSize: 12
+--- !u!135 &5375445614894616537
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4861004319905154447}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -142,21 +165,19 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
---- !u!54 &4076486481134686415
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6319281083202940769
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8690960703035468158}
+  m_GameObject: {fileID: 4861004319905154447}
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
@@ -172,87 +193,27 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &3895050985515094330
+--- !u!114 &3739709691562841865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8690960703035468158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7c04b5d43ea9246a25d00c270fec30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  rewardScore: 10
-  attributSet: {fileID: 4549263780303006741}
-  agent: {fileID: 2999954918813968265}
-  speed: 5
-  player: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
-  carrouselRadius: 7
-  safeZoneRadius: 5
-  arena: {fileID: 5047767431015900604, guid: beb96a61c874c3740b44672c8aac4b02, type: 3}
-  timeToWaitBeforeChassingItem: 1
-  timerItemAfterDeath: 3
-  fleeDistance: 10
-  fleeOverItemDistance: 7
-  minRandomMovementTime: 1
-  maxRandomMovementTime: 3
---- !u!195 &2999954918813968265
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8690960703035468158}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &4549263780303006741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8690960703035468158}
+  m_GameObject: {fileID: 4861004319905154447}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3c4b9d5ff1f0f54ebe96cf45fd8d63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttributSet
-  maxHp: 10
+  maxHp: 500
   onHpChange:
     m_PersistentCalls:
       m_Calls: []
   onDeath:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3895050985515094330}
-        m_TargetAssemblyTypeName: JanitorScript, Assembly-CSharp
-        m_MethodName: Death
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []

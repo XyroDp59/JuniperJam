@@ -10,15 +10,15 @@ public class SpawnerScript : MonoBehaviour
     [SerializeField] private float spawnRate = 5;
     [SerializeField] private float carrouselRadius = 8;
     [SerializeField] private int nombreSpawnPossible = 100000;
-
-    private ScoreManager _scoreManager;
+    [SerializeField] private ScoreManager _scoreManager;
     
     private float timer = 0;
     private float angle;
 
     private void Start()
     {
-        _scoreManager = ScoreManager.Instance;
+        _scoreManager = _scoreManager.GetComponent<ScoreManager>();
+        Debug.Log(_scoreManager);
     }
 
     void Update()
@@ -39,12 +39,7 @@ public class SpawnerScript : MonoBehaviour
 
     private Vector3 spawn()
     {
-        float y = 0;
-        if (ennemi.TryGetComponent<BomberScript>(out BomberScript bomber))
-        {
-            y = bomber.getMaxY();
-        }
-        Vector3 spawnPosition = new Vector3(math.cos(angle) * carrouselRadius, y, math.sin(angle) * carrouselRadius);
+        Vector3 spawnPosition = new Vector3(math.cos(angle) * carrouselRadius, 0, math.sin(angle) * carrouselRadius);
         return spawnPosition;
     }
 
