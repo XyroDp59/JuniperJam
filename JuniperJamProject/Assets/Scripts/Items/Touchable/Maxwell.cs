@@ -1,27 +1,38 @@
-using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class Maxwell : TouchableItem
+public class Maxwell : MonoBehaviour
 {
-    [SerializeField] GameObject maxwell;
+    [SerializeField] float attackPower;
+    [SerializeField] float speed;
+    [SerializeField] string tag;
     Vector3 currentDir;
 
-    public override void Use()
-    {
-        Instantiate(maxwell);
-        player.GetMesh().gameObject.SetActive(false);
-        player.TogglePlayerInput(false);
 
-        StartCoroutine(MaxwellBehavior());
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag(tag))
+        {
+            currentDir = ChooseNextDirection();
+        } 
     }
 
-    IEnumerator MaxwellBehavior()
+    private Vector3 ChooseNextDirection()
     {
-        yield return null;
+        Vector3 xAxis = transform.position.normalized;
+        Vector3 yAxis = Vector3.Cross(xAxis, Vector3.up);
+
+        float x = -1 * Vector3.Dot(currentDir, xAxis);
+        float y = Vector3.Dot(currentDir, yAxis) * Random.Range(0.25f, 1.25f);
+
+        return x*xAxis + y*yAxis;
     }
 
-    private void ChooseNextDirection()
+    // Update is called once per frame
+    void FixedUpdate()
     {
-
+        transform.position += currentDir * speed;
     }
+
+
 }
