@@ -4,11 +4,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 [RequireComponent (typeof(SphereCollider))]
-public class Vortex : MonoBehaviour
+public class Vortex : Projectile
 {
-    [HideInInspector] public Vector3 direction;
-    [HideInInspector] public Vector3 initialPos;
-
     [SerializeField] private float speed = 2;
     [SerializeField] AnimationCurve vortexSizeCurve;
     [SerializeField] float defaultHeight = 1;
