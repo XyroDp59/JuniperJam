@@ -10,9 +10,11 @@ public class PlayerScript : MonoBehaviour
     InputAction moveAction;
     InputAction jumpAction;
     Rigidbody rb;
-    
+
+    [Header("Visuals")]
     [SerializeField] private Animator animator;
     private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
+    [SerializeField] private AnimatorToMaterial mesh;
     
     [Header("Movement")]
     [SerializeField] private float speed = 10;
@@ -20,7 +22,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float dashDistance = 2;
     [SerializeField] private float dashInvulnerableTime = 0.5f;
     
-    private InputSystem_Actions controls;
+    [HideInInspector] public InputSystem_Actions controls;
     private Vector2 moveInput;
     private Vector2 lastMoveInput;
     private bool dashing = false;
@@ -62,6 +64,19 @@ public class PlayerScript : MonoBehaviour
         controls.Player.ItemB.started += ctx => PickableHandler(ctx, ref weaponB);
     }
 
+
+    void OnDisable() => controls.Disable();
+    public void TogglePlayerInput(bool b)
+    {
+        if (controls.UI.enabled)
+        {
+            Debug.LogError("[TogglePlayerInput] are you sure you want to toggle manually the player when in UI ?");
+        }
+
+        if (b) controls.Player.Enable();
+        else controls.Player.Disable();
+    }
+
     void FixedUpdate()
     {
         //rb.linearVelocity = new Vector3(moveInput.x * speed, rb.linearVelocity.y, moveInput.y * speed);
@@ -83,6 +98,11 @@ public class PlayerScript : MonoBehaviour
             yield return new WaitForSeconds(dashDistance / dashSpeed);
             dashing = false;
         }
+    }
+
+    public Vector2 GetMoveDirection()
+    {
+        return lastMoveInput;
     }
 
 
@@ -120,9 +140,17 @@ public class PlayerScript : MonoBehaviour
             basicAttackObject.transform.position = transform.position; 
             basicAttackObject.gameObject.SetActive(true);
             
+            mesh.Spin(0.8f * basicAttackDuration, 1);
+            
             yield return new WaitForSeconds(basicAttackDuration);
             isAttacking = false;
             animator.SetBool(IsAttacking, false);
         }
     }
+
+    public AnimatorToMaterial GetMesh()
+    {
+        return mesh;
+    }
+
 }

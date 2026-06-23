@@ -18,6 +18,7 @@ public class AttributSet : MonoBehaviour
             currentHp = value;
         }
     }
+    public int MaxHp => maxHp;
 
     public UnityEvent<int, float> onHpChange; // <currentHp, currentPourcentage> (post change) 
     public UnityEvent onDeath;
