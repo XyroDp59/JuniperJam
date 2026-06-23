@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float dashDistance = 2;
     [SerializeField] private float dashInvulnerableTime = 0.5f;
     
-    private InputSystem_Actions controls;
+    [HideInInspector] public InputSystem_Actions controls;
     private Coroutine movingCoroutine;
     private Vector2 moveInput;
     private Vector2 lastMoveInput;
@@ -168,6 +168,8 @@ public class PlayerScript : MonoBehaviour
             basicAttackObject.timeToLive = 0.25f;
             basicAttackObject.transform.position = transform.position; 
             basicAttackObject.gameObject.SetActive(true);
+            
+            mesh.Spin(0.8f * basicAttackDuration, 1);
             
             yield return new WaitForSeconds(basicAttackDuration);
             isAttacking = false;
