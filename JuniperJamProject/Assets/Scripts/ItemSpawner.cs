@@ -122,6 +122,7 @@ public class ItemSpawner : MonoBehaviour
     {
         item.gameObject.SetActive(false);
         item.isItemActive = false;
+        item.transform.parent = transform.parent;
         Debug.Assert(activeItems.Contains(item), "An item spawned manually got into the pool !");
 
         activeItems.Remove(item);

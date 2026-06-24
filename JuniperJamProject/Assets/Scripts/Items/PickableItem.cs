@@ -6,7 +6,7 @@ public abstract class PickableItem : Item
     {
         playerSlot = this;
         gameObject.SetActive(false);
-        transform.parent = playerTransform;
+        //transform.parent = playerTransform;
         transform.position = Vector3.zero;
         player = playerTransform.GetComponent<PlayerScript>();
     }
