@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 1633887984533770477}
   - component: {fileID: 896606428392855612}
   - component: {fileID: -8529740198349777531}
-  m_Layer: 0
+  - component: {fileID: 4516057855570095948}
+  m_Layer: 6
   m_Name: Children
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,10 +102,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   rewardScore: 10
   attributSet: {fileID: 896606428392855612}
+  damage: 5
   slownessFactor: 1
+  attackPower: 5
   agent: {fileID: -8529740198349777531}
   speed: 3
-  player: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
 --- !u!114 &896606428392855612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +148,29 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &4516057855570095948
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230143088117153514}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 30
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5220120002124200105
 GameObject:
   m_ObjectHideFlags: 0

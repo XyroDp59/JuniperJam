@@ -7,7 +7,6 @@ public class HorseScript : EnnemiClassScript
     Rigidbody rb;
 
     [SerializeField] private float baseSpeed = 3;
-    [SerializeField] private GameObject player;
 
     [Header("Dash")]
     [SerializeField] private float dashSpeed = 20;
@@ -16,21 +15,19 @@ public class HorseScript : EnnemiClassScript
 
     private float timer = 0;
     private Vector3 savePlayerPosition = Vector3.zero;
+    private GameObject player = null;
     private bool isDashing = false;
     private float playerX;
     private float playerZ;
 
     private void Awake()
     {
-        //BREAKING CHANGE: change that line if the name of the player is different than the one from the prefab
-        player = GameObject.Find(player.name);
-
         rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        if (player.activeSelf && !isDashing)
+        if (player != null && player.activeSelf && !isDashing)
         {
             playerX = getPlayerX();
             playerZ = getPlayerZ();
@@ -41,7 +38,7 @@ public class HorseScript : EnnemiClassScript
                 savePlayerPosition = new Vector3(playerX, 0, playerZ);
             }
         }
-        else if (player.activeSelf && isDashing)
+        else if (player != null && player.activeSelf && isDashing)
         {
             if (timer > dashTimer)
             {
@@ -75,6 +72,14 @@ public class HorseScript : EnnemiClassScript
         direction.y = 0;
         direction.Normalize();
         return direction;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            player = other.gameObject;
+        }
     }
 }
 
