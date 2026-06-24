@@ -20,6 +20,9 @@ public class ChildrenScript : EnnemiClassScript
     {
         if (player.activeSelf)
         {
+            // apply slowness
+            agent.speed = speed * slownessFactor;
+
             agent.SetDestination(player.transform.position);
         }
     }

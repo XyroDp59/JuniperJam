@@ -60,6 +60,9 @@ public class JanitorScript : EnnemiClassScript
 
     void Update()
     {
+        // apply slowness
+        agent.speed = speed * slownessFactor;
+
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         items = itemSpawner.getActiveItems();
         if (items.Count == 1 && itemTarget != items[0])

@@ -6,4 +6,5 @@ public class EnnemiClassScript : MonoBehaviour
 {
     public int rewardScore;
     public AttributSet attributSet; //serialized for better performance
+    public float slownessFactor = 1;
 }

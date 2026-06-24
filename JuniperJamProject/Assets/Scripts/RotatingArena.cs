@@ -7,6 +7,16 @@ public class RotatingArena : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     private float currentRotation;
 
+    public static RotatingArena Singleton;
+
+    private void Awake()
+    {
+        if (Singleton == null)
+        {
+            Singleton = this;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
