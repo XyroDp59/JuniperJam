@@ -24,7 +24,15 @@ public class ExplosionScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out AttributSet attributSet))
+        if (other.gameObject.TryGetComponent(out AttributSet attributSet) && Vector3.SqrMagnitude(transform.position - other.gameObject.transform.position) < 1.5)
+        {
+            attributSet.CurrentHp -= damage;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.TryGetComponent(out AttributSet attributSet) && Vector3.SqrMagnitude(transform.position - other.gameObject.transform.position) < 1.5)
         {
             attributSet.CurrentHp -= damage;
         }
