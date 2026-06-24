@@ -47,7 +47,7 @@ public class JanitorScript : EnnemiClassScript
 
         agent.speed = speed;
         isReturningToSafeZone = false;
-        itemSpawner = GameObject.FindGameObjectWithTag("ItemSpawner").GetComponent<ItemSpawner>();
+        itemSpawner = ItemSpawner.Singleton;
         timerForItem = 0;
         itemHeld = null;
         randomTimeMovement = Random.Range(minRandomMovementTime, maxRandomMovementTime);
@@ -57,7 +57,9 @@ public class JanitorScript : EnnemiClassScript
     }
 
     void Update()
-    {
+    {            
+        // apply slowness
+        agent.speed = speed * slownessFactor;
         if (player != null)
         {
             distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);

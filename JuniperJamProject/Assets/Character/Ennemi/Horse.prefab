@@ -99,8 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   rewardScore: 10
   attributSet: {fileID: 896606428392855612}
-  damage: 5
-  baseSpeed: 10
+  slownessFactor: 1
+  baseSpeed: 3
   player: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
   dashSpeed: 40
   dashTimer: 0.5

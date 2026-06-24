@@ -15,4 +15,16 @@ public class EnnemiClassScript : MonoBehaviour
             attributSet.CurrentHp -= damage;
         }
     }
+    public float slownessFactor = 1;
+
+    [SerializeField] private int attackPower = 5;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.TryGetComponent<PlayerScript>(out var player) && other.TryGetComponent<AttributSet>(out var health))
+        {
+            health.CurrentHp -= attackPower;
+        }
+    }
+
 }

@@ -192,7 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   rewardScore: 10
   attributSet: {fileID: 4549263780303006741}
-  damage: 5
+  slownessFactor: 1
   agent: {fileID: 2999954918813968265}
   speed: 5
   player: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}

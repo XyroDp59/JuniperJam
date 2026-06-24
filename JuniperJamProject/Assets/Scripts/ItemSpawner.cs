@@ -1,9 +1,6 @@
-using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class ItemSpawner : MonoBehaviour
 {
@@ -125,7 +122,7 @@ public class ItemSpawner : MonoBehaviour
     {
         item.gameObject.SetActive(false);
         item.isItemActive = false;
-        Debug.Assert(activeItems.Contains(item));
+        Debug.Assert(activeItems.Contains(item), "An item spawned manually got into the pool !");
 
         activeItems.Remove(item);
         itemPool.Add(item);

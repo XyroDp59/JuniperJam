@@ -31,7 +31,7 @@ public class HorseScript : EnnemiClassScript
         {
             playerX = getPlayerX();
             playerZ = getPlayerZ();
-            rb.MovePosition(transform.position + getDirection(player.transform.position) * Time.deltaTime * baseSpeed);
+            rb.MovePosition(transform.position + getDirection(player.transform.position) * Time.deltaTime * baseSpeed * slownessFactor);
             if (Vector3.Distance(player.transform.position, transform.position) < dashDistance)
             {
                 isDashing = true;
@@ -42,7 +42,7 @@ public class HorseScript : EnnemiClassScript
         {
             if (timer > dashTimer)
             {
-                rb.MovePosition(transform.position + getDirection(savePlayerPosition) * Time.deltaTime * dashSpeed);
+                rb.MovePosition(transform.position + getDirection(savePlayerPosition) * Time.deltaTime * dashSpeed * slownessFactor);
                 if (Vector3.Distance(savePlayerPosition, transform.position) < 0.7)
                 {
                     timer = 0;
