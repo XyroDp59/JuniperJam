@@ -11,6 +11,9 @@ public class PlayerScript : MonoBehaviour
     InputAction jumpAction;
     Rigidbody rb;
     
+    [SerializeField] private Animator animator;
+    private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
+    
     [Header("Movement")]
     [SerializeField] private float speed = 10;
     [SerializeField] private float dashSpeed = 50;
@@ -110,6 +113,7 @@ public class PlayerScript : MonoBehaviour
         if (!dashing && !isAttacking)
         {
             isAttacking = true;
+            animator.SetBool(IsAttacking, true);
             
             basicAttackObject.damage = basicAttackDamage; 
             basicAttackObject.timeToLive = 0.25f;
@@ -118,6 +122,7 @@ public class PlayerScript : MonoBehaviour
             
             yield return new WaitForSeconds(basicAttackDuration);
             isAttacking = false;
+            animator.SetBool(IsAttacking, false);
         }
     }
 }
