@@ -6,27 +6,65 @@ public class PlatineDisk : BaseMovingItem
 {
     [HideInInspector] public float platineTime;
     private Transform _playerMeshTransform;
+    private Transform _playerTransform;
+    private Direction _currentDirection;
+    enum Direction
+    {
+        UpRight,
+        DownRight,
+        DownLeft,
+        UpLeft
+    }
     
     public void Start()
     {
         StartCoroutine(StartMixing(platineTime));
         _playerMeshTransform = player.GetMesh().transform;
+        _playerTransform = player.transform;
+        _currentDirection = GetDir(GetDir3D());
     }
 
     private void Update()
     {
-        if (isKeyboardOrMouse)
-            _playerMeshTransform.rotation = Quaternion.LookRotation(Vector3.down, new Vector3(GetInput().x, 0, GetInput().y));
-        else
-            _playerMeshTransform.rotation = Quaternion.LookRotation(Vector3.down,  new Vector3(GetInput().x, 0, GetInput().y) - _playerMeshTransform.position);
+        Vector3 dir3D = GetDir3D();
+        
+        _playerMeshTransform.rotation = Quaternion.LookRotation(Vector3.down, dir3D);
+        
+        Direction newDirection = GetDir(dir3D);
+        if (dir3D.magnitude > 0.3f 
+            && (newDirection == _currentDirection + 1 
+                || (_currentDirection == Direction.UpLeft && newDirection == Direction.UpRight)))
+        {
+            print(newDirection);
+        }
+        
+        _currentDirection = newDirection;
     }
 
     private IEnumerator StartMixing(float timeToMix)
     {
-        player.TogglePlayerInput(false);
+        player.TogglePlayerMovement(false);
         yield return new WaitForSeconds(timeToMix);
-        player.TogglePlayerInput(true);
+        player.TogglePlayerMovement(true);
         _playerMeshTransform.rotation = Quaternion.LookRotation(Vector3.down, Vector3.back);
         Destroy(gameObject);
+    }
+
+    private Vector3 GetDir3D()
+    {
+        Vector2 input = GetInput();
+        
+        Vector3 truc = isKeyboardOrMouse ? 
+            (new Vector3(input.x, 0, input.y) - _playerTransform.position) : //pour proportion pour check apres newDirection
+            new Vector3(input.x, 0, input.y);
+
+        //print("truc : " + truc + "; isKeyboardOrMouse " + isKeyboardOrMouse + "; _playerMeshTransform.position " + _playerTransform.position + "; input " + input);
+        
+        return truc;
+    }
+
+    private Direction GetDir(Vector3 dir3D)
+    {
+        return (dir3D.x > 0) ? (dir3D.z > 0 ? Direction.UpRight : Direction.DownRight) : (dir3D.z > 0 ? Direction.UpLeft : Direction.DownLeft);
     }
 }
