@@ -11,11 +11,11 @@ public class AttributSet : MonoBehaviour
         get {  return currentHp; }
         set { 
             value = Mathf.Clamp(value, 0, maxHp);
-            
             onHpChange.Invoke(value, ((float)value) / maxHp); 
             if (value <= 0) onDeath.Invoke();
             
             currentHp = value;
+            Debug.Log("player hp :" + currentHp);
         }
     }
     public int MaxHp => maxHp;
