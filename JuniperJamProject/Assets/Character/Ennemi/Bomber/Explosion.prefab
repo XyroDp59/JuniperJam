@@ -160,3 +160,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   explosionTime: 1
+  damage: 10

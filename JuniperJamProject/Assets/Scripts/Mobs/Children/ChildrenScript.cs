@@ -5,25 +5,30 @@ public class ChildrenScript : EnnemiClassScript
 {
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private float speed = 3;
-    [SerializeField] private GameObject player;
+
+    private GameObject player = null;
 
     private void Awake()
     {
-        //BREAKING CHANGE: change that line if the name of the player is different than the one from the prefab
-        player = GameObject.Find(player.name);
-
         agent = GetComponent<NavMeshAgent>();
         agent.speed = speed;
     }
 
     void Update()
     {
-        if (player.activeSelf)
+        if (player != null && player.activeSelf)
         {
             // apply slowness
             agent.speed = speed * slownessFactor;
 
             agent.SetDestination(player.transform.position);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            player = other.gameObject;
         }
     }
 }
