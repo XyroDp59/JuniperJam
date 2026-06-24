@@ -17,7 +17,7 @@ public class ScoreManager : MonoBehaviour
     public void IncrementScore(int score)
     {
         _score += score;
-        _scoreText.text = "SCORE : " + _score;
+        //_scoreText.text = "SCORE : " + _score;
     }
     public int GetScore() { return _score; }
 }

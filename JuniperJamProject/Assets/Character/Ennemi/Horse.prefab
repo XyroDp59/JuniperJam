@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   rewardScore: 10
   attributSet: {fileID: 896606428392855612}
+  slownessFactor: 1
   baseSpeed: 3
   player: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
   dashSpeed: 25
@@ -133,7 +134,7 @@ GameObject:
   - component: {fileID: 8699391705505294376}
   - component: {fileID: 8399726986605952635}
   - component: {fileID: 7308473781532037251}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}

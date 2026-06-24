@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1201407141545828969, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.93563
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1201407141545828969, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1201407141545828969, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.01327
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1201407141545828969, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 1251916669307761138, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: ennemi
       value: 
-      objectReference: {fileID: 4230143088117153514, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+      objectReference: {fileID: 4641914201572663499, guid: f7763753287261748a443e5db2c18ac3, type: 3}
     - target: {fileID: 1251916669307761138, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: spawnRate
       value: 15
@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: firstEnnemi
       value: 
       objectReference: {fileID: 4230143088117153514, guid: f7763753287261748a443e5db2c18ac3, type: 3}
+    - target: {fileID: 1251916669307761138, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
+      propertyPath: carrouselRadius
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

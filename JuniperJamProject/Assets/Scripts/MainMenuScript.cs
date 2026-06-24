@@ -52,7 +52,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("XyroScene");
+        SceneManager.LoadScene(1);
     }
     
 }

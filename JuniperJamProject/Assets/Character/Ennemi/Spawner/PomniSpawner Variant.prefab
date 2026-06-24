@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: firstEnnemi
       value: 
       objectReference: {fileID: 4230143088117153514, guid: ae43763c91005a945ab183251a2334c2, type: 3}
+    - target: {fileID: 1251916669307761138, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
+      propertyPath: carrouselRadius
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
