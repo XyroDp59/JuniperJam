@@ -50,6 +50,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   slownessFactor: 0.2
+  lifetime: 15
 --- !u!65 &8534938128295741671
 BoxCollider:
   m_ObjectHideFlags: 0
