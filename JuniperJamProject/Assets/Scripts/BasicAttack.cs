@@ -19,10 +19,9 @@ public class BasicAttack : MonoBehaviour
         if (currentLifeTime >= timeToLive) gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        print(other.name);
-        if (other.gameObject.TryGetComponent(out AttributSet attributSet))
+        if (collision.gameObject.TryGetComponent(out AttributSet attributSet))
         {
             attributSet.CurrentHp -= damage;
         }
