@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatineDisk
   player: {fileID: 0}
-  shockWave: {fileID: 4513131974814386207, guid: 7ae79ca4359d5324383929ef8f9295a6, type: 3}
+  shockWave: {fileID: 2627901566617813503, guid: e6e9d908803d12241b341553e21415f5, type: 3}
   damage: 10
   platineTime: 0
 --- !u!1 &8516487376960387168

@@ -21,7 +21,6 @@ public abstract class BaseMovingItem : MonoBehaviour
         player.controls.Player.ItemControl.performed += ctx =>
         {
             moveInput = ctx.ReadValue<Vector2>();
-            print(moveInput);
             if (moveInput != Vector2.zero) 
                 isKeyboardOrMouse = false;
         };
