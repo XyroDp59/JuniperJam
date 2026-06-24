@@ -191,14 +191,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   rewardScore: 10
   attributSet: {fileID: 4549263780303006741}
+  slownessFactor: 1
   agent: {fileID: 2999954918813968265}
   speed: 5
   player: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
   carrouselRadius: 7
   safeZoneRadius: 5
   arena: {fileID: 5047767431015900604, guid: beb96a61c874c3740b44672c8aac4b02, type: 3}
-  itemSpawner: {fileID: 0}
   timeToWaitBeforeChassingItem: 1
+  timerItemAfterDeath: 3
   fleeDistance: 10
   fleeOverItemDistance: 7
   minRandomMovementTime: 1
@@ -243,4 +244,16 @@ MonoBehaviour:
       m_Calls: []
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3895050985515094330}
+        m_TargetAssemblyTypeName: JanitorScript, Assembly-CSharp
+        m_MethodName: Death
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

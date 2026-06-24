@@ -4,8 +4,12 @@ using UnityEngine;
 public class Yoyo : PickableItem
 {
     [SerializeField] int NumberOfUses;
-    [SerializeField] GameObject projectile;
+    [SerializeField] YoyoProjectile projectile;
     [SerializeField] int damage;
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float speed;
+    [SerializeField] private float dashDistance;
+    [SerializeField] private float approchingSpeed;
 
     int currentUses = 0;
 
@@ -19,6 +23,17 @@ public class Yoyo : PickableItem
         if (currentUses >= NumberOfUses) return;
         Debug.Log($"Yoyo : {NumberOfUses - currentUses}");
         currentUses++;
+        
+        YoyoProjectile y = Instantiate(projectile, player.transform.position, Quaternion.identity);
+        y.player = player;
+        y.damage = damage;
+        y.dashSpeed = dashSpeed;
+        y.speed = speed;
+        y.dashDistance = dashDistance;
+        y.dashDirection = new Vector3(player.GetMoveDirection().x, 0, player.GetMoveDirection().y);
+        y.approchingSpeed = approchingSpeed;
+        y.gameObject.SetActive(true);
+        
         if (currentUses == NumberOfUses)
         {
             ItemSpawner.Singleton.DespawnItem(this);

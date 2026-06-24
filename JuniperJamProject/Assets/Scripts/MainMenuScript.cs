@@ -35,9 +35,6 @@ public class MainMenuScript : MonoBehaviour
         optionsMenu.SetActive(true);
         mainMenu.SetActive(false);
         creditsMenu.SetActive(false);
-        
-        // SFX
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/confirm");
     }
 
     public void ShowCreditsMenu()
@@ -46,9 +43,6 @@ public class MainMenuScript : MonoBehaviour
         creditsMenu.SetActive(true);
         mainMenu.SetActive(false);
         optionsMenu.SetActive(false);
-        
-        // SFX
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/confirm");
     }
 
     public void ExitGame()
@@ -58,16 +52,15 @@ public class MainMenuScript : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Scenes/GameScenes/OutdoorsScene");
+        SceneManager.LoadScene(1);
     }
-    
+
     
     // SFX 
     public void HoverButtonSound()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/hover");
     }
-
     public void BackButtonSound()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/back");
