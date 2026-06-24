@@ -25,15 +25,13 @@ public abstract class BaseMovingItem : MonoBehaviour
                 isKeyboardOrMouse = false;
         };
         player.controls.Player.ItemControl.canceled += ctx => moveInput = Vector2.zero;
-        
-        cam = Camera.main; //ou main camera ?
     }
 
     protected Vector2 GetInput()
     {
         if (isKeyboardOrMouse)
         {
-            Ray ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue()); // a optimiser
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()); // a optimiser
             Plane plane = new Plane(Vector3.up, Vector3.zero);
             plane.Raycast(ray, out float hit);
             Vector3 point = ray.GetPoint(hit);

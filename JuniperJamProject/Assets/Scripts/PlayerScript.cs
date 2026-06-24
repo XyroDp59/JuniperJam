@@ -86,6 +86,12 @@ public class PlayerScript : MonoBehaviour
         else controls.Player.Disable();
     }
 
+    public void TogglePlayerMovement(bool b)
+    {
+        if (b) controls.Player.Move.Enable();
+        else controls.Player.Move.Disable();
+    }
+
     #endregion
 
     #region Movement
