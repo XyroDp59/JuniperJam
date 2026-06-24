@@ -84,7 +84,7 @@ MonoBehaviour:
   player: {fileID: 0}
   isItemActive: 0
   platineDisk: {fileID: 8806293782518424368, guid: 5f4b7a4eaf52479498039e1eb991d2cd, type: 3}
-  platineTime: 2
+  platineTime: 3
 --- !u!1 &8837221765083807286
 GameObject:
   m_ObjectHideFlags: 0

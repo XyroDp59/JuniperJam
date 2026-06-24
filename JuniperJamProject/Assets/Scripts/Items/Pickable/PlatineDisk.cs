@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlatineDisk : BaseMovingItem
 {
+    [SerializeField] private BasicAttack shockWave;
+    [SerializeField] private int damage;
+    
     [HideInInspector] public float platineTime;
     private Transform _playerMeshTransform;
     private Transform _playerTransform;
@@ -35,7 +38,11 @@ public class PlatineDisk : BaseMovingItem
             && (newDirection == _currentDirection + 1 
                 || (_currentDirection == Direction.UpLeft && newDirection == Direction.UpRight)))
         {
-            print(newDirection);
+            BasicAttack newShockWave = Instantiate(shockWave, transform.position, Quaternion.identity);
+            newShockWave.timeToLive = 0.1f;
+            newShockWave.damage = damage;
+            newShockWave.gameObject.SetActive(true);
+            Destroy(newShockWave.gameObject, 0.15f);
         }
         
         _currentDirection = newDirection;
