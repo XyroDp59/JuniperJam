@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1201407141545828969}
   - component: {fileID: 1251916669307761138}
+  - component: {fileID: -4694733996719126533}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -49,3 +50,26 @@ MonoBehaviour:
   carrouselRadius: 10
   nombreSpawnPossible: 1000
   _scoreManager: {fileID: 7236004486375029691, guid: 7bf4344bebeeb9a49b11ad8c6880688b, type: 3}
+--- !u!136 &-4694733996719126533
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905897319708126724}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
