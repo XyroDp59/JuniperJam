@@ -63,7 +63,6 @@ MonoBehaviour:
   player: {fileID: 0}
   isItemActive: 0
   maxwellPrefab: {fileID: 8987696256247333554, guid: 229e86de532258a488e3da4ac4694034, type: 3}
-  maxwellDuration: 5
 --- !u!135 &6066675406045463177
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -153,6 +152,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: maxwell
       objectReference: {fileID: 0}
+    - target: {fileID: 4584895924664493050, guid: 85a866c5c76ec2e4b9e1d6ae4b9ebbf5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a06494aa0aa30f644a348c5c13d546d7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

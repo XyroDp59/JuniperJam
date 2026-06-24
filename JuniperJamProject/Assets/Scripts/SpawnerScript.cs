@@ -9,7 +9,7 @@ public class SpawnerScript : MonoBehaviour
     [SerializeField] private EnnemiClassScript ennemi;
     [SerializeField] private float spawnRate = 5;
     [SerializeField] private float carrouselRadius = 8;
-    [SerializeField] private int nombreSpawnPossible = 100000;
+    [SerializeField] private int nombreSpawnPossible = 1000;
     [SerializeField] private ScoreManager _scoreManager;
     
     private float timer = 0;

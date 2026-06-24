@@ -126,6 +126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: maxwell
       objectReference: {fileID: 0}
+    - target: {fileID: 4584895924664493050, guid: 85a866c5c76ec2e4b9e1d6ae4b9ebbf5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a06494aa0aa30f644a348c5c13d546d7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

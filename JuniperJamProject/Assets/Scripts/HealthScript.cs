@@ -51,9 +51,10 @@ public class HealthScript : MonoBehaviour
             if (colorizedText && healthText != null) healthText.color = c;
         }
 
+        /*
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             target.CurrentHp -= 5;
-        }
+        }*/
     }
 }

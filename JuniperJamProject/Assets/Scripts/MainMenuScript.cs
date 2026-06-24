@@ -52,7 +52,23 @@ public class MainMenuScript : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("XyroScene");
+        SceneManager.LoadScene(1);
+    }
+
+    
+    // SFX 
+    public void HoverButtonSound()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/hover");
+    }
+    public void BackButtonSound()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/back");
+    }
+    
+    public void ConfirmButtonSound()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/confirm");
     }
     
 }

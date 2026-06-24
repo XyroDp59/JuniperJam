@@ -10,7 +10,6 @@ public class JanitorScript : EnnemiClassScript
     [SerializeField] public NavMeshAgent agent;
 
     [SerializeField] private float speed;
-    [SerializeField] private GameObject player;
 
     [Header("Prevent against OOB")]
     [SerializeField] private float carrouselRadius;
@@ -29,6 +28,7 @@ public class JanitorScript : EnnemiClassScript
     [SerializeField] private int minRandomMovementTime;
     [SerializeField] private int maxRandomMovementTime;
 
+    private GameObject player = null;
     private ItemSpawner itemSpawner;
     private bool isReturningToSafeZone = false;
     private float timerForItem = 0;
@@ -42,14 +42,12 @@ public class JanitorScript : EnnemiClassScript
 
     void Awake()
     {
-        //BREAKING CHANGE: change that line if the name of the player is different than the one from the prefab
-        player = GameObject.Find(player.name);
         //BREAKING CHANGE: change that line if the name of the arena is different than the one from the prefab
         arena = GameObject.Find(arena.name);
 
         agent.speed = speed;
         isReturningToSafeZone = false;
-        itemSpawner = GameObject.FindGameObjectWithTag("ItemSpawner").GetComponent<ItemSpawner>();
+        itemSpawner = ItemSpawner.Singleton;
         timerForItem = 0;
         itemHeld = null;
         randomTimeMovement = Random.Range(minRandomMovementTime, maxRandomMovementTime);
@@ -59,50 +57,52 @@ public class JanitorScript : EnnemiClassScript
     }
 
     void Update()
-    {
+    {            
         // apply slowness
         agent.speed = speed * slownessFactor;
-
-        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-        items = itemSpawner.getActiveItems();
-        if (items.Count == 1 && itemTarget != items[0])
+        if (player != null)
         {
-            timerForItem = 0;
-            itemTarget = items[0];
-        }
-        if (itemTarget != null && itemTarget.gameObject.activeSelf && timerForItem > timeToWaitBeforeChassingItem)
-        {
-            if (distanceToPlayer < fleeOverItemDistance)
+            distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+            items = itemSpawner.getActiveItems();
+            if (items.Count == 1 && itemTarget != items[0])
             {
-                FleeMovement();
+                timerForItem = 0;
+                itemTarget = items[0];
             }
-            else
+            if (itemTarget != null && itemTarget.gameObject.activeSelf && timerForItem > timeToWaitBeforeChassingItem)
             {
-                ToItemMovement();
-                if (Vector3.Distance(transform.position, itemTarget.transform.position) < 0.7)
+                if (distanceToPlayer < fleeOverItemDistance)
                 {
-                    itemHeld = itemTarget;
-                    itemTarget.gameObject.SetActive(false);
-                    itemTarget = null;
-                    Debug.Log(itemHeld);
+                    FleeMovement();
                 }
-            }
-            timerRandomMovement = 0;
-        }
-        else
-        {
-            if (distanceToPlayer < fleeDistance)
-            {
-                FleeMovement();
+                else
+                {
+                    ToItemMovement();
+                    if (Vector3.Distance(transform.position, itemTarget.transform.position) < 0.7)
+                    {
+                        itemHeld = itemTarget;
+                        itemTarget.gameObject.SetActive(false);
+                        itemTarget = null;
+                        Debug.Log(itemHeld);
+                    }
+                }
                 timerRandomMovement = 0;
             }
             else
             {
-                RandomMovement();
-            }
-            if (itemTarget != null)
-            {
-                timerForItem += Time.deltaTime;
+                if (distanceToPlayer < fleeDistance)
+                {
+                    FleeMovement();
+                    timerRandomMovement = 0;
+                }
+                else
+                {
+                    RandomMovement();
+                }
+                if (itemTarget != null)
+                {
+                    timerForItem += Time.deltaTime;
+                }
             }
         }
     }
@@ -193,6 +193,14 @@ public class JanitorScript : EnnemiClassScript
             Debug.Log("ouai");
             item.OnItemDespawned.Invoke();
             Debug.Log("clc");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            player = other.gameObject;
         }
     }
 }
