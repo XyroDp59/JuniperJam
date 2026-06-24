@@ -66,5 +66,9 @@ public class MainMenuScript : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/back");
     }
     
+    public void ConfirmButtonSound()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/confirm");
+    }
     
 }
