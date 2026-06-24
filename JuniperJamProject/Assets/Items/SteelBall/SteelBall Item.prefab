@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: projectile
       value: 
       objectReference: {fileID: 8557945661159112886, guid: 852148066e2b8484a96e22c6b9914bc8, type: 3}
+    - target: {fileID: 2557800099714219660, guid: d035684fc8f8d3f4d8161abbf698bbb1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 78aa7f49155388e4f9db127b8c25ba67, type: 2}
     - target: {fileID: 3145858098762782438, guid: d035684fc8f8d3f4d8161abbf698bbb1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -54,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5435354581519782606, guid: d035684fc8f8d3f4d8161abbf698bbb1, type: 3}
       propertyPath: m_Name
-      value: SteelBallI tem
+      value: SteelBall Item
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

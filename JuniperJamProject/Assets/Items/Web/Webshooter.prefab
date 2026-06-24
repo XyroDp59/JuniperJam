@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: heightAtSpawn
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 2557800099714219660, guid: d035684fc8f8d3f4d8161abbf698bbb1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6e2709a751b87614bb99a1862bc34d79, type: 2}
     - target: {fileID: 3145858098762782438, guid: d035684fc8f8d3f4d8161abbf698bbb1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
