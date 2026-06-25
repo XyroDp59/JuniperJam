@@ -648,6 +648,14 @@ PrefabInstance:
       propertyPath: mesh
       value: 
       objectReference: {fileID: 1768263758}
+    - target: {fileID: 2751202979229783948, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
+      propertyPath: weaponAUI
+      value: 
+      objectReference: {fileID: 1500526294}
+    - target: {fileID: 2751202979229783948, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
+      propertyPath: weaponBUI
+      value: 
+      objectReference: {fileID: 51257919}
     - target: {fileID: 2875369653824856168, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -734,6 +742,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
+      propertyPath: itemList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
+      propertyPath: 'itemList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 499523302201885817, guid: efa77039d82180d47b6eab0ba2191d3c, type: 3}
+    - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
+      propertyPath: 'itemList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5945041290467727245, guid: 4bcd0ca0bbfe75748885396c1ef2834b, type: 3}
+    - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
+      propertyPath: 'itemList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8502447872593769781, guid: 9df19b0504210164793b5836fdb3f963, type: 3}
+    - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
+      propertyPath: 'itemList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 6841532401907258743, guid: 65958b6e34882444b939174e51821f00, type: 3}
+    - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
+      propertyPath: 'itemList.Array.data[4]'
+      value: 
+      objectReference: {fileID: 933722140180083591, guid: bb50182daaf900e4391de2c5a6844c2b, type: 3}
+    - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
+      propertyPath: 'itemList.Array.data[5]'
+      value: 
+      objectReference: {fileID: 499523302201885817, guid: efa77039d82180d47b6eab0ba2191d3c, type: 3}
+    - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
+      propertyPath: 'itemList.Array.data[6]'
+      value: 
+      objectReference: {fileID: 499523302201885817, guid: efa77039d82180d47b6eab0ba2191d3c, type: 3}
     - target: {fileID: 4644815488754730560, guid: c8076db0e391938469d351b53b493ebc, type: 3}
       propertyPath: m_Name
       value: ItemSpawner
