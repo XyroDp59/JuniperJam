@@ -24,7 +24,7 @@ public class HealthScript : MonoBehaviour
             return;
         }
         target.onHpChange.AddListener(OnHpChange);
-        OnHpChange(target.CurrentHp, (float) target.CurrentHp / target.MaxHp);
+        OnHpChange(0, target.CurrentHp, (float) target.CurrentHp / target.MaxHp);
     }
 
     private void OnDisable()
@@ -33,7 +33,7 @@ public class HealthScript : MonoBehaviour
             target.onHpChange.RemoveListener(OnHpChange);
     }
 
-    private void OnHpChange(int currHp, float ratio)
+    private void OnHpChange(int HpDiff, int currHp, float ratio)
     {
         targetFill = ratio;
         if (healthText != null) healthText.text = currHp.ToString();

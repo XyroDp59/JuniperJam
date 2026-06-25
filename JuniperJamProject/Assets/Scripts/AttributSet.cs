@@ -11,7 +11,7 @@ public class AttributSet : MonoBehaviour
         get {  return currentHp; }
         set { 
             value = Mathf.Clamp(value, 0, maxHp);
-            onHpChange.Invoke(value, ((float)value) / maxHp); 
+            onHpChange.Invoke(value - currentHp, value, ((float)value) / maxHp); 
             if (value <= 0) onDeath.Invoke();
             
             currentHp = value;
@@ -20,7 +20,7 @@ public class AttributSet : MonoBehaviour
     }
     public int MaxHp => maxHp;
 
-    public UnityEvent<int, float> onHpChange; // <currentHp, currentPourcentage> (post change) 
+    public UnityEvent<int, int, float> onHpChange; // <damageTaken, currentHp, currentPourcentage> (post change) 
     public UnityEvent onDeath;
 
     private void Awake()

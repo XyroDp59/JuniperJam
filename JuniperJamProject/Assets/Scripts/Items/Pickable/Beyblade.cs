@@ -78,7 +78,7 @@ public class Beyblade : Projectile
         Destroy(gameObject);
     }
 
-    private void OnHit(int currentHP, float healthPercentage)
+    private void OnHit(int HpDiff, int currentHP, float healthPercentage)
     {
         ChooseNextDirection(speedBonusOnHit);
     }
