@@ -53,7 +53,6 @@ MonoBehaviour:
   attackPower: 5
   speed: 0.3
   bomberSpawner: {fileID: 2589459259565670954, guid: 97eb1da85931dd84aa2a6dcff4cb3d80, type: 3}
-  bomberPathRadius: 6
   maxY: 7
   minY: 4
   speedY: 3
@@ -145,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 4236f7e9436e8f64e916be3d49f840b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
