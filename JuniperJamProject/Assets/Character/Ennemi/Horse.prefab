@@ -102,6 +102,8 @@ MonoBehaviour:
   damage: 10
   slownessFactor: 1
   attackPower: 5
+  timeBeforeCanSpawn: 20
+  canSpawn: []
   baseSpeed: 10
   dashSpeed: 40
   dashTimer: 0.5

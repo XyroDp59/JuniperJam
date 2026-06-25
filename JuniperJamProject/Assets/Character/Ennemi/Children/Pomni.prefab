@@ -105,6 +105,8 @@ MonoBehaviour:
   damage: 10
   slownessFactor: 1
   attackPower: 5
+  timeBeforeCanSpawn: 30
+  canSpawn: []
   agent: {fileID: 7816940807960167588}
   speed: 7
 --- !u!114 &896606428392855612
