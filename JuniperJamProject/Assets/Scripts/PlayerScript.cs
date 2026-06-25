@@ -168,6 +168,10 @@ public class PlayerScript : MonoBehaviour
     {
         if (!dashing && !isAttacking)
         {
+            // ----- SFX  ----
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Woosh");
+            // ---------------
+            
             isAttacking = true;
             animator.SetBool(IsAttacking, true);
             
