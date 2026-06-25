@@ -62,8 +62,6 @@ public class Maxwell : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (playerRb.linearVelocity.magnitude < speed / 2f)
-            Debug.LogError("shit");
         playerRb.linearVelocity = currentDir * speed;
     }
 

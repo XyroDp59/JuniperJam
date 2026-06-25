@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BomberSpawner Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 905897319708126724, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
+      propertyPath: m_TagString
+      value: BomberSpawner
+      objectReference: {fileID: 0}
     - target: {fileID: 1201407141545828969, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4
@@ -59,6 +63,30 @@ PrefabInstance:
     - target: {fileID: 1251916669307761138, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
       propertyPath: spawnRate
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251916669307761138, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
+      propertyPath: mobSpawner
+      value: 
+      objectReference: {fileID: 4891151195764321369, guid: 729d4521aeb1341458196f4c5149cc1e, type: 3}
+    - target: {fileID: 1251916669307761138, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
+      propertyPath: spawnPercentage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251916669307761138, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
+      propertyPath: timeBeforeCanSpawn
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251916669307761138, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
+      propertyPath: finalSpawnPercentage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251916669307761138, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
+      propertyPath: spawnPercentageChange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251916669307761138, guid: 2bbf2071eaeae0444bdd3bd421e0d20c, type: 3}
+      propertyPath: initialSpawnPercentage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

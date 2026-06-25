@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System;
+using System.Threading;
 using UnityEngine;
 
 [RequireComponent(typeof(AttributSet))]
@@ -26,5 +28,4 @@ public class EnnemiClassScript : MonoBehaviour
             health.CurrentHp -= attackPower;
         }
     }
-
 }

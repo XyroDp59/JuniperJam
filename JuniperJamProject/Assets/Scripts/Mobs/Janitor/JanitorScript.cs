@@ -186,13 +186,12 @@ public class JanitorScript : EnnemiClassScript
         if (itemHeld != null)
         {
             Item item = itemHeld;
-            item.gameObject.transform.position = transform.position;
+            item.gameObject.transform.position = new Vector3(transform.position.x, 1/5, transform.position.z);
+            Debug.Log(item.gameObject.transform.position);
             item.gameObject.SetActive(true);
             item.isItemActive = true;
             item.OnItemSpawned.Invoke();
-            Debug.Log("ouai");
             item.OnItemDespawned.Invoke();
-            Debug.Log("clc");
         }
     }
 

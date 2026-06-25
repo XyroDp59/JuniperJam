@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 2130106361656928819}
   - component: {fileID: 2435748292731263003}
   - component: {fileID: 2751202979229783948}
-  - component: {fileID: -1825821380634201014}
+  - component: {fileID: -2528554431411061756}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -224,7 +224,7 @@ MonoBehaviour:
   basicAttackDuration: 1
   basicAttackPrefab: {fileID: 4513131974814386207, guid: 7f26595229d89c143a68b57e68db2469, type: 3}
   itemToAssign: {fileID: 0}
---- !u!114 &-1825821380634201014
+--- !u!114 &-2528554431411061756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c4b9d5ff1f0f54ebe96cf45fd8d63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttributSet
-  maxHp: 10
+  maxHp: 100
   onHpChange:
     m_PersistentCalls:
       m_Calls: []
