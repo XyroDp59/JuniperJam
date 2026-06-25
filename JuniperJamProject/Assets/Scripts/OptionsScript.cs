@@ -16,22 +16,30 @@ public class OptionsScript : MonoBehaviour
         _masterBus = FMODUnity.RuntimeManager.GetBus("bus:/");
         _soundtrackBus = FMODUnity.RuntimeManager.GetBus("bus:/Soundtrack");
         _sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/SFX");
+        
+        _masterBus.setVolume(PlayerPrefs.GetFloat("MasterVol",1f));
+        _soundtrackBus.setVolume(PlayerPrefs.GetFloat("MusicVol",1f));
+        _sfxBus.setVolume(PlayerPrefs.GetFloat("SFXVol",1f));
     }
+    
     
     // ----------- OPTIONS ---------------------
     public void OnMasterVolumeChange(float value)
     {
         _masterBus.setVolume(value);
+        PlayerPrefs.SetFloat("MasterVol", value);
     }
 
     public void OnSoundtrackVolumeChange(float value)
     {
         _soundtrackBus.setVolume(value);
+        PlayerPrefs.SetFloat("MusicVol", value);
     }
 
     public void OnSFXVolumeChange(float value)
     {
         _sfxBus.setVolume(value);
+        PlayerPrefs.SetFloat("SFXVol", value);
         _isSFXClicked = true;
     }
 

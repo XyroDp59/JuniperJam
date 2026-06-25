@@ -421,7 +421,7 @@ MonoBehaviour:
       - m_Target: {fileID: 5959482729120293629}
         m_TargetAssemblyTypeName: OptionsScript, Assembly-CSharp
         m_MethodName: OnMasterVolumeChange
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -523,7 +523,7 @@ MonoBehaviour:
       - m_Target: {fileID: 5959482729120293629}
         m_TargetAssemblyTypeName: OptionsScript, Assembly-CSharp
         m_MethodName: OnSFXVolumeChange
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1285,7 +1285,7 @@ MonoBehaviour:
       - m_Target: {fileID: 5959482729120293629}
         m_TargetAssemblyTypeName: OptionsScript, Assembly-CSharp
         m_MethodName: OnSoundtrackVolumeChange
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

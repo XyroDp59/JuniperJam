@@ -43,6 +43,9 @@ public class PauseScript : MonoBehaviour
         mainSlide.value = PlayerPrefs.GetFloat("MasterVol",1f);
         musicSlide.value = PlayerPrefs.GetFloat("MusicVol",1f);
         sfxSlide.value = PlayerPrefs.GetFloat("SFXVol",1f);
+        
+        // SFX
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Pause", isPaused ? 1 : 0);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -60,6 +63,9 @@ public class PauseScript : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+        
+        // SFX
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Pause", 0);
     }
 
     public void Resume()
@@ -70,5 +76,8 @@ public class PauseScript : MonoBehaviour
         musicSlide.value = PlayerPrefs.GetFloat("MusicVol",1f);
         sfxSlide.value = PlayerPrefs.GetFloat("SFXVol",1f);
         Time.timeScale = 1;
+        
+        // SFX
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Pause", 0);
     }
 }
