@@ -789,6 +789,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d912dc5b970f35458e7c59c85a49fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OptionsScript
+--- !u!114 &173185888 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8303808159602785642, guid: 85a3ca65f3664074b8d6893380e75b66, type: 3}
+  m_PrefabInstance: {fileID: 173185884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &173185889 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5528153442828978516, guid: 85a3ca65f3664074b8d6893380e75b66, type: 3}
+  m_PrefabInstance: {fileID: 173185884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &173185890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1281425642648253477, guid: 85a3ca65f3664074b8d6893380e75b66, type: 3}
+  m_PrefabInstance: {fileID: 173185884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &261639348
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,6 +1560,9 @@ MonoBehaviour:
   mainMenu: {fileID: 1914128210}
   optionsMenu: {fileID: 478099389}
   creditsMenu: {fileID: 261639348}
+  mainSlide: {fileID: 173185890}
+  musicSlide: {fileID: 173185889}
+  sfxSlide: {fileID: 173185888}
 --- !u!1 &593593376
 GameObject:
   m_ObjectHideFlags: 0

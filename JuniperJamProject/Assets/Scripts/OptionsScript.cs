@@ -22,16 +22,19 @@ public class OptionsScript : MonoBehaviour
     public void OnMasterVolumeChange(float value)
     {
         _masterBus.setVolume(value);
+        PlayerPrefs.SetFloat("MasterVol", value);
     }
 
     public void OnSoundtrackVolumeChange(float value)
     {
         _soundtrackBus.setVolume(value);
+        PlayerPrefs.SetFloat("MusicVol", value);
     }
 
     public void OnSFXVolumeChange(float value)
     {
         _sfxBus.setVolume(value);
+        PlayerPrefs.SetFloat("SFXVol", value);
         _isSFXClicked = true;
     }
 

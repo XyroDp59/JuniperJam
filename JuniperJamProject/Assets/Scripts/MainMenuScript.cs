@@ -1,17 +1,28 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
+    [Header("Menu Objects")]
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject creditsMenu;
+    
+    [Header("Audio Sliders")]
+    [SerializeField] private Slider mainSlide;
+    [SerializeField] private Slider musicSlide;
+    [SerializeField] private Slider sfxSlide;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ShowMainMenu();
+        
+        mainSlide.value = PlayerPrefs.GetFloat("MasterVol",1f);
+        musicSlide.value = PlayerPrefs.GetFloat("MusicVol",1f);
+        sfxSlide.value = PlayerPrefs.GetFloat("SFXVol",1f);
     }
 
     public void ShowMainMenu()
@@ -54,21 +65,4 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-
-    
-    // SFX 
-    public void HoverButtonSound()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/hover");
-    }
-    public void BackButtonSound()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/back");
-    }
-    
-    public void ConfirmButtonSound()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/confirm");
-    }
-    
 }
