@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{09f025d4-ae91-4a19-8742-68bd7dc4b111}">
+		<property name="assetPath">
+			<value>SFX/Pixabay/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3a967a3e-f2a2-4b31-861a-c29f54bae5be}</destination>
+		</relationship>
+	</object>
+</objects>

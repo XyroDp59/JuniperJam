@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{3f8e62a6-847a-4f74-ae81-790e7a1adc5f}">
+	<object class="AudioFile" id="{7bd9e1f1-ff02-4fd0-8fbe-28018b7ab070}">
 		<property name="assetPath">
-			<value>SFX/UI/click back.mp3</value>
+			<value>SFX/Pixabay/Heal 1.mp3</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>44.0999985</value>
+			<value>24</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.18285714285714286</value>
+			<value>1.296</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{3a967a3e-f2a2-4b31-861a-c29f54bae5be}</destination>
