@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7041859020713795128}
   - component: {fileID: 7042542125632151982}
   - component: {fileID: 4519649077707323986}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 6507678063854402779}
   - component: {fileID: 2793662605100862292}
   - component: {fileID: 6515429019108792798}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ MonoBehaviour:
       m_Calls: []
   player: {fileID: 0}
   isItemActive: 0
-  HealingPower: 1
+  HealingPower: 15
 --- !u!135 &6515429019108792798
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6183783888203758730}
   - component: {fileID: 4242244343112720718}
   - component: {fileID: 3250716652813319127}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 5375445614894616537}
   - component: {fileID: 6319281083202940769}
   - component: {fileID: 3739709691562841865}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Beyblade projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

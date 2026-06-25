@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6343704988956584961}
   - component: {fileID: 6653458409542134744}
   - component: {fileID: 1653688157675430693}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: YoyoProj
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -18,6 +18,7 @@ public class Maxwell : MonoBehaviour
     private void ActivateMaxwell(bool b)
     {
         player.GetMesh().gameObject.SetActive(!b);
+        player.GetComponent<CapsuleCollider>().enabled = !b;
         player.TogglePlayerInput(!b);
         player.GetComponent<CapsuleCollider>().enabled = !b;
     }
