@@ -355,3 +355,4 @@ MonoBehaviour:
   heightSprite: 64
   xBaseOffset: 0
   yBaseOffset: 15
+  referenceMaterial: {fileID: 2100000, guid: 7d72abd4ad8ded24fb2e3b04abb41837, type: 2}

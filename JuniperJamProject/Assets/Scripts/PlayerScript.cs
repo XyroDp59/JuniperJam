@@ -73,7 +73,7 @@ public class PlayerScript : MonoBehaviour
     void OnDisable() 
     { 
         controls.Disable();
-        StopCoroutine(movingCoroutine);
+        if(movingCoroutine != null) StopCoroutine(movingCoroutine);
     }
     public void TogglePlayerInput(bool b)
     {
@@ -110,6 +110,7 @@ public class PlayerScript : MonoBehaviour
     {
         moveInput = Vector2.zero;
         StopCoroutine(movingCoroutine);
+        movingCoroutine = null;
     }
 
 

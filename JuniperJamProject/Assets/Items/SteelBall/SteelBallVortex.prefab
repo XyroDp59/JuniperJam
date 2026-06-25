@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 599109122009167535}
   - component: {fileID: 4756588409986725647}
   - component: {fileID: 2022318010399457959}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4847,7 +4847,7 @@ GameObject:
   - component: {fileID: 2226319133312775647}
   - component: {fileID: 4882299455620514298}
   - component: {fileID: 8557945661159112886}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SteelBallVortex
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4904,8 +4904,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27ac35a135cf424f8039c968b2c3ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vortex
-  direction: {x: 0, y: 0, z: 0}
   initialPos: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
   speed: 5
   vortexSizeCurve:
     serializedVersion: 2
@@ -4966,7 +4967,7 @@ GameObject:
   - component: {fileID: 6813976498100377003}
   - component: {fileID: 7669912075522227928}
   - component: {fileID: 1290642559660689482}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

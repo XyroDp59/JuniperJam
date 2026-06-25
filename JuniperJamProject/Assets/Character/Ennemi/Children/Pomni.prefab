@@ -105,8 +105,6 @@ MonoBehaviour:
   damage: 10
   slownessFactor: 1
   attackPower: 5
-  timeBeforeCanSpawn: 30
-  canSpawn: []
   agent: {fileID: 7816940807960167588}
   speed: 7
 --- !u!114 &896606428392855612
@@ -163,7 +161,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
