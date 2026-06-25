@@ -62,6 +62,7 @@ MonoBehaviour:
       m_Calls: []
   player: {fileID: 0}
   isItemActive: 0
+  sprite: {fileID: 1950996310, guid: 2b0df66a9d011c642b1b37f7854b1c00, type: 3}
   NumberOfUses: 3
   projectile: {fileID: 1653688157675430693, guid: 867658e9411a8dc46817afbc199f1d1c, type: 3}
   damage: 10

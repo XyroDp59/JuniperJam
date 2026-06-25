@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerScript : MonoBehaviour
@@ -37,6 +38,8 @@ public class PlayerScript : MonoBehaviour
     private bool isAttacking = false;
     //[SerializeField] private float basicAttackParticule = 10;
 
+    [SerializeField] private Image weaponAUI;
+    [SerializeField] private Image weaponBUI;
     PickableItem weaponA;
     PickableItem weaponB;
     [HideInInspector] public PickableItem itemToAssign;
@@ -65,8 +68,8 @@ public class PlayerScript : MonoBehaviour
         // Items
         controls.Player.Release.performed += ctx => releaseItem = true;
         controls.Player.Release.canceled += ctx => releaseItem = false;
-        controls.Player.ItemA.started += ctx => PickableHandler(ctx, ref weaponA); 
-        controls.Player.ItemB.started += ctx => PickableHandler(ctx, ref weaponB);
+        controls.Player.ItemA.started += ctx => PickableHandler(ctx, ref weaponA, ref weaponAUI); 
+        controls.Player.ItemB.started += ctx => PickableHandler(ctx, ref weaponB, ref weaponBUI);
     }
 
 
@@ -143,7 +146,7 @@ public class PlayerScript : MonoBehaviour
     #endregion
 
     #region Items
-    private void PickableHandler(InputAction.CallbackContext context, ref PickableItem weapon)
+    private void PickableHandler(InputAction.CallbackContext context, ref PickableItem weapon, ref Image image)
     {
         if (releaseItem)
         {
@@ -155,10 +158,18 @@ public class PlayerScript : MonoBehaviour
         if (weapon != null && weapon.isItemActive)
         {
             weapon.Use();
+            if (!weapon.isItemActive) image.gameObject.SetActive(false);
+            //print(weapon.isItemActive);
         }
         else if(itemToAssign != null)
         {
             itemToAssign.PickUp(ref weapon, transform);
+            if (weapon.isItemActive)
+            {
+                print(itemToAssign);
+                image.sprite = itemToAssign.sprite;
+                image.gameObject.SetActive(true);
+            }
         }
         // todo : update UI
     }
@@ -168,6 +179,10 @@ public class PlayerScript : MonoBehaviour
     {
         if (!dashing && !isAttacking)
         {
+            // ----- SFX  ----
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Woosh");
+            // ---------------
+            
             isAttacking = true;
             animator.SetBool(IsAttacking, true);
             

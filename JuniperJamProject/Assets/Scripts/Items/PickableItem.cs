@@ -2,6 +2,7 @@ using UnityEngine;
 
 public abstract class PickableItem : Item
 { 
+    [SerializeField] public Sprite sprite; //a serialise
     public void PickUp(ref PickableItem playerSlot, Transform playerTransform)
     {
         playerSlot = this;
@@ -17,6 +18,10 @@ public abstract class PickableItem : Item
         {
             player.itemToAssign = this;
             // Todo : shader + UI
+            
+            
+            //SFX
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Pickup");
         }
     }
 

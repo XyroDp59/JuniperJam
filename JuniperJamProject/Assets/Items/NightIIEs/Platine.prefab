@@ -83,6 +83,7 @@ MonoBehaviour:
       m_Calls: []
   player: {fileID: 0}
   isItemActive: 0
+  sprite: {fileID: -1295620318, guid: 2b0df66a9d011c642b1b37f7854b1c00, type: 3}
   platineDisk: {fileID: 8806293782518424368, guid: 5f4b7a4eaf52479498039e1eb991d2cd, type: 3}
   platineTime: 3
 --- !u!1 &8837221765083807286

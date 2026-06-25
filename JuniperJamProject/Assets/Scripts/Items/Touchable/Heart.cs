@@ -7,5 +7,8 @@ public class Heart : TouchableItem
     {
         player.GetComponent<AttributSet>().CurrentHp += 1;
         Debug.Log("heart used");
+        
+        //SFX
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Heart");
     }
 }

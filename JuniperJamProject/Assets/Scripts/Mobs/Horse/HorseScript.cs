@@ -36,6 +36,9 @@ public class HorseScript : EnnemiClassScript
             {
                 isDashing = true;
                 savePlayerPosition = new Vector3(playerX, 0, playerZ);
+                
+                // SFX
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Horse");
             }
         }
         else if (player != null && player.activeSelf && isDashing)
