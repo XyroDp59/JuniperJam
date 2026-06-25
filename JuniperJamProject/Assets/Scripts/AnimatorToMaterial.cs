@@ -4,32 +4,39 @@ using UnityEngine.Rendering.HighDefinition;
 
 public class AnimatorToMaterial : MonoBehaviour
 {
-    private static readonly int DoubleSidedEnable = Shader.PropertyToID("_DoubleSidedEnable");
-    private static readonly int AlphaCutoff = Shader.PropertyToID("_AlphaCutoff");
-    private static readonly int AlphaCutoffEnable = Shader.PropertyToID("_AlphaCutoffEnable");
+    /* // URP/Lit property IDs
+        private static readonly int Cull = Shader.PropertyToID("_Cull");
+        private static readonly int AlphaClip = Shader.PropertyToID("_AlphaClip");
+        private static readonly int Cutoff = Shader.PropertyToID("_Cutoff");
+        private static readonly int Surface = Shader.PropertyToID("_Surface");
+        private static readonly int SrcBlend = Shader.PropertyToID("_SrcBlend");
+        private static readonly int DstBlend = Shader.PropertyToID("_DstBlend");
+        private static readonly int ZWrite = Shader.PropertyToID("_ZWrite");*/
+
     [SerializeField] MeshRenderer meshRenderer;
     [SerializeField] SpriteRenderer spriteRenderer;
-    Material _material;
+
     [SerializeField] float widthImage;
     [SerializeField] float heightImage;
     [SerializeField] float widthSprite;
     [SerializeField] float heightSprite;
     [SerializeField] float xBaseOffset;
     [SerializeField] float yBaseOffset;
-    
+
     private float _spinRemainingDuration = 0;
     private float _spinTotalDuration = 0;
     private int _numberOfSpin = 1;
 
+    [SerializeField] Material referenceMaterial;
+    Material _material;
+
     private void Awake()
     {
-        _material = new Material(Shader.Find("HDRP/Lit"));
-        _material.SetFloat(DoubleSidedEnable, 1f);
-        _material.SetFloat(AlphaCutoffEnable, 1f);
-        _material.SetFloat(AlphaCutoff, 0.5f);
+        _material = new Material(referenceMaterial);
+
         _material.mainTexture = spriteRenderer.sprite.texture;
         _material.mainTextureScale = new Vector2(widthSprite / widthImage, heightSprite / heightImage);
-        HDMaterial.ValidateMaterial(_material);
+
         meshRenderer.material = _material;
     }
 
