@@ -37,7 +37,7 @@ public class MobSpawnerScript : MonoBehaviour
                         canSpawnList.Add(spawnerList[i]);
                     }
                 }
-                if (spawnerScriptList[i].getCanSpawn(gameTimer) && spawnerScriptList[i].getSpawnPercentage() != spawnerScriptList[i].getFinalSpawnPercentage())
+                if (gameTimer >= 60 && spawnerScriptList[i].getSpawnPercentage() != spawnerScriptList[i].getFinalSpawnPercentage())
                 {
                     int saveSpawn = spawnerScriptList[i].getSpawnPercentage();
                     spawnerScriptList[i].changeSpawnPercentage();
