@@ -479,28 +479,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1217155991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Script: {fileID: 11500000, guid: ba28c4db75e557619a48b839940b6cb3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1907491191
-      Data2: 1141959403
-      Data3: -1593881410
-      Data4: 1821712908
-    Path: event:/Sountracks/Main game
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  m_EditorClassIdentifier: Assembly-CSharp::SoundtrackController
 --- !u!1 &1500526292
 GameObject:
   m_ObjectHideFlags: 0

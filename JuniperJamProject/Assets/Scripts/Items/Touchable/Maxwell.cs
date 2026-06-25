@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
+using FMOD.Studio;
+using Microsoft.Win32.SafeHandles;
 using UnityEngine;
 
 public class Maxwell : MonoBehaviour
 {
+    [Header("Base Parameters")]
     [SerializeField] int attackPower = 100;
     [SerializeField] float speed = 10f;
     [SerializeField] string tag = "Wall";
     [SerializeField] float maxwellDuration = 5f;
     [SerializeField] float targetCircleSize = 3f;
+
+    [Header("SFX")] 
+    private FMOD.Studio.EventInstance maxwellInstance;
 
     Vector3 currentDir;
     [HideInInspector] public Rigidbody playerRb;
@@ -21,6 +27,11 @@ public class Maxwell : MonoBehaviour
         player.GetComponent<CapsuleCollider>().enabled = !b;
         player.TogglePlayerInput(!b);
         player.GetComponent<CapsuleCollider>().enabled = !b;
+        
+        // SFX
+        SoundtrackController.Instance.mainInstance.setPaused(b);
+        if (b) SoundtrackController.Instance.maxwellInstance.start();
+        else SoundtrackController.Instance.maxwellInstance.stop(STOP_MODE.IMMEDIATE);
     }
 
     private void Start()
@@ -31,6 +42,9 @@ public class Maxwell : MonoBehaviour
         if (currentDir == Vector3.zero) currentDir = Vector3.left;
 
         StartCoroutine(MaxwellDeath());
+        
+        //SFX
+        maxwellInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Sountracks/Maxwell");
     }
 
     IEnumerator MaxwellDeath()
