@@ -2,6 +2,7 @@ using UnityEngine;
 
 public abstract class PickableItem : Item
 { 
+    [SerializeField] public Sprite sprite; //a serialise
     public void PickUp(ref PickableItem playerSlot, Transform playerTransform)
     {
         playerSlot = this;
