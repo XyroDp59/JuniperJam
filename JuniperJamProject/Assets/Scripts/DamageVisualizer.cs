@@ -5,7 +5,7 @@ using UnityEngine;
 public class DamageVisualizer : MonoBehaviour
 {
     [SerializeField] MeshRenderer meshRenderer;
-    [SerializeField] Transform transform;
+    [SerializeField] Transform damageableTransform;
 
     [SerializeField] float animDuration;
     [SerializeField] Gradient gradient;
