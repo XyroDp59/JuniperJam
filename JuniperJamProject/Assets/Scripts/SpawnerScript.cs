@@ -7,7 +7,8 @@ public class SpawnerScript : MonoBehaviour
 {
 
     [SerializeField] private EnnemiClassScript ennemi;
-    [SerializeField] private float carrouselRadius = 8;
+    [SerializeField] private int minRadius = 6;
+    [SerializeField] private int maxRadius = 10;
     [SerializeField] private int nombreSpawnPossible = 1000;
     [SerializeField] private float distanceMinFromPlayer = 5;
     [SerializeField] private ScoreManager _scoreManager;
@@ -17,12 +18,14 @@ public class SpawnerScript : MonoBehaviour
     [SerializeField] public int spawnPercentageChange;
     [SerializeField] public MobSpawnerScript mobSpawner;
 
+    private int carrouselRadius;
     private GameObject player;
     private int spawnPercentage;
     private float angle;
 
     private void Start()
     {
+        carrouselRadius = UnityEngine.Random.Range(minRadius, maxRadius);
         _scoreManager = _scoreManager.GetComponent<ScoreManager>();
         Debug.Log(_scoreManager);
         mobSpawner = mobSpawner.GetComponent<MobSpawnerScript>();

@@ -5,7 +5,6 @@ public class BomberScript : EnnemiClassScript
     [Header("Movement")]
     [SerializeField] private float speed;
     [SerializeField] private SpawnerScript bomberSpawner;
-    [SerializeField] private float bomberPathRadius;
     [SerializeField] private float maxY;
     [SerializeField] private float minY;
     [SerializeField] private float speedY;
@@ -15,6 +14,7 @@ public class BomberScript : EnnemiClassScript
     [SerializeField] private GameObject bomb;
     [SerializeField] private float bombRate;
 
+    private float bomberPathRadius;
     private bool isDescending = false;
     private bool isAscending = false;
     private float timer = 0;
@@ -28,6 +28,7 @@ public class BomberScript : EnnemiClassScript
         isAscending = false;
         bomberSpawner = GameObject.FindGameObjectWithTag("BomberSpawner").GetComponent<SpawnerScript>();
         angle = bomberSpawner.getAngle();
+        bomberPathRadius = bomberSpawner.getCarrouselRadius();
     }
 
 
