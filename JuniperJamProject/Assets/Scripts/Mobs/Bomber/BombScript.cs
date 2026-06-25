@@ -8,5 +8,8 @@ public class BombScript : MonoBehaviour
     {
         Instantiate(explosion, transform.position, transform.rotation);
         Destroy(gameObject);
+        
+        //SFX
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Boom");
     }
 }
