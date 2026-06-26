@@ -744,12 +744,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
       propertyPath: itemList.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
       propertyPath: 'itemList.Array.data[0]'
       value: 
-      objectReference: {fileID: 499523302201885817, guid: efa77039d82180d47b6eab0ba2191d3c, type: 3}
+      objectReference: {fileID: 6841532401907258743, guid: 65958b6e34882444b939174e51821f00, type: 3}
     - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
       propertyPath: 'itemList.Array.data[1]'
       value: 
@@ -757,15 +757,15 @@ PrefabInstance:
     - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
       propertyPath: 'itemList.Array.data[2]'
       value: 
-      objectReference: {fileID: 8502447872593769781, guid: 9df19b0504210164793b5836fdb3f963, type: 3}
+      objectReference: {fileID: 499523302201885817, guid: efa77039d82180d47b6eab0ba2191d3c, type: 3}
     - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
       propertyPath: 'itemList.Array.data[3]'
       value: 
-      objectReference: {fileID: 6841532401907258743, guid: 65958b6e34882444b939174e51821f00, type: 3}
+      objectReference: {fileID: 933722140180083591, guid: bb50182daaf900e4391de2c5a6844c2b, type: 3}
     - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
       propertyPath: 'itemList.Array.data[4]'
       value: 
-      objectReference: {fileID: 933722140180083591, guid: bb50182daaf900e4391de2c5a6844c2b, type: 3}
+      objectReference: {fileID: 499523302201885817, guid: efa77039d82180d47b6eab0ba2191d3c, type: 3}
     - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
       propertyPath: 'itemList.Array.data[5]'
       value: 
@@ -831,7 +831,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d912dc5b970f35458e7c59c85a49fff, type: 3}
+  m_Script: {fileID: 11500000, guid: 789c24a858ebc4b4ea9f2bd22c3a6c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OptionsScript
 --- !u!114 &1768263758 stripped
@@ -932,6 +932,10 @@ PrefabInstance:
     - target: {fileID: 4027338322048053134, guid: 8d50403d57cb2d84fb33c60dda7dbb13, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnSoundtrackVolumeChange
+      objectReference: {fileID: 0}
+    - target: {fileID: 4098896988785229633, guid: 8d50403d57cb2d84fb33c60dda7dbb13, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4353125381284804907, guid: 8d50403d57cb2d84fb33c60dda7dbb13, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1651,6 +1655,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2505256965432518324, guid: beb96a61c874c3740b44672c8aac4b02, type: 3}
+      propertyPath: rotateSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5047767431015900604, guid: beb96a61c874c3740b44672c8aac4b02, type: 3}
       propertyPath: m_Name
       value: Arena
