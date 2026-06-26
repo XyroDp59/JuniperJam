@@ -282,6 +282,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee286fec4f9335844a90047716febb59, type: 3}
+--- !u!23 &207416341002891341 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4252701492856460257, guid: ee286fec4f9335844a90047716febb59, type: 3}
+  m_PrefabInstance: {fileID: 4171535476276929452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8957598103584072113 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5020261713148789277, guid: ee286fec4f9335844a90047716febb59, type: 3}
@@ -295,6 +300,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8171462630649474729}
     m_Modifications:
+    - target: {fileID: 722291730621679512, guid: 2babb88816be6dd4cab3aecc5a381ae0, type: 3}
+      propertyPath: meshRenderer
+      value: 
+      objectReference: {fileID: 207416341002891341}
+    - target: {fileID: 722291730621679512, guid: 2babb88816be6dd4cab3aecc5a381ae0, type: 3}
+      propertyPath: damageableTransform
+      value: 
+      objectReference: {fileID: 8957598103584072113}
     - target: {fileID: 3802055792936500156, guid: 2babb88816be6dd4cab3aecc5a381ae0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
