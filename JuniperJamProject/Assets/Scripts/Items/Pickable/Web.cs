@@ -9,6 +9,9 @@ public class Web : Projectile
     {
         transform.parent = RotatingArena.Singleton.transform;
         Destroy(gameObject, lifetime);
+        
+        //SFX
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/SpiderWeb");
     }
 
     private void OnTriggerEnter(Collider other)

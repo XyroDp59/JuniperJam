@@ -49,6 +49,9 @@ public class Beyblade : Projectile
             && other.TryGetComponent<AttributSet>(out AttributSet health))
         {
             health.CurrentHp -= (int) (attackPower * currentSpeed/maxSpeed);
+            
+            //SFX
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Smash");
         }
     }
 

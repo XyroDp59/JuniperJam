@@ -82,8 +82,11 @@
 	</object>
 	<object class="EventMixerMaster" id="{4e6194bb-0c3e-4079-85c7-35cfdfccf91a}">
 		<property name="volume">
-			<value>-6</value>
+			<value>-12</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{d0973674-270a-4a67-a5b0-e3bc31ff3d52}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{9700ef29-7466-48e0-af85-4b6f4674bc27}</destination>
 		</relationship>
@@ -110,6 +113,20 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b7a0d483-5a0b-4210-b5b0-cad3b3f4b0b4}" />
+	<object class="ADSRModulator" id="{d0973674-270a-4a67-a5b0-e3bc31ff3d52}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>100</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{9700ef29-7466-48e0-af85-4b6f4674bc27}">
 		<relationship name="effects">
 			<destination>{83d5f278-1c40-403e-b96f-4727a8a77cf7}</destination>
@@ -118,9 +135,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{94a68efe-b93e-42d5-adc3-a4122dffb8aa}" />
 	<object class="SingleSound" id="{4e900a75-6147-4ccb-9c00-012e6d02e9e0}">
-		<relationship name="modulators">
-			<destination>{fa00d95b-ff9e-4245-81c2-c8fe624cddf4}</destination>
-		</relationship>
 		<relationship name="audioFile">
 			<destination>{2940d363-2200-4d44-b5b2-f5c89a9ab69f}</destination>
 		</relationship>
@@ -140,20 +154,6 @@
 		<relationship name="automators">
 			<destination>{2014986e-6264-4be5-99ba-7021a8b92e42}</destination>
 		</relationship>
-	</object>
-	<object class="ADSRModulator" id="{fa00d95b-ff9e-4245-81c2-c8fe624cddf4}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>volume</value>
-		</property>
-		<property name="initialValue">
-			<value>-80</value>
-		</property>
-		<property name="attackTime">
-			<value>100</value>
-		</property>
-		<property name="finalValue">
-			<value>-80</value>
-		</property>
 	</object>
 	<object class="Automator" id="{2014986e-6264-4be5-99ba-7021a8b92e42}">
 		<property name="nameOfPropertyBeingAutomated">
