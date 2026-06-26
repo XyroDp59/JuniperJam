@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{1c2d1a42-858c-4cad-a2db-8726c829aa3b}">
+		<property name="assetPath">
+			<value>SFX/Pixabay/strong wind.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>17.712</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3a967a3e-f2a2-4b31-861a-c29f54bae5be}</destination>
+		</relationship>
+	</object>
+</objects>

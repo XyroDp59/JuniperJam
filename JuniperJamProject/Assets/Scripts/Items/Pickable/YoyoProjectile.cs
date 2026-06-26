@@ -12,6 +12,7 @@ public class YoyoProjectile : BaseMovingItem
     [HideInInspector] public float dashDistance;
     [HideInInspector] public Vector3 dashDirection;
     [HideInInspector] public float approchingSpeed;
+    [SerializeField] private Transform stringTransform;
     
     private bool _isDashing = true;
     private float _currentDashDistance;
@@ -32,6 +33,11 @@ public class YoyoProjectile : BaseMovingItem
             _currentMaxDistance -= approchingSpeed * Time.deltaTime;
             if (_currentMaxDistance <= 1f) Destroy(gameObject);
         }
+
+        Vector3 dir = (player.transform.position - transform.position) / 2;
+        stringTransform.position = transform.position + dir + 0.5f * Vector3.up;
+        stringTransform.rotation = Quaternion.LookRotation(Vector3.up, dir);
+        stringTransform.localScale = new Vector3(0.05f, dir.magnitude, 0.05f);
     }
 
     private void FixedUpdate()

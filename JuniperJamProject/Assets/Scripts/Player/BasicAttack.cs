@@ -24,6 +24,9 @@ public class BasicAttack : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out AttributSet attributSet))
         {
             attributSet.CurrentHp -= damage;
+            
+            // SFX
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Smash");
         }
     }
 }
