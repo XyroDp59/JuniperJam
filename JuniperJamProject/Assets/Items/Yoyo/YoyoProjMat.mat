@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlatineMat
+  m_Name: YoyoProjMat
   m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
   m_Parent: {fileID: 2100000, guid: 7d72abd4ad8ded24fb2e3b04abb41837, type: 2}
   m_ModifiedSerializedProperties: 8
@@ -34,11 +34,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseColorMap:
-        m_Texture: {fileID: 2800000, guid: e0a9d828fffb4e541aaa987fe9bcb2bc, type: 3}
+        m_Texture: {fileID: 2800000, guid: bb2a19999f7070c42b028a009ed4f312, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e0a9d828fffb4e541aaa987fe9bcb2bc, type: 3}
+        m_Texture: {fileID: 2800000, guid: bb2a19999f7070c42b028a009ed4f312, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
