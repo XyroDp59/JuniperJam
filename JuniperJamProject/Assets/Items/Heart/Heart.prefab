@@ -101,12 +101,20 @@ PrefabInstance:
       value: 3DFixSprite
       objectReference: {fileID: 0}
     - target: {fileID: 5020261713148789277, guid: ee286fec4f9335844a90047716febb59, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020261713148789277, guid: ee286fec4f9335844a90047716febb59, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020261713148789277, guid: ee286fec4f9335844a90047716febb59, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.00324
       objectReference: {fileID: 0}
     - target: {fileID: 5020261713148789277, guid: ee286fec4f9335844a90047716febb59, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.72
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020261713148789277, guid: ee286fec4f9335844a90047716febb59, type: 3}
       propertyPath: m_LocalPosition.z

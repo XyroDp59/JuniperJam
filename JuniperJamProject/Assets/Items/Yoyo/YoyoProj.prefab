@@ -114,30 +114,34 @@ PrefabInstance:
     - target: {fileID: 4252701492856460257, guid: ee286fec4f9335844a90047716febb59, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 35fce3905aa197746abf44117a077ad8, type: 2}
+      objectReference: {fileID: 2100000, guid: e2052c5a22ae870438a8152f6b9c0e74, type: 2}
     - target: {fileID: 4766043778802260273, guid: ee286fec4f9335844a90047716febb59, type: 3}
       propertyPath: m_Name
       value: 3DFixSprite
       objectReference: {fileID: 0}
+    - target: {fileID: 4766043778802260273, guid: ee286fec4f9335844a90047716febb59, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5020261713148789277, guid: ee286fec4f9335844a90047716febb59, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5020261713148789277, guid: ee286fec4f9335844a90047716febb59, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5.7142854
+      value: 1.4285713
       objectReference: {fileID: 0}
     - target: {fileID: 5020261713148789277, guid: ee286fec4f9335844a90047716febb59, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5020261713148789277, guid: ee286fec4f9335844a90047716febb59, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5020261713148789277, guid: ee286fec4f9335844a90047716febb59, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5020261713148789277, guid: ee286fec4f9335844a90047716febb59, type: 3}
       propertyPath: m_LocalPosition.z
