@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private Animator animator;
     private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
     [SerializeField] private AnimatorToMaterial mesh;
+    [SerializeField] private GameObject itemArrow;
     
     [Header("Movement")]
     [SerializeField] private float speed = 10;
@@ -45,7 +46,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private Image weaponBUI;
     PickableItem weaponA;
     PickableItem weaponB;
-    [HideInInspector] public PickableItem itemToAssign;
+    private PickableItem itemToAssign;
     bool releaseItem;
 
 
@@ -56,6 +57,7 @@ public class PlayerScript : MonoBehaviour
     {
         controls = new InputSystem_Actions();
         rb = GetComponent<Rigidbody>();
+        itemArrow.SetActive(false);
     }
 
     private void OnEnable()
@@ -153,12 +155,38 @@ public class PlayerScript : MonoBehaviour
     #endregion
 
     #region Items
+
+    public PickableItem GetItemToAssign()
+    {
+        return itemToAssign;
+    }
+
+    public void SetItemToAssign(PickableItem item)
+    {
+        itemToAssign = item;
+
+        if(item == null)
+        {
+            itemArrow.SetActive(false);
+            itemArrow.transform.parent = transform.parent;
+        }
+        else
+        {
+            itemArrow.SetActive(true);
+            itemArrow.transform.parent = item.transform;
+        }
+        itemArrow.transform.localPosition = Vector3.zero;
+    }
+
+
     private void PickableHandler(InputAction.CallbackContext context, ref PickableItem weapon, ref Image image)
     {
         if (releaseItem)
         {
             weapon = null;
-            // todo : update UI
+            image.gameObject.SetActive(false);
+            image.sprite = null;
+
             return;
         }
 
@@ -176,7 +204,7 @@ public class PlayerScript : MonoBehaviour
                 print(itemToAssign);
                 image.sprite = itemToAssign.sprite;
                 image.gameObject.SetActive(true);
-                
+                SetItemToAssign(null);
                 // SFX
                 FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Pickup");
             }

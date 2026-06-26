@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4252701492856460257}
   - component: {fileID: 6246898618369685193}
   m_Layer: 7
-  m_Name: 3DSprite
+  m_Name: 3DAnimatedSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
