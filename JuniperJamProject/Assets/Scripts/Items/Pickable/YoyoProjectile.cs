@@ -79,6 +79,9 @@ public class YoyoProjectile : BaseMovingItem
         if (other.gameObject.TryGetComponent(out AttributSet attributSet))
         {
             attributSet.CurrentHp -= damage;
+            
+            //SFX
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Smash");
         }
     }
 }
