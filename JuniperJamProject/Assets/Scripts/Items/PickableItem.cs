@@ -18,10 +18,6 @@ public abstract class PickableItem : Item
         {
             player.itemToAssign = this;
             // Todo : shader + UI
-            
-            
-            //SFX
-            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Pickup");
         }
     }
 
