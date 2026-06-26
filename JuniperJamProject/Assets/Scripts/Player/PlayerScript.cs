@@ -11,6 +11,9 @@ public class PlayerScript : MonoBehaviour
     InputAction moveAction;
     InputAction jumpAction;
     Rigidbody rb;
+    
+    [SerializeField] private float invulnerabilityTime = 0.5f;
+    [SerializeField] private AttributSet attributSet;
 
     [Header("Visuals")]
     [SerializeField] private Animator animator;
@@ -70,6 +73,10 @@ public class PlayerScript : MonoBehaviour
         controls.Player.Release.canceled += ctx => releaseItem = false;
         controls.Player.ItemA.started += ctx => PickableHandler(ctx, ref weaponA, ref weaponAUI); 
         controls.Player.ItemB.started += ctx => PickableHandler(ctx, ref weaponB, ref weaponBUI);
+        attributSet.onHpChange.AddListener((int hpChange, int _, float _) =>
+        {
+            if (hpChange <= 0) StartCoroutine(BecomeInvulnerable());
+        });
     }
 
 
@@ -207,4 +214,10 @@ public class PlayerScript : MonoBehaviour
         return mesh;
     }
 
+    private IEnumerator BecomeInvulnerable()
+    {
+        attributSet.invulnerable = true;
+        yield return new WaitForSeconds(invulnerabilityTime);
+        attributSet.invulnerable = false;
+    }
 }

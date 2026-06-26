@@ -86,6 +86,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2774667893408890659}
     m_Modifications:
+    - target: {fileID: 4252701492856460257, guid: 5e4c693f8983ad648a610f63070cfc47, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 87d6ee1e22c4a1543965837127dd09dc, type: 2}
     - target: {fileID: 4766043778802260273, guid: 5e4c693f8983ad648a610f63070cfc47, type: 3}
       propertyPath: m_Name
       value: 3DSprite
