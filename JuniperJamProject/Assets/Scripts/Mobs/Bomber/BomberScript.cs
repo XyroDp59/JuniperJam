@@ -85,6 +85,7 @@ public class BomberScript : EnnemiClassScript
                 
                 // SFX
                 planeInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                planeInstance.release();
             }
         }
     }

@@ -88,5 +88,6 @@ public class Vortex : Projectile
     {
         // SFX
         jojosThingInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        jojosThingInstance.release();
     }
 }
