@@ -752,14 +752,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
-      propertyPath: itemList.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
-      propertyPath: 'itemList.Array.data[7]'
-      value: 
-      objectReference: {fileID: 2793662605100862292, guid: 0bbccf9ce09a1564197c2592c2d7f7e9, type: 3}
     - target: {fileID: 4644815488754730560, guid: c8076db0e391938469d351b53b493ebc, type: 3}
       propertyPath: m_Name
       value: ItemSpawner
