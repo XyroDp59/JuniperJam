@@ -1655,34 +1655,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndScreenMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 1856734747981460378, guid: d2a99eb60c252034a903a3787befbcd1, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1856734747981460378, guid: d2a99eb60c252034a903a3787befbcd1, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1856734747981460378, guid: d2a99eb60c252034a903a3787befbcd1, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1856734747981460378, guid: d2a99eb60c252034a903a3787befbcd1, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1080
-      objectReference: {fileID: 0}
-    - target: {fileID: 1856734747981460378, guid: d2a99eb60c252034a903a3787befbcd1, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1856734747981460378, guid: d2a99eb60c252034a903a3787befbcd1, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -540
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948673884402852005, guid: d2a99eb60c252034a903a3787befbcd1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4719420266282361791, guid: d2a99eb60c252034a903a3787befbcd1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1771,6 +1743,14 @@ PrefabInstance:
       propertyPath: playerAttributeSet
       value: 
       objectReference: {fileID: 1613900833}
+    - target: {fileID: 5338067335732780469, guid: d2a99eb60c252034a903a3787befbcd1, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2079843521}
+    - target: {fileID: 6260617361516788209, guid: d2a99eb60c252034a903a3787befbcd1, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2079843521}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
