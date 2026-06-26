@@ -182,10 +182,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8190972500067729214}
-        m_TargetAssemblyTypeName: DamageVisualizer, Assembly-CSharp
-        m_MethodName: OnDeath
-        m_Mode: 1
+      - m_Target: {fileID: 4650308712669262676}
+        m_TargetAssemblyTypeName: UnityEngine.CapsuleCollider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
