@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{6c80dc8e-5525-430f-8b70-b866eea7c67e}">
+		<property name="assetPath">
+			<value>SFX/Pixabay/horse2.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.3919999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3a967a3e-f2a2-4b31-861a-c29f54bae5be}</destination>
+		</relationship>
+	</object>
+</objects>
