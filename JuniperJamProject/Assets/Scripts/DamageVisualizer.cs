@@ -84,9 +84,6 @@ public class DamageVisualizer : MonoBehaviour
 
     IEnumerator DeathAnimation()
     {
-        // SFX 
-        SoundtrackController.Instance.mainInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        
         float time = 0;
         while (time < deathAnimDuration)
         {
