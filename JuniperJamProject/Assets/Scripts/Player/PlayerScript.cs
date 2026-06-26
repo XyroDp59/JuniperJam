@@ -158,7 +158,9 @@ public class PlayerScript : MonoBehaviour
         if (releaseItem)
         {
             weapon = null;
-            // todo : update UI
+            image.gameObject.SetActive(false);
+            image.sprite = null;
+
             return;
         }
 
@@ -176,7 +178,7 @@ public class PlayerScript : MonoBehaviour
                 print(itemToAssign);
                 image.sprite = itemToAssign.sprite;
                 image.gameObject.SetActive(true);
-                
+                itemToAssign = null;
                 // SFX
                 FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Pickup");
             }
