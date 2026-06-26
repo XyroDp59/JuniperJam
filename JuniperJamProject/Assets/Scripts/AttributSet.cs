@@ -7,6 +7,11 @@ public class AttributSet : MonoBehaviour
     [SerializeField] private int maxHp;
     private int currentHp;
     public bool invulnerable;
+    
+    
+    // Kaily thingy (Apparently, onDeath were Invoke a second time after, and I don't want that for the SFX)
+    private bool dead;
+    
     public int CurrentHp
     {
         get {  return currentHp; }
@@ -17,9 +22,10 @@ public class AttributSet : MonoBehaviour
             int previousHp = currentHp;
             currentHp = value;
             onHpChange.Invoke(value - previousHp, currentHp, (float)currentHp / maxHp);
-            if (currentHp <= 0)
+            if (currentHp <= 0 & !dead)
             {
                 onDeath.Invoke();
+                dead = true;
             }
             Debug.Log($"Health : {value}");
         }
