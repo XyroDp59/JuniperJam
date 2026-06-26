@@ -138,7 +138,19 @@ MonoBehaviour:
         m_CallState: 2
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6461953921271585919}
+        m_TargetAssemblyTypeName: DamageVisualizer, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!195 &7816940807960167588
 NavMeshAgent:
   m_ObjectHideFlags: 0

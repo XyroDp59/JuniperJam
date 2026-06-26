@@ -15,7 +15,10 @@ public class AttributSet : MonoBehaviour
             int previousHp = currentHp;
             currentHp = value;
             onHpChange.Invoke(value - previousHp, currentHp, (float)currentHp / maxHp);
-            if (currentHp <= 0) onDeath.Invoke();
+            if (currentHp <= 0)
+            {
+                onDeath.Invoke();
+            }
             Debug.Log($"Health : {value}");
         }
     }

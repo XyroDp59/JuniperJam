@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class DamageVisualizer : MonoBehaviour
 {
+    [Header("targets")]
     [SerializeField] MeshRenderer meshRenderer;
     [SerializeField] Transform damageableTransform;
 
+    [Header("damage animation")]
     [SerializeField] float animDuration;
     [SerializeField] Gradient gradient;
     [SerializeField] AnimationCurve scale;
     [SerializeField] float thetaMax = 45;
 
+    [Header("Text damage")]
     [SerializeField] float textDuration;
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] AnimationCurve textPosition;
+
+    [Header("death animation")]
+    [SerializeField] float deathAnimDuration;
+    [SerializeField] Gradient deathGradient;
+    [SerializeField] AnimationCurve deathAngularVelocity;
+    [SerializeField] float maxDeathAngularVelocity = 50;
+    [SerializeField] GameObject deathParticles;
 
     Vector3 localScale;
     Vector3 localRot;
@@ -29,6 +39,11 @@ public class DamageVisualizer : MonoBehaviour
     {
         if (HpDiff >= 0) return;
         StartCoroutine(Animation(HpDiff));
+    }
+
+    public void OnDeath()
+    {
+        StartCoroutine(DeathAnimation());
     }
 
     IEnumerator Animation(int HpDiff)
@@ -65,5 +80,26 @@ public class DamageVisualizer : MonoBehaviour
     public void ChangeSpriteColor(Color color)
     {
         meshRenderer.material.SetColor("_BaseColor", color);
+    }
+
+    IEnumerator DeathAnimation()
+    {
+        float time = 0;
+        while (time < deathAnimDuration)
+        {
+            // color
+            var color = deathGradient.Evaluate(time / deathAnimDuration);
+            ChangeSpriteColor(color);
+
+            // squish
+            float angularSpeed = deathAngularVelocity.Evaluate(time / deathAnimDuration);
+            damageableTransform.Rotate(0f, angularSpeed * maxDeathAngularVelocity * Time.deltaTime, 0f, Space.Self);
+
+            yield return null;
+            time += Time.deltaTime;
+        }
+        var temp = Instantiate(deathParticles, damageableTransform.position, Quaternion.identity);
+        damageableTransform.gameObject.SetActive(false);
+        Destroy(temp.gameObject, 2f);
     }
 }
