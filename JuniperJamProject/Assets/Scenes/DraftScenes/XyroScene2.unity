@@ -530,10 +530,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2751202979229783948, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
-      propertyPath: mesh
-      value: 
-      objectReference: {fileID: 1768263758}
     - target: {fileID: 2875369653824856168, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -578,38 +574,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4271415922768396646, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2117444522}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1613900832}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
---- !u!1 &1613900831 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
+--- !u!114 &1613900832 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2406956538834455490, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
   m_PrefabInstance: {fileID: 1613900830}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1613900832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613900831}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3c4b9d5ff1f0f54ebe96cf45fd8d63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttributSet
-  maxHp: 100
-  onHpChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &1652790565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -703,17 +687,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8076db0e391938469d351b53b493ebc, type: 3}
---- !u!114 &1768263758 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2326376319890889525, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
-  m_PrefabInstance: {fileID: 1613900830}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e64e55ee11c54354db6d10e86614febd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimatorToMaterial
 --- !u!1001 &2079843514
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -645,10 +645,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2751202979229783948, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
-      propertyPath: mesh
-      value: 
-      objectReference: {fileID: 1768263758}
-    - target: {fileID: 2751202979229783948, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
       propertyPath: weaponAUI
       value: 
       objectReference: {fileID: 1500526294}
@@ -700,40 +696,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -1825821380634201014, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
-    - {fileID: -2528554431411061756, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
+    - target: {fileID: 6046685628953895980, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
+      propertyPath: scale.m_Curve.Array.data[1].time
+      value: 0.20251055
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046685628953895980, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
+      propertyPath: scale.m_Curve.Array.data[2].time
+      value: 0.30151635
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046685628953895980, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
+      propertyPath: scale.m_Curve.Array.data[3].time
+      value: 0.5033201
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046685628953895980, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
+      propertyPath: scale.m_Curve.Array.data[1].value
+      value: -0.3018192
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046685628953895980, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
+      propertyPath: scale.m_Curve.Array.data[2].value
+      value: 0.2466847
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046685628953895980, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
+      propertyPath: scale.m_Curve.Array.data[3].value
+      value: -0.0016860068
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1613900832}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
---- !u!1 &1613900831 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3333148429582607298, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
+--- !u!114 &1613900833 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2406956538834455490, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
   m_PrefabInstance: {fileID: 1613900830}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1613900832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613900831}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3c4b9d5ff1f0f54ebe96cf45fd8d63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttributSet
-  maxHp: 100
-  onHpChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &1652790565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -831,20 +833,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d912dc5b970f35458e7c59c85a49fff, type: 3}
+  m_Script: {fileID: 11500000, guid: 789c24a858ebc4b4ea9f2bd22c3a6c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OptionsScript
---- !u!114 &1768263758 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2326376319890889525, guid: 8278d549ea2fd7c47b26c9e2f9ad8c64, type: 3}
-  m_PrefabInstance: {fileID: 1613900830}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e64e55ee11c54354db6d10e86614febd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimatorToMaterial
 --- !u!1001 &2079843514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1084,7 +1075,7 @@ PrefabInstance:
     - target: {fileID: 8800120958604762624, guid: 8d50403d57cb2d84fb33c60dda7dbb13, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1613900832}
+      objectReference: {fileID: 1613900833}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

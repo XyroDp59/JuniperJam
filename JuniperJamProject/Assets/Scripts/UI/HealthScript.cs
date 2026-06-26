@@ -17,10 +17,11 @@ public class HealthScript : MonoBehaviour
 
     private float targetFill = 1f;
 
-    private void OnEnable()
+    private void Start()
     {
-        if (target == null)
+        if (target == null || target.onHpChange == null)
         {
+            Debug.LogError("could not init health bar");
             return;
         }
         target.onHpChange.AddListener(OnHpChange);
@@ -33,7 +34,7 @@ public class HealthScript : MonoBehaviour
             target.onHpChange.RemoveListener(OnHpChange);
     }
 
-    private void OnHpChange(int HpDiff, int currHp, float ratio)
+    public void OnHpChange(int HpDiff, int currHp, float ratio)
     {
         targetFill = ratio;
         if (healthText != null) healthText.text = currHp.ToString();

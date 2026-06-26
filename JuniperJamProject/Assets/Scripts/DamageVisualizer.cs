@@ -10,40 +10,58 @@ public class DamageVisualizer : MonoBehaviour
     [SerializeField] float animDuration;
     [SerializeField] Gradient gradient;
     [SerializeField] AnimationCurve scale;
-    [SerializeField] AnimationCurve rotation;
+    [SerializeField] float thetaMax = 45;
 
     [SerializeField] float textDuration;
-    [SerializeField] TextMeshProUGUI textMeshProUGUI;
+    [SerializeField] TextMeshProUGUI text;
     [SerializeField] AnimationCurve textPosition;
 
 
-    public void OnDamageTaken()
+    public void OnDamageTaken(int HpDiff, int currHp, float currPercentHp)
     {
+        if (HpDiff >= 0) return;
         StartCoroutine(Animation());
+        var newText = Instantiate(text, transform);
+        newText.text = HpDiff.ToString();
     }
 
     IEnumerator Animation()
     {
-        float yScale = transform.localScale.y;
-        float yRot = transform.localEulerAngles.y;
+        float yScale = damageableTransform.localScale.y;
+        float xScale = damageableTransform.localScale.x;
+        float zScale = damageableTransform.localScale.z;  
+
+        float yRot = damageableTransform.localEulerAngles.y;
+
+        var localPos = text.transform.localPosition;
 
         float time = 0;
         while (time < animDuration)
         {
             var color = gradient.Evaluate(time / animDuration);
-            transform.localScale = new Vector3(transform.localScale.x, scale.Evaluate(time/animDuration), transform.localScale.z);
-            transform.localRotation = Quaternion.Euler(transform.localRotation.x, rotation.Evaluate(time/animDuration), transform.localRotation.z);
+            ChangeSpriteColor(color);
+
+            float currScale = scale.Evaluate(time / animDuration);
+
+            damageableTransform.localScale = (1 + currScale) * new Vector3(xScale, yScale, zScale);
+            damageableTransform.localRotation = Quaternion.Euler(
+                damageableTransform.localEulerAngles.x,
+                yRot + currScale * thetaMax,           
+                damageableTransform.localEulerAngles.z
+            );
+            text.transform.position = localPos + textPosition.Evaluate(time / animDuration) * Vector3.up;
+
             yield return null;
             time += Time.deltaTime;
         }
 
         ChangeSpriteColor(Color.white);
-        transform.localScale = new Vector3(transform.localScale.x, yScale, transform.localScale.z);
-        transform.localRotation = Quaternion.Euler(transform.localRotation.x, yRot, transform.localRotation.z);
+        damageableTransform.localScale = new Vector3(damageableTransform.localScale.x, yScale, damageableTransform.localScale.z);
+        damageableTransform.localRotation = Quaternion.Euler(damageableTransform.localEulerAngles.x, yRot, damageableTransform.localEulerAngles.z);
     }
 
     public void ChangeSpriteColor(Color color)
     {
-        meshRenderer.material.SetColor("_Color", color);
+        meshRenderer.material.SetColor("_BaseColor", color);
     }
 }
