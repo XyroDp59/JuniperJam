@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 139680207963302841}
   - component: {fileID: 4252701492856460257}
   m_Layer: 7
-  m_Name: 3DFixSprite
+  m_Name: 3DFixedSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

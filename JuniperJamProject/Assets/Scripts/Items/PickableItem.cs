@@ -16,8 +16,7 @@ public abstract class PickableItem : Item
     {
         if(other.TryGetComponent<PlayerScript>(out PlayerScript player))
         {
-            player.itemToAssign = this;
-            // Todo : shader + UI
+            player.SetItemToAssign(this);
         }
     }
 
@@ -25,11 +24,10 @@ public abstract class PickableItem : Item
     {
         if (other.TryGetComponent<PlayerScript>(out PlayerScript player))
         {
-            if(player.itemToAssign == this)
+            if(player.GetItemToAssign() == this)
             {
-                player.itemToAssign = null;
+                player.SetItemToAssign(null);
             }
-            // Todo : shader + UI
         }
     }
 }
