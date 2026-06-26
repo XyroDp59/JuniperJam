@@ -81,9 +81,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{fcb780c0-4859-4a9f-8cd3-b00aa9ae9cc6}">
-		<property name="volume">
-			<value>-6</value>
-		</property>
 		<relationship name="effectChain">
 			<destination>{27c504b6-477a-46c4-b863-717d79bdc810}</destination>
 		</relationship>
@@ -150,9 +147,6 @@
 		</property>
 		<property name="attackTime">
 			<value>0</value>
-		</property>
-		<property name="releaseTime">
-			<value>500</value>
 		</property>
 		<property name="finalValue">
 			<value>-80</value>

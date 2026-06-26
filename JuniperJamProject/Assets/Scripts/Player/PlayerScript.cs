@@ -176,6 +176,9 @@ public class PlayerScript : MonoBehaviour
                 print(itemToAssign);
                 image.sprite = itemToAssign.sprite;
                 image.gameObject.SetActive(true);
+                
+                // SFX
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Pickup");
             }
         }
         // todo : update UI
