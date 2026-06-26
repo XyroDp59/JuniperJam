@@ -16,48 +16,50 @@ public class DamageVisualizer : MonoBehaviour
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] AnimationCurve textPosition;
 
+    Vector3 localScale;
+    Vector3 localRot;
+
+    private void Start()
+    {
+        localScale = damageableTransform.localScale;
+        localRot = damageableTransform.localRotation.eulerAngles;
+    }
 
     public void OnDamageTaken(int HpDiff, int currHp, float currPercentHp)
     {
         if (HpDiff >= 0) return;
-        StartCoroutine(Animation());
-        var newText = Instantiate(text, transform);
-        newText.text = HpDiff.ToString();
+        StartCoroutine(Animation(HpDiff));
     }
 
-    IEnumerator Animation()
+    IEnumerator Animation(int HpDiff)
     {
-        float yScale = damageableTransform.localScale.y;
-        float xScale = damageableTransform.localScale.x;
-        float zScale = damageableTransform.localScale.z;  
-
-        float yRot = damageableTransform.localEulerAngles.y;
-
-        var localPos = text.transform.localPosition;
+        var newText = Instantiate(text, transform);
+        newText.text = $"{HpDiff} HP";
+        newText.rectTransform.localPosition = Vector3.zero;
 
         float time = 0;
         while (time < animDuration)
         {
+            // color
             var color = gradient.Evaluate(time / animDuration);
             ChangeSpriteColor(color);
 
+            // squish
             float currScale = scale.Evaluate(time / animDuration);
+            damageableTransform.localScale = (1 + currScale) * localScale;
+            damageableTransform.localRotation = Quaternion.Euler( localRot.x, localRot.y + currScale * thetaMax, localRot.z);
 
-            damageableTransform.localScale = (1 + currScale) * new Vector3(xScale, yScale, zScale);
-            damageableTransform.localRotation = Quaternion.Euler(
-                damageableTransform.localEulerAngles.x,
-                yRot + currScale * thetaMax,           
-                damageableTransform.localEulerAngles.z
-            );
-            text.transform.position = localPos + textPosition.Evaluate(time / animDuration) * Vector3.up;
+            // texte
+            newText.rectTransform.localPosition = textPosition.Evaluate(time / animDuration) * Vector3.up;
 
             yield return null;
             time += Time.deltaTime;
         }
 
         ChangeSpriteColor(Color.white);
-        damageableTransform.localScale = new Vector3(damageableTransform.localScale.x, yScale, damageableTransform.localScale.z);
-        damageableTransform.localRotation = Quaternion.Euler(damageableTransform.localEulerAngles.x, yRot, damageableTransform.localEulerAngles.z);
+        damageableTransform.localScale = localScale;
+        damageableTransform.localRotation = Quaternion.Euler(localRot);
+        Destroy(newText.gameObject);
     }
 
     public void ChangeSpriteColor(Color color)
