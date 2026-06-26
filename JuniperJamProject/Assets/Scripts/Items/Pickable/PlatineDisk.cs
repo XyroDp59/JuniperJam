@@ -43,6 +43,9 @@ public class PlatineDisk : BaseMovingItem
             newShockWave.damage = damage;
             newShockWave.gameObject.SetActive(true);
             Destroy(newShockWave.gameObject, 0.15f);
+            
+            // SFX
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Scratch");
         }
         
         _currentDirection = newDirection;
