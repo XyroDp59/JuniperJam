@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2435748292731263003}
   - component: {fileID: 2751202979229783948}
   - component: {fileID: 2406956538834455490}
+  - component: {fileID: 6321976516701730808}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -99,6 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a7217f2d867684dafae65e0d177a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  invulnerabilityTime: 0.5
+  attributSet: {fileID: 2406956538834455490}
   animator: {fileID: 6273983556531824545}
   mesh: {fileID: 2326376319890889525}
   speed: 10
@@ -125,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttributSet
   maxHp: 100
+  invulnerable: 0
   onHpChange:
     m_PersistentCalls:
       m_Calls:
@@ -140,9 +144,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6321976516701730808}
+        m_TargetAssemblyTypeName: PlayerSFX, Assembly-CSharp
+        m_MethodName: OnDamageTaken
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6046685628953895980}
+        m_TargetAssemblyTypeName: DamageVisualizer, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6321976516701730808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3333148429582607298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2fe2c0a270fbe3b9a1a1b588415733b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSFX
 --- !u!1001 &6479619979634926516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -156,9 +196,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5619685998038105629}
     - target: {fileID: 722291730621679512, guid: 2babb88816be6dd4cab3aecc5a381ae0, type: 3}
+      propertyPath: textDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 722291730621679512, guid: 2babb88816be6dd4cab3aecc5a381ae0, type: 3}
+      propertyPath: deathAnimDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 722291730621679512, guid: 2babb88816be6dd4cab3aecc5a381ae0, type: 3}
       propertyPath: damageableTransform
       value: 
       objectReference: {fileID: 3698034393849130977}
+    - target: {fileID: 722291730621679512, guid: 2babb88816be6dd4cab3aecc5a381ae0, type: 3}
+      propertyPath: scale.m_Curve.Array.data[2].time
+      value: 0.30151635
+      objectReference: {fileID: 0}
+    - target: {fileID: 722291730621679512, guid: 2babb88816be6dd4cab3aecc5a381ae0, type: 3}
+      propertyPath: scale.m_Curve.Array.data[3].time
+      value: 0.5033201
+      objectReference: {fileID: 0}
+    - target: {fileID: 722291730621679512, guid: 2babb88816be6dd4cab3aecc5a381ae0, type: 3}
+      propertyPath: scale.m_Curve.Array.data[1].value
+      value: -0.3018192
+      objectReference: {fileID: 0}
+    - target: {fileID: 722291730621679512, guid: 2babb88816be6dd4cab3aecc5a381ae0, type: 3}
+      propertyPath: scale.m_Curve.Array.data[2].value
+      value: 0.2466847
+      objectReference: {fileID: 0}
+    - target: {fileID: 722291730621679512, guid: 2babb88816be6dd4cab3aecc5a381ae0, type: 3}
+      propertyPath: scale.m_Curve.Array.data[3].value
+      value: -0.0016860068
+      objectReference: {fileID: 0}
     - target: {fileID: 3802055792936500156, guid: 2babb88816be6dd4cab3aecc5a381ae0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -221,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3802055792936500156, guid: 2babb88816be6dd4cab3aecc5a381ae0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.5
+      value: 0.68
       objectReference: {fileID: 0}
     - target: {fileID: 3802055792936500156, guid: 2babb88816be6dd4cab3aecc5a381ae0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

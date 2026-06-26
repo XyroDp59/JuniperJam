@@ -34,6 +34,11 @@ public class Yoyo : PickableItem
         y.approchingSpeed = approchingSpeed;
         y.gameObject.SetActive(true);
         
+        // SFX 
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Yoyo");
+        
+        
+        
         if (currentUses == NumberOfUses)
         {
             ItemSpawner.Singleton.DespawnItem(this);

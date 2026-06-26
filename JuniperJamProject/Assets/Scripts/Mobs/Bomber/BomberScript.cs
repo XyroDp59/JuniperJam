@@ -20,6 +20,9 @@ public class BomberScript : EnnemiClassScript
     private float timer = 0;
     private float lastTimeBomb = 0;
     private float angle;
+    
+    // SFX
+    private FMOD.Studio.EventInstance planeInstance;
 
     void Awake()
     {
@@ -29,6 +32,10 @@ public class BomberScript : EnnemiClassScript
         bomberSpawner = GameObject.FindGameObjectWithTag("BomberSpawner").GetComponent<SpawnerScript>();
         angle = bomberSpawner.getAngle();
         bomberPathRadius = bomberSpawner.getCarrouselRadius();
+        
+        //SFX
+        planeInstance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Game/Plane");
+        planeInstance.start();
     }
 
 
@@ -50,6 +57,9 @@ public class BomberScript : EnnemiClassScript
                 Instantiate(bomb,
                             new Vector3(transform.position.x, transform.position.y - (1/2), transform.position.z),
                             transform.rotation);
+                
+                // SFX
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/BombFalling");
             }
         }
         else if (isDescending)
@@ -72,6 +82,9 @@ public class BomberScript : EnnemiClassScript
             if (transform.position.y > maxY)
             {
                 Destroy(gameObject);
+                
+                // SFX
+                planeInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             }
         }
     }
