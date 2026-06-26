@@ -16,6 +16,7 @@ public class ItemSpawner : MonoBehaviour
     [SerializeField] float throwCooldownDurationVariation = 1.5f;
     [SerializeField] float throwHeight;
     Coroutine spawnCoroutine;
+    [SerializeField] ItemFlickerData flickerData;
 
     List<Item> itemPool = new List<Item>();
     List<Item> activeItems = new List<Item>();
@@ -32,6 +33,7 @@ public class ItemSpawner : MonoBehaviour
             {
                 Item item = Instantiate(itemList[Random.Range(0, itemList.Count)], transform);
 
+                item.flicker = flickerData;
                 item.gameObject.SetActive(false);
                 itemPool.Add(item);
             }
