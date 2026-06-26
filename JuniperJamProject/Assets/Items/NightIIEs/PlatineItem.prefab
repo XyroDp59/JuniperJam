@@ -71,15 +71,13 @@ MonoBehaviour:
   flicker: {fileID: 0}
   player: {fileID: 0}
   isItemActive: 0
-  renderer: {fileID: 0}
+  renderer: {fileID: 3165405613958235644}
   OnItemSpawned:
     m_PersistentCalls:
       m_Calls: []
   OnItemDespawned:
     m_PersistentCalls:
       m_Calls: []
-  player: {fileID: 0}
-  isItemActive: 0
   sprite: {fileID: 21300000, guid: e0a9d828fffb4e541aaa987fe9bcb2bc, type: 3}
   platineDisk: {fileID: 8806293782518424368, guid: 5f4b7a4eaf52479498039e1eb991d2cd, type: 3}
   platineTime: 3
@@ -399,6 +397,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee286fec4f9335844a90047716febb59, type: 3}
+--- !u!23 &3165405613958235644 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4252701492856460257, guid: ee286fec4f9335844a90047716febb59, type: 3}
+  m_PrefabInstance: {fileID: 1218618266566104605}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6143732011367650304 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5020261713148789277, guid: ee286fec4f9335844a90047716febb59, type: 3}
