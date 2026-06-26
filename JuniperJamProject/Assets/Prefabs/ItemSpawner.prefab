@@ -45,10 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSpawner
   itemList:
-  - {fileID: 6841532401907258743, guid: 65958b6e34882444b939174e51821f00, type: 3}
-  - {fileID: 5945041290467727245, guid: 4bcd0ca0bbfe75748885396c1ef2834b, type: 3}
-  - {fileID: 499523302201885817, guid: efa77039d82180d47b6eab0ba2191d3c, type: 3}
   - {fileID: 933722140180083591, guid: bb50182daaf900e4391de2c5a6844c2b, type: 3}
+  - {fileID: 6841532401907258743, guid: 65958b6e34882444b939174e51821f00, type: 3}
+  - {fileID: 3591674072245384189, guid: 14e7da4cd7b07254ead3287e31543860, type: 3}
+  - {fileID: 8502447872593769781, guid: 9df19b0504210164793b5836fdb3f963, type: 3}
+  - {fileID: 2793662605100862292, guid: 0bbccf9ce09a1564197c2592c2d7f7e9, type: 3}
+  - {fileID: 499523302201885817, guid: efa77039d82180d47b6eab0ba2191d3c, type: 3}
+  - {fileID: 5945041290467727245, guid: 4bcd0ca0bbfe75748885396c1ef2834b, type: 3}
+  - {fileID: 2793662605100862292, guid: 0bbccf9ce09a1564197c2592c2d7f7e9, type: 3}
   poolSize: 100
   arenaSize: 12.5
   throwCurve:

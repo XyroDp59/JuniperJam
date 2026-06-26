@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8191368278225811176}
   - component: {fileID: 3591674072245384189}
   m_Layer: 0
-  m_Name: Platine
+  m_Name: PlatineItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -754,12 +754,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
       propertyPath: itemList.Array.size
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 597125591308860032, guid: c8076db0e391938469d351b53b493ebc, type: 3}
-      propertyPath: 'itemList.Array.data[0]'
+      propertyPath: 'itemList.Array.data[7]'
       value: 
-      objectReference: {fileID: 499523302201885817, guid: efa77039d82180d47b6eab0ba2191d3c, type: 3}
+      objectReference: {fileID: 2793662605100862292, guid: 0bbccf9ce09a1564197c2592c2d7f7e9, type: 3}
     - target: {fileID: 4644815488754730560, guid: c8076db0e391938469d351b53b493ebc, type: 3}
       propertyPath: m_Name
       value: ItemSpawner
