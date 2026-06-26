@@ -15,12 +15,19 @@ public class Vortex : Projectile
     [SerializeField] float vortexSize = 2;
 
     SphereCollider col;
+    
+    //SFX
+    FMOD.Studio.EventInstance jojosThingInstance;
 
     void Start()
     {
         col = GetComponent<SphereCollider>();
         StartCoroutine(Trajectory());
         Destroy(gameObject, vortexDuration);
+        
+        //SFX
+        jojosThingInstance = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Game/JojosThing");
+        jojosThingInstance.start();
     }
 
     IEnumerator Trajectory()
@@ -75,5 +82,11 @@ public class Vortex : Projectile
             + sizeFactor * Mathf.Cos(t) * playerRight
             + defaultHeight * Vector3.up
             + sizeFactor * Mathf.Sin(t) * playerForward;
+    }
+
+    private void OnDestroy()
+    {
+        // SFX
+        jojosThingInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 }

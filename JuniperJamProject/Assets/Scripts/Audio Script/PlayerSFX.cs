@@ -1,16 +1,10 @@
+using System;
 using UnityEngine;
 
 public class PlayerSFX : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void OnDamageTaken(Int32 damage, Int32 b, Single c)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (damage < 0)  FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Pain");
     }
 }

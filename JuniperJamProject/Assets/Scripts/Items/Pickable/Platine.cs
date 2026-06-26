@@ -12,5 +12,8 @@ public class Platine : PickableItem
         disk.platineTime = platineTime;
         disk.gameObject.SetActive(true);
         ItemSpawner.Singleton.DespawnItem(this);
+        
+        // SFX
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Scratch");
     }
 }
