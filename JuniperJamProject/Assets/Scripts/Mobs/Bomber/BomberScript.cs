@@ -57,6 +57,9 @@ public class BomberScript : EnnemiClassScript
                 Instantiate(bomb,
                             new Vector3(transform.position.x, transform.position.y - (1/2), transform.position.z),
                             transform.rotation);
+                
+                // SFX
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/BombFalling");
             }
         }
         else if (isDescending)
