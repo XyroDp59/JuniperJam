@@ -45,6 +45,9 @@ public class EndScreen : MonoBehaviour
         scoreText.gameObject.SetActive(true);
         //yield return new WaitForSeconds(1f);
         buttons.SetActive(true);
+        
+        // SFX
+        SoundtrackController.Instance.endInstance.start();
     }
     
     public void ExitToMainMenu()

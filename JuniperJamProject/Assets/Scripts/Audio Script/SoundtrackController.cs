@@ -5,12 +5,14 @@ public class SoundtrackController : MonoBehaviour
     public static SoundtrackController Instance;
     public FMOD.Studio.EventInstance mainInstance;
     public FMOD.Studio.EventInstance maxwellInstance;
+    public FMOD.Studio.EventInstance endInstance;
 
     void Awake()
     {
         Instance = this;
         mainInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Sountracks/Main game");
         maxwellInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Sountracks/Maxwell");
+        endInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Sountracks/End");
     }
     
     
