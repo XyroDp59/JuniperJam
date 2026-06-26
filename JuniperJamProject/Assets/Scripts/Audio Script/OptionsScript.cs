@@ -43,6 +43,7 @@ public class OptionsScript : MonoBehaviour
         _isSFXClicked = true;
     }
 
+    /*
     void Update()
     {
         // Preview for the SFX button
@@ -52,4 +53,5 @@ public class OptionsScript : MonoBehaviour
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/confirm");
         }
     }
+    */
 }
