@@ -17,17 +17,13 @@ public class ScoreManager : MonoBehaviour
         Instance = this;
     }
 
+    void Start()
+    {
+        Debug.Log("Score text: " + _scoreText);
+    }
+
     public void IncrementScore(int score)
     {
-        textList = GameObject.FindObjectsByType<TextMeshProUGUI>();
-        for (int i = 0; i < textList.Length; i++)
-        {
-            if (textList[i].CompareTag("ScoreText"))
-            {
-                _scoreText = textList[i];
-                Debug.Log(_scoreText);
-            }
-        }
         for (int i = 0; i < _scoreText.text.Length; i++)
         {
             Debug.Log(_scoreText.text.Substring(i) + " ici");

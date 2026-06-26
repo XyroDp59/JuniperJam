@@ -26,4 +26,10 @@ public class SoundtrackController : MonoBehaviour
     {
         mainInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
+
+
+    public void OnPlayerDeath()
+    {
+        mainInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
 }
