@@ -6,11 +6,13 @@ public class AttributSet : MonoBehaviour
 {
     [SerializeField] private int maxHp;
     private int currentHp;
+    public bool invulnerable;
     public int CurrentHp
     {
         get {  return currentHp; }
         set
         {
+            if (invulnerable && value < currentHp) {print("nope"); return;}
             value = Mathf.Clamp(value, 0, maxHp);
             int previousHp = currentHp;
             currentHp = value;

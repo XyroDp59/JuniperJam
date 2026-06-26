@@ -84,6 +84,9 @@ public class DamageVisualizer : MonoBehaviour
 
     IEnumerator DeathAnimation()
     {
+        // SFX 
+        SoundtrackController.Instance.mainInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        
         float time = 0;
         while (time < deathAnimDuration)
         {
@@ -101,5 +104,6 @@ public class DamageVisualizer : MonoBehaviour
         var temp = Instantiate(deathParticles, damageableTransform.position, Quaternion.identity);
         damageableTransform.gameObject.SetActive(false);
         Destroy(temp.gameObject, 2f);
+        
     }
 }
