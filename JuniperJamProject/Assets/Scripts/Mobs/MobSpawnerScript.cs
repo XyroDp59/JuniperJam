@@ -60,7 +60,7 @@ public class MobSpawnerScript : MonoBehaviour
             }
             for (int i = 0; i < Mathf.Log(gameTimer + 1); i++)
             {
-                Debug.Log(Mathf.Log(gameTimer + 1));
+                // Debug.Log(Mathf.Log(gameTimer + 1));
                 random = Random.Range(0, canSpawnList.Count - 1);
                 canSpawnList[random].GetComponent<SpawnerScript>().spawn();
             }

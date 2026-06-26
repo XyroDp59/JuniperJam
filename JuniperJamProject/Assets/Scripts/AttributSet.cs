@@ -9,13 +9,17 @@ public class AttributSet : MonoBehaviour
     public int CurrentHp
     {
         get {  return currentHp; }
-        set { 
+        set
+        {
             value = Mathf.Clamp(value, 0, maxHp);
-            onHpChange.Invoke(value - currentHp, value, ((float)value) / maxHp); 
-            if (value <= 0) onDeath.Invoke();
-            
+            int previousHp = currentHp;
             currentHp = value;
-            Debug.Log("player hp :" + currentHp);
+            onHpChange.Invoke(value - previousHp, currentHp, (float)currentHp / maxHp);
+            if (currentHp <= 0)
+            {
+                onDeath.Invoke();
+            }
+            Debug.Log($"Health : {value}");
         }
     }
     public int MaxHp => maxHp;

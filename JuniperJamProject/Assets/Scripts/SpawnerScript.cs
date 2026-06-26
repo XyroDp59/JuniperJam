@@ -38,7 +38,7 @@ public class SpawnerScript : MonoBehaviour
         randomAngle();
         Debug.Log(Vector3.Distance(spawnPosition(), player.transform.position));
         EnnemiClassScript ennemiInstance = Instantiate(ennemi, spawnPosition(), transform.rotation);
-        ennemiInstance.attributSet.onDeath.AddListener(() => { ennemiInstance.gameObject.SetActive(false); });
+        ennemiInstance.attributSet.onDeath.AddListener(() => { Destroy(ennemiInstance.gameObject, 5f); ennemiInstance.slownessFactor = 0f; });
         ennemiInstance.attributSet.onDeath.AddListener(() => { _scoreManager.IncrementScore(ennemiInstance.rewardScore); }); //jsp pk on peut pas le faire depuis l'ennemi ca
     }
 
