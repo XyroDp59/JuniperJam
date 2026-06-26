@@ -34,15 +34,17 @@ public class AnimatorToMaterial : MonoBehaviour
     {
         _material = new Material(referenceMaterial);
 
-        _material.mainTexture = spriteRenderer.sprite.texture;
-        _material.mainTextureScale = new Vector2(widthSprite / widthImage, heightSprite / heightImage);
+        //_material.mainTexture = spriteRenderer.sprite.texture;
+        //_material.mainTextureScale = new Vector2(widthSprite / widthImage, heightSprite / heightImage);
 
         meshRenderer.material = _material;
     }
 
     void Update()
     {
-        _material.mainTextureOffset = new Vector2((xBaseOffset + spriteRenderer.sprite.rect.x) / widthImage, (yBaseOffset + spriteRenderer.sprite.rect.y) / heightImage);
+        //_material.mainTextureOffset = new Vector2((xBaseOffset + spriteRenderer.sprite.rect.x) / widthImage, (yBaseOffset + spriteRenderer.sprite.rect.y) / heightImage);
+        
+        meshRenderer.material.mainTexture = spriteRenderer.sprite.texture;
         if (_spinRemainingDuration > 0)
         {
             transform.RotateAround(transform.position, Vector3.up, - Time.deltaTime * 360 * _numberOfSpin / _spinTotalDuration);
