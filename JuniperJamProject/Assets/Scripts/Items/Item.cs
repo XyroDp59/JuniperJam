@@ -5,16 +5,15 @@ using UnityEngine.Events;
 
 public abstract class Item : MonoBehaviour
 {
-    [SerializeField, Range(1f, 60f)] float despawnCooldown = 5f;
-    [SerializeField] float flickerDuration;
-    [SerializeField] AnimationCurve flickerGradient;
+    [HideInInspector] public ItemFlickerData flicker;
+    [HideInInspector] public PlayerScript player;
+    [HideInInspector] public bool isItemActive;
+
+    [SerializeField] MeshRenderer renderer;
 
     public UnityEvent OnItemSpawned = new UnityEvent();
     public UnityEvent OnItemDespawned = new UnityEvent();
 
-    [HideInInspector] public PlayerScript player;
-
-    public bool isItemActive;
 
 
     void Awake()
@@ -24,20 +23,22 @@ public abstract class Item : MonoBehaviour
 
     IEnumerator DespawnItem()
     {
-        yield return new WaitForSeconds(despawnCooldown);
+        yield return new WaitForSeconds(flicker.despawnCooldown - flicker.flickerDuration);
 
         float timer = 0f;
-        while (timer < flickerDuration)
+        while (timer < flicker.flickerDuration)
         {
-            ChangeSpriteOpacity(flickerGradient.Evaluate(timer / flickerDuration));
+            ChangeSpriteOpacity(flicker.flickerGradient.Evaluate(timer / flicker.flickerDuration));
             yield return null;
+            timer += Time.deltaTime;
         }
         ItemSpawner.Singleton.DespawnItem(this);
     }
 
     void ChangeSpriteOpacity(float opacity)
     {
-        // TODO
+        Color w = Color.white; 
+        renderer.material.SetColor("_BaseColor", new Color(w.r, w.g, w.b, opacity));
     }
 
     public abstract void Use();

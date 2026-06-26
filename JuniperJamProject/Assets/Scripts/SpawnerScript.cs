@@ -11,7 +11,7 @@ public class SpawnerScript : MonoBehaviour
     [SerializeField] private int maxRadius = 10;
     [SerializeField] private int nombreSpawnPossible = 1000;
     [SerializeField] private float distanceMinFromPlayer = 5;
-    [SerializeField] private ScoreManager _scoreManager;
+    //[SerializeField] private ScoreManager _scoreManager;
     [SerializeField] public int timeBeforeCanSpawn;
     [SerializeField] public int initialSpawnPercentage = 0;
     [SerializeField] public int finalSpawnPercentage = 0;
@@ -26,8 +26,8 @@ public class SpawnerScript : MonoBehaviour
     private void Start()
     {
         carrouselRadius = UnityEngine.Random.Range(minRadius, maxRadius);
-        _scoreManager = _scoreManager.GetComponent<ScoreManager>();
-        Debug.Log(_scoreManager);
+        //_scoreManager = _scoreManager.GetComponent<ScoreManager>();
+        //Debug.Log(_scoreManager);
         mobSpawner = mobSpawner.GetComponent<MobSpawnerScript>();
         player = mobSpawner.GetPlayer();
         spawnPercentage = initialSpawnPercentage;
@@ -39,7 +39,7 @@ public class SpawnerScript : MonoBehaviour
         Debug.Log(Vector3.Distance(spawnPosition(), player.transform.position));
         EnnemiClassScript ennemiInstance = Instantiate(ennemi, spawnPosition(), transform.rotation);
         ennemiInstance.attributSet.onDeath.AddListener(() => { Destroy(ennemiInstance.gameObject, 5f); ennemiInstance.slownessFactor = 0f; });
-        ennemiInstance.attributSet.onDeath.AddListener(() => { _scoreManager.IncrementScore(ennemiInstance.rewardScore); }); //jsp pk on peut pas le faire depuis l'ennemi ca
+        ennemiInstance.attributSet.onDeath.AddListener(() => { ScoreManager.Instance.IncrementScore(ennemiInstance.rewardScore); }); //jsp pk on peut pas le faire depuis l'ennemi ca
     }
 
     private Vector3 spawnPosition()
