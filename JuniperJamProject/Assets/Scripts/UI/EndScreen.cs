@@ -44,7 +44,7 @@ public class EndScreen : MonoBehaviour
         Time.timeScale = 0;
         endText.gameObject.SetActive(true);
         //yield return new WaitForSeconds(1f);
-        scoreText.text = "For your effort, you achieved to recieve " + ScoreManager.Instance.GetScore() + " dollars.";
+        scoreText.text = "For your effort, you achieved to receive " + ScoreManager.Instance.GetScore() + " dollars.";
         scoreText.gameObject.SetActive(true);
         //yield return new WaitForSeconds(1f);
         buttons.SetActive(true);
