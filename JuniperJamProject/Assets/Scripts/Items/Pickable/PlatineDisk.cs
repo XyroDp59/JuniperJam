@@ -38,7 +38,7 @@ public class PlatineDisk : BaseMovingItem
             && (newDirection == _currentDirection + 1 
                 || (_currentDirection == Direction.UpLeft && newDirection == Direction.UpRight)))
         {
-            BasicAttack newShockWave = Instantiate(shockWave, transform.position, Quaternion.identity);
+            BasicAttack newShockWave = Instantiate(shockWave, transform.position + 0.5f * Vector3.up, Quaternion.identity);
             newShockWave.timeToLive = 0.1f;
             newShockWave.damage = damage;
             newShockWave.gameObject.SetActive(true);

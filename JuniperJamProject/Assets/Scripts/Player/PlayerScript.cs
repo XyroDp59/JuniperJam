@@ -75,7 +75,7 @@ public class PlayerScript : MonoBehaviour
         controls.Player.Sprint.performed += ctx => StartCoroutine(Dash());
         controls.Player.Attack.performed += ctx => StartCoroutine(BasicAttack());
         
-        basicAttackObject = Instantiate(basicAttackPrefab); basicAttackObject.gameObject.SetActive(false);
+        basicAttackObject = Instantiate(basicAttackPrefab, transform); basicAttackObject.gameObject.SetActive(false);
 
         // Items
         controls.Player.Release.performed += ctx => releaseItem = true;
@@ -239,7 +239,7 @@ public class PlayerScript : MonoBehaviour
             
             basicAttackObject.damage = basicAttackDamage; 
             basicAttackObject.timeToLive = 0.25f;
-            basicAttackObject.transform.position = transform.position; 
+            //basicAttackObject.transform.position = transform.position; 
             basicAttackObject.gameObject.SetActive(true);
             
             mesh.Spin(0.8f * basicAttackDuration, 1);
