@@ -54,8 +54,10 @@ public class PlatineDisk : BaseMovingItem
     private IEnumerator StartMixing(float timeToMix)
     {
         player.TogglePlayerMovement(false);
+        player.GetAnimator().SetBool(PlayerScript.IsAttackingAnimator, true);
         yield return new WaitForSeconds(timeToMix);
         player.TogglePlayerMovement(true);
+        player.GetAnimator().SetBool(PlayerScript.IsAttackingAnimator, false);
         _playerMeshTransform.rotation = Quaternion.LookRotation(Vector3.down, Vector3.back);
         Destroy(gameObject);
     }

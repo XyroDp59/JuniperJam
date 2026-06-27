@@ -17,7 +17,9 @@ public class PlayerScript : MonoBehaviour
 
     [Header("Visuals")]
     [SerializeField] private Animator animator;
-    private static readonly int IsAttacking = Animator.StringToHash("IsAttacking");
+    public static readonly int IsAttackingAnimator = Animator.StringToHash("IsAttacking");
+    private static readonly int IsDashingAnimator = Animator.StringToHash("IsDashing");
+    private static readonly int IsHurtAnimator = Animator.StringToHash("IsDashing");
     [SerializeField] private AnimatorToMaterial mesh;
     [SerializeField] private GameObject itemArrow;
     
@@ -77,7 +79,7 @@ public class PlayerScript : MonoBehaviour
         controls.Player.ItemB.started += ctx => PickableHandler(ctx, ref weaponB, ref weaponBUI);
         attributSet.onHpChange.AddListener((int hpChange, int _, float _) =>
         {
-            if (hpChange <= 0) StartCoroutine(BecomeInvulnerable());
+            if (hpChange < 0) StartCoroutine(BecomeInvulnerable());
         });
     }
 
@@ -130,15 +132,21 @@ public class PlayerScript : MonoBehaviour
     {
         if (!dashing && !isAttacking)
         {
+            Vector2 dir = lastMoveInput;
+            
             dashing = true;
+            animator.SetBool(IsDashingAnimator, true);
             float timer = 0;
+            attributSet.invulnerable = true;
             while(timer < dashDistance / dashSpeed)
             {
-                rb.linearVelocity = new Vector3(lastMoveInput.x * dashSpeed, 0, lastMoveInput.y * dashSpeed);
+                rb.linearVelocity = new Vector3(dir.x * dashSpeed, 0, dir.y * dashSpeed);
                 yield return new WaitForFixedUpdate();
                 timer += Time.fixedDeltaTime;
             }
             dashing = false;
+            attributSet.invulnerable = false;
+            animator.SetBool(IsDashingAnimator, false);
         }
     }
 
@@ -222,7 +230,7 @@ public class PlayerScript : MonoBehaviour
             // ---------------
             
             isAttacking = true;
-            animator.SetBool(IsAttacking, true);
+            animator.SetBool(IsAttackingAnimator, true);
             
             basicAttackObject.damage = basicAttackDamage; 
             basicAttackObject.timeToLive = 0.25f;
@@ -233,7 +241,7 @@ public class PlayerScript : MonoBehaviour
             
             yield return new WaitForSeconds(basicAttackDuration);
             isAttacking = false;
-            animator.SetBool(IsAttacking, false);
+            animator.SetBool(IsAttackingAnimator, false);
         }
     }
 
@@ -245,7 +253,14 @@ public class PlayerScript : MonoBehaviour
     private IEnumerator BecomeInvulnerable()
     {
         attributSet.invulnerable = true;
+        animator.SetBool(IsHurtAnimator, true);
         yield return new WaitForSeconds(invulnerabilityTime);
+        animator.SetBool(IsHurtAnimator, false);
         attributSet.invulnerable = false;
+    }
+
+    public Animator GetAnimator()
+    {
+        return animator;
     }
 }
