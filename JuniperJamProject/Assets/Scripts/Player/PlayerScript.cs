@@ -55,6 +55,11 @@ public class PlayerScript : MonoBehaviour
 
     #region Inputs and setup
 
+    public InputSystem_Actions GetInputActions()
+    {
+        return controls;
+    }
+
     private void Awake()
     {
         controls = new InputSystem_Actions();

@@ -12,6 +12,7 @@ public class PauseScript : MonoBehaviour
     [SerializeField] private Slider mainSlide;
     [SerializeField] private Slider musicSlide;
     [SerializeField] private Slider sfxSlide;
+    [SerializeField] private PlayerScript player;
 
     [Header("Transition Animation")]
     [SerializeField] private Animator transitionAnimator;
@@ -20,14 +21,12 @@ public class PauseScript : MonoBehaviour
     private bool isPaused = false;
 
     private void Awake()
-    {
-        controls = new InputSystem_Actions();
-    }
-
     private void OnEnable()
     {
+        if (controls == null) { controls = player.GetInputActions(); }
         controls.UI.Enable();
         controls.UI.Cancel.performed += OnCancel;
+        controls.UI.Click.performed += ctx => Debug.Log("Clicked!");
     }
 
     private void OnDisable()
@@ -43,11 +42,15 @@ public class PauseScript : MonoBehaviour
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0f : 1f;
         pausePanel.SetActive(isPaused);
-        
+
+        player.TogglePlayerInput(!isPaused);
+        Debug.Log($"isPaused: {isPaused} | UI enabled: {controls.UI.enabled} | Player enabled: {controls.Player.enabled}");
+
+
         mainSlide.value = PlayerPrefs.GetFloat("MasterVol",1f);
         musicSlide.value = PlayerPrefs.GetFloat("MusicVol",1f);
         sfxSlide.value = PlayerPrefs.GetFloat("SFXVol",1f);
-        
+        Debug.Assert(FMODUnity.RuntimeManager.StudioSystem.isValid(), "[PauseMenu] FMOD was not valid");
         // SFX
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Pause", isPaused ? 1 : 0);
     }
@@ -69,7 +72,8 @@ public class PauseScript : MonoBehaviour
     {
         Time.timeScale = 1f;
         StartCoroutine(FadeOutTransition());
-        
+        Debug.Assert(FMODUnity.RuntimeManager.StudioSystem.isValid(), "[PauseMenu] FMOD was not valid");
+
         // SFX
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Pause", 0);
     }
@@ -82,7 +86,8 @@ public class PauseScript : MonoBehaviour
         musicSlide.value = PlayerPrefs.GetFloat("MusicVol",1f);
         sfxSlide.value = PlayerPrefs.GetFloat("SFXVol",1f);
         Time.timeScale = 1;
-        
+        Debug.Assert(FMODUnity.RuntimeManager.StudioSystem.isValid(), "[PauseMenu] FMOD was not valid");
+
         // SFX
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Pause", 0);
     }
