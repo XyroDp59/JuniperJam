@@ -13,6 +13,9 @@ public class EndScreen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject buttons;
     [SerializeField] private AttributSet playerAttributeSet;
+    
+    [Header("Transition Animation")]
+    [SerializeField] private Animator transitionAnimator;
 
     private void Awake()
     {
@@ -53,7 +56,7 @@ public class EndScreen : MonoBehaviour
     public void ExitToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        StartCoroutine(ExitFadeOutTransition());
         
         // SFX
         //FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Pause", 0);
@@ -62,9 +65,30 @@ public class EndScreen : MonoBehaviour
     public void Retry()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("GameScene");
+        StartCoroutine(RetryFadeOutTransition());
         
         // SFX
         //FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Pause", 0);
+    }
+    
+    
+    IEnumerator RetryFadeOutTransition()
+    {
+        transitionAnimator.SetBool("Transition", false);
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("GameScene");
+    }
+
+    IEnumerator ExitFadeOutTransition()
+    {
+        transitionAnimator.SetBool("Transition", false);
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("MainMenu");
+    }
+    
+    IEnumerator FadeInTransition()
+    {
+        transitionAnimator.SetBool("Transition", true);
+        yield return new WaitForSeconds(1);
     }
 }
