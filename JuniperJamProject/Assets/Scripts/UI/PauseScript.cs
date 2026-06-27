@@ -20,7 +20,6 @@ public class PauseScript : MonoBehaviour
     private InputSystem_Actions controls;
     private bool isPaused = false;
 
-    private void Awake()
     private void OnEnable()
     {
         if (controls == null) { controls = player.GetInputActions(); }
