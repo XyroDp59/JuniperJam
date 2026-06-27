@@ -84,6 +84,8 @@ public class PauseScript : MonoBehaviour
         mainSlide.value = PlayerPrefs.GetFloat("MasterVol",1f);
         musicSlide.value = PlayerPrefs.GetFloat("MusicVol",1f);
         sfxSlide.value = PlayerPrefs.GetFloat("SFXVol",1f);
+        player.TogglePlayerInput(!isPaused);
+
         Time.timeScale = 1;
         Debug.Assert(FMODUnity.RuntimeManager.StudioSystem.isValid(), "[PauseMenu] FMOD was not valid");
 
