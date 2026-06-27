@@ -1703,7 +1703,7 @@ MonoBehaviour:
   mainSlide: {fileID: 173185890}
   musicSlide: {fileID: 173185889}
   sfxSlide: {fileID: 173185888}
-  transitionAnimator: {fileID: 0}
+  transitionAnimator: {fileID: 263960822}
 --- !u!114 &538807094
 MonoBehaviour:
   m_ObjectHideFlags: 0
