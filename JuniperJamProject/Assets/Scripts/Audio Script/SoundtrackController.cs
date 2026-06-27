@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using UnityEngine;
 
 public class SoundtrackController : MonoBehaviour
@@ -6,6 +7,8 @@ public class SoundtrackController : MonoBehaviour
     public FMOD.Studio.EventInstance mainInstance;
     public FMOD.Studio.EventInstance maxwellInstance;
     public FMOD.Studio.EventInstance endInstance;
+    
+    private FMOD.Studio.Bus masterBus;
 
     void Awake()
     {
@@ -13,6 +16,8 @@ public class SoundtrackController : MonoBehaviour
         mainInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Sountracks/Main game");
         maxwellInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Sountracks/Maxwell");
         endInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Sountracks/End");
+
+        masterBus = FMODUnity.RuntimeManager.GetBus("bus:/");
     }
     
     
@@ -30,6 +35,8 @@ public class SoundtrackController : MonoBehaviour
 
     public void OnPlayerDeath()
     {
-        mainInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        masterBus.stopAllEvents(STOP_MODE.ALLOWFADEOUT);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Game/Pain");
+        
     }
 }

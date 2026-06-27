@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,6 +12,9 @@ public class PauseScript : MonoBehaviour
     [SerializeField] private Slider mainSlide;
     [SerializeField] private Slider musicSlide;
     [SerializeField] private Slider sfxSlide;
+
+    [Header("Transition Animation")]
+    [SerializeField] private Animator transitionAnimator;
 
     private InputSystem_Actions controls;
     private bool isPaused = false;
@@ -56,13 +60,15 @@ public class PauseScript : MonoBehaviour
         mainSlide.value = PlayerPrefs.GetFloat("MasterVol",1f);
         musicSlide.value = PlayerPrefs.GetFloat("MusicVol",1f);
         sfxSlide.value = PlayerPrefs.GetFloat("SFXVol",1f);
+
+        StartCoroutine(FadeInTransition());
     }
     
     
     public void ExitToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        StartCoroutine(FadeOutTransition());
         
         // SFX
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Pause", 0);
@@ -79,5 +85,19 @@ public class PauseScript : MonoBehaviour
         
         // SFX
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Pause", 0);
+    }
+
+    
+    IEnumerator FadeOutTransition()
+    {
+        transitionAnimator.SetBool("Transition", false);
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    IEnumerator FadeInTransition()
+    {
+        transitionAnimator.SetBool("Transition", true);
+        yield return new WaitForSeconds(1);
     }
 }

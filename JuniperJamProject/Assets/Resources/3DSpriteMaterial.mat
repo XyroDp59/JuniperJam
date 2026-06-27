@@ -44,9 +44,8 @@ Material:
   disabledShaderPasses:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
-  - TransparentBackface
-  - RayTracingPrepass
   - MOTIONVECTORS
+  - RayTracingPrepass
   m_LockedProperties: _AlphaCutoffEnable _DoubleSidedEnable
   m_SavedProperties:
     serializedVersion: 3
@@ -167,7 +166,7 @@ Material:
     - _BlendMode: 0
     - _CoatMask: 0
     - _CullMode: 0
-    - _CullModeForward: 0
+    - _CullModeForward: 2
     - _Cutoff: 0.1
     - _DepthOffsetEnable: 0
     - _DetailAlbedoScale: 1
@@ -247,7 +246,7 @@ Material:
     - _Thickness: 1
     - _TransmissionEnable: 1
     - _TransmissionMask: 1
-    - _TransparentBackfaceEnable: 0
+    - _TransparentBackfaceEnable: 1
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
     - _TransparentDepthPrepassEnable: 0
