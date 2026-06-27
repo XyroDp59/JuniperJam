@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4930211368248156426}
   - component: {fileID: 8987696256247333554}
   - component: {fileID: 1007393504645269381}
+  - component: {fileID: 6558427810274576749}
   m_Layer: 8
   m_Name: MaxwellCat
   m_TagString: Untagged
@@ -74,6 +75,21 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: -0.32}
+--- !u!114 &6558427810274576749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3728691054375071773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c91dd402ca298e458d364b0bf7dc158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Rotator
+  target: {fileID: 8424169061477085315}
+  angularSpeed: 150
+  axis: 2
 --- !u!1001 &8314225856575706984
 PrefabInstance:
   m_ObjectHideFlags: 0

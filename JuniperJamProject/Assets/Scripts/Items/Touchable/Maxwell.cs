@@ -26,8 +26,9 @@ public class Maxwell : MonoBehaviour
         player.GetMesh().gameObject.SetActive(!b);
         player.GetComponent<CapsuleCollider>().enabled = !b;
         player.TogglePlayerInput(!b);
-        player.GetComponent<CapsuleCollider>().enabled = !b;
-        
+        playerRb.useGravity = !b;
+
+
         // SFX
         SoundtrackController.Instance.mainInstance.setPaused(b);
         if (b) SoundtrackController.Instance.maxwellInstance.start();
@@ -77,7 +78,13 @@ public class Maxwell : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerRb.linearVelocity = currentDir * speed;
+        if (playerRb == null)
+        {
+            Debug.LogError("shit");
+        }
+        Vector3 vel = currentDir * speed;
+        vel.y = 0f;
+        playerRb.linearVelocity = vel;
     }
 
 }

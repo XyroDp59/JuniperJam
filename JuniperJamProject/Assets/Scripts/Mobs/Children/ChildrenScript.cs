@@ -31,9 +31,4 @@ public class ChildrenScript : EnnemiClassScript
             player = other.gameObject;
         }
     }
-
-    private void OnDestroy()
-    {
-        Debug.Log("yahahha");
-    }
 }

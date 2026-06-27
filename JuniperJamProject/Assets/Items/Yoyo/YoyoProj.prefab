@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6343704988956584961}
   - component: {fileID: 6653458409542134744}
   - component: {fileID: 1653688157675430693}
+  - component: {fileID: 4675473556948667741}
   m_Layer: 8
   m_Name: YoyoProj
   m_TagString: Untagged
@@ -106,6 +107,21 @@ MonoBehaviour:
   dashDirection: {x: 0, y: 0, z: 0}
   approchingSpeed: 0
   stringTransform: {fileID: 8446786613304750308}
+--- !u!114 &4675473556948667741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353654244498876979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c91dd402ca298e458d364b0bf7dc158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Rotator
+  target: {fileID: 3555002919305634702}
+  angularSpeed: 300
+  axis: 1
 --- !u!1 &5297473681512341211
 GameObject:
   m_ObjectHideFlags: 0
