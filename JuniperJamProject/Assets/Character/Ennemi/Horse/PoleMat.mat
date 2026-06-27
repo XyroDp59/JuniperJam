@@ -40,47 +40,65 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2475
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
   - MOTIONVECTORS
   - RayTracingPrepass
-  - TransparentDepthPostpass
   - TransparentDepthPrepass
-  m_LockedProperties: :m_CustomRenderQueue
+  - TransparentBackface
+  - TransparentDepthPostpass
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BaseColorMap:
+        m_Texture: {fileID: 2800000, guid: 2db5a546b71cf7e48b0b53a8e8e7d1ae, type: 3}
+        m_Scale: {x: 1, y: 10}
+        m_Offset: {x: 0, y: 0}
     - _DetailMap:
         m_Texture: {fileID: 2800000, guid: 2db5a546b71cf7e48b0b53a8e8e7d1ae, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 2db5a546b71cf7e48b0b53a8e8e7d1ae, type: 3}
+        m_Scale: {x: 1, y: 10}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaCutoff: 0.5
+    - _AlphaCutoff: 0.518
     - _AlphaCutoffEnable: 0
     - _AlphaDstBlend: 10
     - _BlendMode: 0
     - _CullMode: 0
-    - _CullModeForward: 2
-    - _Cutoff: 0.5
+    - _CullModeForward: 0
+    - _Cutoff: 0.518
     - _DoubleSidedEnable: 0
     - _DoubleSidedNormalMode: 1
     - _DstBlend: 10
+    - _DstBlend2: 10
+    - _EnableBlendModePreserveSpecularLighting: 1
+    - _EnableFogOnTransparent: 1
+    - _InvTilingScale: 0.18181819
     - _MaterialID: 1
     - _NormalMapSpace: 0
     - _RefractionModel: 0
     - _StencilRef: 0
     - _StencilRefDepth: 0
     - _StencilRefGBuffer: 2
+    - _StencilRefMV: 32
     - _StencilWriteMaskDepth: 9
+    - _SurfaceType: 1
     - _Thickness: 1
-    - _TransparentBackfaceEnable: 1
+    - _TransparentBackfaceEnable: 0
     - _TransparentDepthPostpassEnable: 0
     - _TransparentDepthPrepassEnable: 0
     - _TransparentWritingMotionVec: 0
+    - _TransparentZWrite: 0
+    - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 3
+    - _ZWrite: 0
     m_Colors:
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
   m_BuildTextureStacks: []

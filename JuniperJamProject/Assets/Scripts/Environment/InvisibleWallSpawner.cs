@@ -5,7 +5,6 @@ public class InvisibleWallSpawner : MonoBehaviour
     [SerializeField] GameObject WallPrefab;
     [SerializeField] int deltaRadius = 15;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         for(int i = 0; i < 360; i += deltaRadius)
@@ -13,11 +12,5 @@ public class InvisibleWallSpawner : MonoBehaviour
             var wall = Instantiate(WallPrefab, transform);
             wall.transform.localRotation = Quaternion.Euler(new Vector3(0, i, 0));
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
