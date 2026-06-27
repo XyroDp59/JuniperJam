@@ -30,6 +30,7 @@ public class Maxwell : MonoBehaviour
 
 
         // SFX
+        Debug.Assert(SoundtrackController.Instance, "[Maxwell.cs] Soundtrack Controller must not be null");
         SoundtrackController.Instance.mainInstance.setPaused(b);
         if (b) SoundtrackController.Instance.maxwellInstance.start();
         else SoundtrackController.Instance.maxwellInstance.stop(STOP_MODE.IMMEDIATE);
@@ -38,7 +39,6 @@ public class Maxwell : MonoBehaviour
     private void Start()
     {
         ActivateMaxwell(true);
-
         currentDir = new Vector3(Random.Range(-1.0f,1.0f), 0, Random.Range(-1.0f,1.0f)).normalized;
         if (currentDir == Vector3.zero) currentDir = Vector3.left;
 
