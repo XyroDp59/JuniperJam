@@ -9,6 +9,7 @@ public class EndScreen : MonoBehaviour
 {
     [SerializeField] private GameObject mainUi;
     [SerializeField] private Image panel;
+    [SerializeField] private GameObject bg;
     [SerializeField] private TextMeshProUGUI endText;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject buttons;
@@ -32,25 +33,28 @@ public class EndScreen : MonoBehaviour
         panel.color = panelColor;
         panel.gameObject.SetActive(true);
         float currentShade = 0;
-        while (currentShade < 0.125f)
+        while (currentShade < 1)
         {
             print (panel.color + "; " + currentShade);
-            currentShade += 0.0025f;
+            currentShade += 0.02f;
             var color = panel.color;
             color.a = currentShade;
             panel.color = color;
             yield return new WaitForSeconds(0.02f);
         }
-        Time.timeScale = 0;
-        endText.gameObject.SetActive(true);
-        //yield return new WaitForSeconds(1f);
-        scoreText.text = "For your effort, you achieved to receive " + ScoreManager.Instance.GetScore() + " dollars.";
-        scoreText.gameObject.SetActive(true);
-        //yield return new WaitForSeconds(1f);
-        buttons.SetActive(true);
+        yield return new WaitForSeconds(0.25f);
         
         // SFX
         SoundtrackController.Instance.endInstance.start();
+        
+        endText.gameObject.SetActive(true);
+        bg.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        scoreText.text = "For your effort, you achieved to receive " + ScoreManager.Instance.GetScore() + " dollars.";
+        scoreText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        Time.timeScale = 0;
+        buttons.SetActive(true);
     }
     
     public void ExitToMainMenu()
